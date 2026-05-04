@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enterprise Portal | HOCS</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    
     <style>
         :root { --bg-primary: #f5f5f7; --text-primary: #1d1d1f; --text-secondary: #86868b; --accent-blue: #0066cc; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,8 +28,13 @@
         .btn-sso:hover { background: #f5f5f7; border-color: #86868b; }
         .btn-sso img { height: 20px; }
 
-        .back-link { display: inline-block; margin-top: 30px; color: var(--text-secondary); font-size: 0.9rem; transition: 0.2s; }
+        .back-link { display: inline-block; margin-top: 30px; color: var(--text-secondary); font-size: 0.9rem; transition: 0.2s; text-decoration: none; }
         .back-link:hover { color: var(--text-primary); }
+
+        /* Başarılı Giriş Ekranı (İlk Başta Gizli) */
+        #success-panel { display: none; background: #f5f5f7; border-radius: 12px; padding: 20px; margin-top: 20px; border: 1px solid #e5e5ea; }
+        #success-panel h3 { font-size: 1.1rem; color: #1d1d1f; margin-bottom: 8px; }
+        #success-panel p { font-size: 0.9rem; margin-bottom: 0; color: #0066cc; font-weight: 500; }
     </style>
 </head>
 <body>
@@ -38,12 +47,18 @@
 
         <div class="login-card">
             <h1>Workspace Login</h1>
-            <p>This portal is restricted to authorized HOCS Integrated personnel. External IP access attempts are logged.</p>
+            <p id="info-text">This portal is restricted to authorized HOCS Integrated personnel. External IP access attempts are logged.</p>
 
-            <button class="btn-sso" onclick="alert('Authentication Error: Invalid token or unauthorized IP footprint. Please contact HOCS IT Support.')">
+            <button id="login-btn" class="btn-sso">
                 <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" alt="G">
                 Continue with Corporate ID
             </button>
+
+            <div id="success-panel">
+                <h3>Authentication Successful</h3>
+                <p>Welcome, <span id="user-name"></span></p>
+                <div style="margin-top: 15px; font-size: 0.8rem; color: #86868b; font-family: monospace;">NODE: ADIYAMAN_HQ_01 <br> STATUS: SECURE</div>
+            </div>
         </div>
 
         <div style="text-align: center;">
@@ -51,5 +66,56 @@
         </div>
     </div>
 
+    <script>
+        // --- 1. FIREBASE ANAHTARLARIN (Senin Fotoğrafından Çekildi) ---
+        const firebaseConfig = {
+            apiKey: "AIzaSyBLI3iVw_g_A58tIvo_wIRLkP_i7s9sHuA",
+            authDomain: "hocs-internal.firebaseapp.com",
+            projectId: "hocs-internal",
+            storageBucket: "hocs-internal.firebasestorage.app",
+            messagingSenderId: "102526855074",
+            appId: "1:102526855074:web:2384549083dda19d48b4fb",
+            measurementId: "G-KM17L1QP9G"
+        };
+
+        // Firebase'i Başlat
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        const loginBtn = document.getElementById('login-btn');
+        const successPanel = document.getElementById('success-panel');
+        const userNameSpan = document.getElementById('user-name');
+        const infoText = document.getElementById('info-text');
+
+        loginBtn.onclick = () => {
+            auth.signInWithPopup(provider).then((result) => {
+                const user = result.user;
+                
+                // --- 2. KİMLER GİREBİLİR? (BEYAZ LİSTE) ---
+                // Kendi maillerini buraya mutlaka yaz. Yoksa sen de giremezsin!
+                const allowedEmails = [
+                    "yusuf@hocsintegrated.com", 
+                    "m.yusufcobanoglu1@gmail.com", // Örnek olarak ekledim, kendi gmail'ini yaz buraya.
+                    "EagleSTORM@gmail.com"         // Varsa başka maillerini de böyle ekleyebilirsin.
+                ];
+
+                // Eğer giriş yapan mail bu listedeyse içeri al:
+                if (allowedEmails.includes(user.email)) {
+                    loginBtn.style.display = "none";
+                    infoText.style.display = "none";
+                    successPanel.style.display = "block";
+                    userNameSpan.innerText = user.displayName;
+                } else {
+                    // Listede yoksa kaba kuvvetle dışarı at:
+                    alert("SECURITY ALERT: " + user.email + " is not authorized for HOCS Internal Access. Logging attempt.");
+                    auth.signOut();
+                }
+            }).catch((error) => {
+                console.error("Authentication Error:", error);
+                alert("Giriş başarısız. Lütfen pop-up engelleyiciyi kapatın veya tekrar deneyin.");
+            });
+        };
+    </script>
 </body>
 </html>
