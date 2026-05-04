@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture | HOCS Integrated</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #050505; --bg-secondary: #0a0a0a; --text-primary: #ffffff;
+            --text-secondary: #a1a1aa; --accent-cyan: #00f2fe; --border-color: #27272a; --glass-bg: rgba(5, 5, 5, 0.7);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-primary); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        a { text-decoration: none; color: inherit; transition: 0.2s ease; }
+        ul { list-style: none; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+        
+        /* Navigasyon */
+        header { position: fixed; top: 0; width: 100%; background: var(--glass-bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); z-index: 100; }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 72px; max-width: 1200px; margin: 0 auto; padding: 0 24px;}
+        .logo-box { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.5px; }
+        .logo-box img { height: 32px; width: auto; }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { font-size: 0.9rem; color: var(--text-secondary); font-weight: 500; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+        .nav-actions { display: flex; align-items: center; gap: 16px; }
+        .btn-outline { border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; }
+        .btn-outline:hover { background: #fff; color: #000; border-color: #fff; }
+
+        /* İçerik Başlığı */
+        .page-header { padding: 160px 0 80px; border-bottom: 1px solid var(--border-color); }
+        .tech-tag { font-family: 'JetBrains Mono', monospace; color: var(--accent-cyan); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; display: block; }
+        h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 24px; }
+        .lead { font-size: 1.2rem; color: var(--text-secondary); font-weight: 400; max-width: 800px; }
+
+        /* Makale Düzeni */
+        .article-content { padding: 80px 0; }
+        .article-content h2 { font-size: 2rem; font-weight: 600; margin: 48px 0 24px; letter-spacing: -0.5px; }
+        .article-content p { margin-bottom: 24px; color: #d4d4d8; font-size: 1.05rem; }
+        
+        /* Matematik/Mühendislik Bloğu */
+        .math-block { background: #09090b; border: 1px solid var(--border-color); border-radius: 8px; padding: 32px; margin: 40px 0; font-family: 'JetBrains Mono', monospace; overflow-x: auto; }
+        .math-block .formula { font-size: 1.2rem; color: var(--accent-cyan); margin-bottom: 16px; }
+        .math-block .desc { font-size: 0.9rem; color: var(--text-secondary); }
+
+        /* Grid Özellikler */
+        .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
+        .tech-card { padding: 32px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; border-left: 3px solid var(--accent-cyan); }
+        .tech-card h3 { font-size: 1.2rem; margin-bottom: 12px; }
+        .tech-card p { font-size: 0.95rem; color: var(--text-secondary); margin: 0; }
+
+        footer { border-top: 1px solid var(--border-color); padding: 40px 0; text-align: center; color: var(--text-secondary); font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo-box"><img src="logo.png" alt="HOCS"> HOCS INTEGRATED</a>
+            <div class="nav-links">
+                <a href="technology.html" class="active">Architecture</a>
+                <a href="team.html">Core Team</a>
+            </div>
+            <div class="nav-actions">
+                <a href="mailto:yusuf@hocsintegrated.com" class="nav-links" style="color:var(--text-secondary); font-size:0.9rem;">Engineering Support</a>
+                <a href="admin.html" class="btn-outline">Internal Portal</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <span class="tech-tag">TECHNICAL WHITEPAPER / v1.0</span>
+            <h1>The Hybrid Optical Architecture</h1>
+            <p class="lead">Bypassing the Von Neumann bottleneck and the thermal limits of traditional electrical interconnects through silicon photonics and hybrid FPGA integration.</p>
+        </div>
+    </div>
+
+    <div class="container article-content">
+        <h2>1. The Thermal Wall & Bandwidth Crisis</h2>
+        <p>In modern High-Performance Computing (HPC) and AI training clusters, computation is no longer the primary bottleneck—data movement is. Moving terabytes of data across electrical copper traces at high frequencies generates massive impedance and, consequently, extreme thermal output. Current systems spend more power cooling the interconnects than computing the data.</p>
+        
+        <h2>2. The HOCS Paradigm (Hybrid E/O Integration)</h2>
+        <p>The Hybrid Optical Computing System (HOCS) acts as a physical-layer translation engine. Instead of forcing data through copper, HOCS captures the electrical signals outputted by standard processing cores (such as high-performance SoMs and FPGAs) and instantly modulates them into optical pulses.</p>
+        
+        <div class="tech-grid">
+            <div class="tech-card">
+                <h3>E/O Conversion</h3>
+                <p>Proprietary micro-ring resonators and electro-absorption modulators translate digital electrical bits into discrete wavelengths of light with sub-nanosecond latency.</p>
+            </div>
+            <div class="tech-card">
+                <h3>Zero-Heat Waveguides</h3>
+                <p>Once data is in the optical domain, it travels through silicon waveguides. Photons do not generate resistive heat, enabling dense packing of data channels without thermal throttling.</p>
+            </div>
+        </div>
+
+        <h2>3. Theoretical Throughput Calculation</h2>
+        <p>Our target bandwidth of 4.14 TB/s is achieved through Dense Wavelength Division Multiplexing (DWDM), allowing multiple independent data streams to share a single optical physical medium simultaneously.</p>
+        
+        <div class="math-block">
+            <div class="formula">T_total = N_{channels} &times; R_{baud} &times; M_{modulation}</div>
+            <div class="desc">
+                Where:<br>
+                - T_total: Aggregate system throughput (Target: 4.14 TB/s)<br>
+                - N_{channels}: Number of independent optical wavelengths multiplexed<br>
+                - R_{baud}: Symbol rate per channel<br>
+                - M_{modulation}: Bits per symbol (e.g., PAM4 = 2 bits/symbol)<br><br>
+                By scaling N_{channels} across the photonic fabric, HOCS linearly scales bandwidth while keeping thermal dissipation (P_thermal) exponentially lower than equivalent copper configurations (P_thermal &approx; I&sup2;R).
+            </div>
+        </div>
+
+        <h2>4. FPGA / Edge Computing Synergy</h2>
+        <p>HOCS is designed to interface with programmable hardware. By utilizing high-speed transceivers on FPGA platforms, our system acts as an ultra-wide, zero-latency bridge between distributed compute nodes, making it ideal for scalable AI inference and large-scale data center topologies.</p>
+    </div>
+
+    <footer>
+        <div class="container">
+            &copy; 2026 HOCS Integrated. Technical Documentation.
+        </div>
+    </footer>
+
+</body>
+</html>
