@@ -3,210 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOCS Integrated | Next-Gen Silicon Photonics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>HOCS Integrated | Hybrid Optical Computing System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* --- DEV KURUMSAL RENK PALETİ --- */
+        /* --- UNICORN STARTUP PALETİ (Minimal, Şeffaf ve Teknik) --- */
         :root {
-            --bg-main: #ffffff; /* Intel temiz beyazı */
-            --bg-dark: #001428; /* Kurumsal Derin Lacivert */
-            --intel-blue: #0068B5; /* Otoriter Mavi */
-            --laser-cyan: #00f2fe; /* Senin Logondaki Optik Mavi */
-            --text-dark: #222222;
-            --text-light: #ffffff;
-            --gray-bg: #f4f4f4;
-            --gray-border: #e2e2e2;
-            --ease: cubic-bezier(0.2, 0, 0, 1);
+            --bg-main: #050505;
+            --bg-secondary: #0a0a0a;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --accent-cyan: #00f2fe; /* Optik Lazer Vurgusu */
+            --border-color: #27272a;
+            --glass-bg: rgba(5, 5, 5, 0.7);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; color: var(--text-dark); background: var(--bg-main); line-height: 1.6; overflow-x: hidden; }
-        
-        a { text-decoration: none; color: inherit; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: 0.2s ease; }
         ul { list-style: none; }
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
-
-        /* Scroll Animasyonları */
-        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s var(--ease); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* --- GLOBAL HEADER (Kurumsal Navigasyon) --- */
-        header { background: var(--bg-main); border-bottom: 1px solid var(--gray-border); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .nav-top { background: var(--bg-dark); height: 30px; display: flex; justify-content: flex-end; align-items: center; padding: 0 40px; }
-        .nav-top a { color: #aaa; font-size: 0.75rem; margin-left: 20px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; transition: 0.2s; }
-        .nav-top a:hover { color: var(--laser-cyan); }
         
-        .nav-main { display: flex; justify-content: space-between; align-items: center; height: 80px; }
-        .logo-box { display: flex; align-items: center; gap: 10px; }
-        .logo-box img { height: 45px; } /* Senin logo.png buraya gelecek */
-        .logo-box span { font-family: 'Noto Sans', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--intel-blue); letter-spacing: -0.5px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { font-size: 0.95rem; font-weight: 500; color: var(--text-dark); transition: color 0.2s; padding: 10px 0; border-bottom: 2px solid transparent; }
-        .nav-links a:hover { color: var(--intel-blue); border-bottom: 2px solid var(--intel-blue); }
+        /* --- ŞEFFAF NAVİGASYON --- */
+        header { position: fixed; top: 0; width: 100%; background: var(--glass-bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); z-index: 100; }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 72px; }
+        .logo-box { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.5px; }
+        .logo-box img { height: 32px; width: auto; }
         
-        /* --- HERO BANNER (Intel Tarzı Geniş Ekran) --- */
-        #hero { background: var(--bg-dark); color: var(--text-light); padding: 120px 0; position: relative; overflow: hidden; }
-        #hero::before { content: ''; position: absolute; right: -10%; top: -20%; width: 50%; height: 140%; background: linear-gradient(90deg, transparent, rgba(0, 242, 254, 0.15)); transform: skewX(-15deg); pointer-events: none; }
-        .hero-content { max-width: 700px; position: relative; z-index: 2; }
-        .hero-content h1 { font-family: 'Noto Sans', sans-serif; font-size: 4rem; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1px; }
-        .hero-content p { font-size: 1.3rem; font-weight: 300; margin-bottom: 40px; color: #d0d0d0; }
-        .btn-primary { display: inline-block; background: var(--intel-blue); color: #fff; padding: 15px 35px; font-size: 1rem; font-weight: 500; transition: 0.3s; }
-        .btn-primary:hover { background: #004a86; }
-
-        /* --- STATS BAR (Sektör Lideri İmajı) --- */
-        .stats-bar { background: var(--intel-blue); color: #fff; padding: 40px 0; }
-        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center; }
-        .stat-item h3 { font-size: 3rem; font-family: 'Noto Sans', sans-serif; margin-bottom: 5px; color: var(--laser-cyan); }
-        .stat-item p { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; }
-
-        /* --- SOLUTIONS GRID (Ürün Ailesi) --- */
-        #solutions { padding: 100px 0; background: var(--gray-bg); }
-        .section-title { font-family: 'Noto Sans', sans-serif; font-size: 2.5rem; margin-bottom: 50px; text-align: center; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { font-size: 0.9rem; color: var(--text-secondary); font-weight: 500; }
+        .nav-links a:hover { color: var(--text-primary); }
         
-        .solution-card { background: #fff; border: 1px solid var(--gray-border); transition: 0.3s; position: relative; overflow: hidden; }
-        .solution-card:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.1); transform: translateY(-5px); }
-        .solution-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--laser-cyan); transform: scaleX(0); transition: 0.4s; transform-origin: left; }
-        .solution-card:hover::before { transform: scaleX(1); }
+        .nav-actions { display: flex; align-items: center; gap: 16px; }
+        .btn-outline { border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; }
+        .btn-outline:hover { background: #fff; color: #000; border-color: #fff; }
+
+        /* --- ANA VİTRİN (HERO) --- */
+        #hero { padding: 200px 0 100px; position: relative; }
+        .hero-badge { display: inline-block; background: rgba(0, 242, 254, 0.1); color: var(--accent-cyan); padding: 6px 12px; border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 700; margin-bottom: 24px; border: 1px solid rgba(0, 242, 254, 0.2); }
+        .hero-title { font-size: 4.5rem; font-weight: 700; line-height: 1.1; letter-spacing: -2px; margin-bottom: 24px; max-width: 900px; }
+        .hero-subtitle { font-size: 1.25rem; color: var(--text-secondary); max-width: 650px; margin-bottom: 40px; font-weight: 400; }
         
-        .card-img-placeholder { height: 200px; background: #e0e0e0; display: flex; justify-content: center; align-items: center; color: #888; font-weight: bold; font-size: 0.9rem; }
-        .card-content { padding: 30px; }
-        .card-content h4 { font-size: 1.4rem; margin-bottom: 15px; font-family: 'Noto Sans', sans-serif; }
-        .card-content p { color: #555; margin-bottom: 20px; font-size: 0.95rem; }
-        .card-link { color: var(--intel-blue); font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; }
-        .card-link:hover { text-decoration: underline; }
+        .btn-primary { display: inline-flex; align-items: center; justify-content: center; background: #fff; color: #000; padding: 14px 28px; border-radius: 6px; font-size: 1rem; font-weight: 600; gap: 8px; }
+        .btn-primary:hover { background: #e4e4e7; }
+        
+        /* Geliştirici / Kod Terminali Görünümü (Gerçekçi Teknoloji Gösterimi) */
+        .tech-terminal { margin-top: 80px; background: #09090b; border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #a1a1aa; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+        .terminal-header { background: #18181b; padding: 12px 20px; border-bottom: 1px solid var(--border-color); display: flex; gap: 8px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: #3f3f46; }
+        .terminal-body { padding: 24px; line-height: 1.8; }
+        .terminal-body span.keyword { color: var(--accent-cyan); }
+        .terminal-body span.string { color: #86efac; }
 
-        /* --- INVESTOR & PARTNERSHIP (Kurumsal Güven) --- */
-        #corporate { padding: 100px 0; background: #fff; }
-        .corp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .corp-text h2 { font-size: 2.5rem; font-family: 'Noto Sans', sans-serif; margin-bottom: 20px; }
-        .corp-text p { font-size: 1.1rem; color: #555; margin-bottom: 30px; }
-        .corp-links { display: flex; gap: 15px; }
-        .btn-outline { display: inline-block; background: transparent; border: 2px solid var(--intel-blue); color: var(--intel-blue); padding: 13px 30px; font-weight: 500; transition: 0.3s; }
-        .btn-outline:hover { background: var(--intel-blue); color: #fff; }
+        /* --- GERÇEKÇİ ÖZELLİK MATRİSİ --- */
+        #features { padding: 120px 0; border-top: 1px solid var(--border-color); background: var(--bg-secondary); }
+        .section-tag { font-family: 'JetBrains Mono', monospace; color: var(--text-secondary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; display: block; }
+        .section-title { font-size: 2.5rem; font-weight: 600; margin-bottom: 64px; letter-spacing: -1px; }
+        
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .feature-card { padding: 40px; border: 1px solid var(--border-color); border-radius: 12px; background: var(--bg-main); transition: 0.3s; }
+        .feature-card:hover { border-color: #52525b; }
+        .feature-icon { font-size: 2rem; margin-bottom: 24px; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace; }
+        .feature-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 16px; }
+        .feature-desc { color: var(--text-secondary); font-size: 1rem; margin-bottom: 32px; }
+        
+        .link-arrow { color: #fff; font-weight: 500; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 6px; }
+        .link-arrow:hover { color: var(--accent-cyan); }
 
-        /* --- MEGA FOOTER (Dev Şirket Altbilgisi) --- */
-        footer { background: var(--bg-dark); color: #fff; padding: 80px 0 40px; font-size: 0.85rem; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
-        .footer-logo img { height: 40px; filter: brightness(0) invert(1); margin-bottom: 20px; }
-        .footer-col h5 { font-size: 1rem; margin-bottom: 20px; color: #fff; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul li a { color: #aaa; transition: 0.2s; }
-        .footer-col ul li a:hover { color: var(--laser-cyan); }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; color: #888; }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .grid-3 { grid-template-columns: repeat(2, 1fr); }
-            .corp-grid { grid-template-columns: 1fr; }
-            .hero-content h1 { font-size: 3rem; }
-        }
+        /* --- DÜRÜST VE YALIN FOOTER --- */
+        footer { border-top: 1px solid var(--border-color); padding: 60px 0; background: var(--bg-main); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand p { color: var(--text-secondary); font-size: 0.9rem; margin-top: 16px; max-width: 300px; }
+        .footer-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 20px; color: #fff; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: var(--text-secondary); font-size: 0.9rem; }
+        .footer-links a:hover { color: #fff; }
+        
+        .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; color: var(--text-secondary); font-size: 0.85rem; }
+        
         @media (max-width: 768px) {
-            .grid-3 { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .hero-title { font-size: 3rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <div class="nav-top">
-        <div class="container" style="display:flex; justify-content: flex-end; width: 100%;">
-            <a href="admin.html">Internal Portal</a>
-            <a href="https://www.instagram.com/hocsintegrated/" target="_blank">Instagram</a>
-            <a href="mailto:yusuf@hocsintegrated.com">Support</a>
-        </div>
-    </div>
-
     <header>
-        <div class="container nav-main">
-            <a href="#" class="logo-box">
-                <img src="logo.png" alt="HOCS">
-                <span>HOCS</span>
-            </a>
-            <nav class="nav-links">
-                <a href="#solutions">Products</a>
-                <a href="#solutions">Solutions</a>
-                <a href="#corporate">Developers</a>
-                <a href="#corporate">Corporate</a>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo-box">
+                    <img src="logo.png" alt="HOCS">
+                    HOCS INTEGRATED
+                </a>
+                <div class="nav-links">
+                    <a href="technology.html">Architecture</a>
+                    <a href="team.html">Core Team</a>
+                </div>
+                <div class="nav-actions">
+                    <a href="mailto:yusuf@hocsintegrated.com" class="nav-links" style="color:var(--text-secondary); font-size:0.9rem;">Engineering Support</a>
+                    <a href="admin.html" class="btn-outline">Internal Portal</a>
+                </div>
             </nav>
         </div>
     </header>
 
     <section id="hero">
-        <div class="container hero-content reveal active">
-            <h1>Accelerating the AI Revolution with Light.</h1>
-            <p>HOCS Integrated is redefining data center infrastructure. Our proprietary hybrid optical interconnects break the thermal wall, enabling 4.14 TB/s throughput for next-generation computing.</p>
-            <a href="#solutions" class="btn-primary">View the Architecture</a>
-        </div>
-    </section>
-
-    <section class="stats-bar">
-        <div class="container stats-grid">
-            <div class="stat-item reveal delay-1">
-                <h3>4.14 TB/s</h3>
-                <p>Bandwidth Capacity</p>
-            </div>
-            <div class="stat-item reveal delay-2">
-                <h3>&approx; 0W</h3>
-                <p>Optical Heat Dissipation</p>
-            </div>
-            <div class="stat-item reveal delay-3">
-                <h3>Hybrid</h3>
-                <p>E/O Silicon Integration</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="solutions">
         <div class="container">
-            <h2 class="section-title reveal">Built for the Future of Compute</h2>
-            <div class="grid-3">
-                
-                <div class="solution-card reveal delay-1">
-                    <div class="card-img-placeholder">[ Data Center Architecture Image ]</div>
-                    <div class="card-content">
-                        <h4>Data Center & Cloud</h4>
-                        <p>Overcome the Von Neumann bottleneck. Scale your LLM training clusters efficiently without being throttled by copper interconnect heat limits.</p>
-                        <a href="mailto:yusuf@hocsintegrated.com" class="card-link">Contact Engineering ›</a>
-                    </div>
-                </div>
+            <span class="hero-badge">PHASE 1: PROOF OF CONCEPT</span>
+            <h1 class="hero-title">Overcoming the physics of copper wire.</h1>
+            <p class="hero-subtitle">HOCS Integrated develops hybrid optical-electrical computing architectures. We utilize silicon photonics to push data center bandwidth to 4.14 TB/s, eliminating the thermal throttling of traditional interconnects.</p>
+            
+            <a href="technology.html" class="btn-primary">
+                Explore the Architecture 
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
 
-                <div class="solution-card reveal delay-2">
-                    <div class="card-img-placeholder">[ Optical Transceiver Image ]</div>
-                    <div class="card-content">
-                        <h4>Silicon Photonics Core</h4>
-                        <p>Proprietary micro-lasers and waveguides integrated directly with standard FPGA cores, translating electrical processing to optical speed instantly.</p>
-                        <a href="mailto:yusuf@hocsintegrated.com" class="card-link">Explore Technology ›</a>
-                    </div>
+            <div class="tech-terminal">
+                <div class="terminal-header">
+                    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
                 </div>
-
-                <div class="solution-card reveal delay-3">
-                    <div class="card-img-placeholder">[ Edge AI System Image ]</div>
-                    <div class="card-content">
-                        <h4>Edge AI Systems</h4>
-                        <p>Bringing massive compute bandwidth to edge environments. Ultra-low latency inference for autonomous systems and high-frequency trading.</p>
-                        <a href="mailto:yusuf@hocsintegrated.com" class="card-link">View Use Cases ›</a>
-                    </div>
+                <div class="terminal-body">
+                    > <span class="keyword">systemctl</span> status hocs_core_interface<br>
+                    > [OK] Optical transceivers initialized.<br>
+                    > <span class="keyword">metrics</span> --fetch bandwidth<br>
+                    > Current Theoretical Throughput: <span class="string">4.14 TB/s</span><br>
+                    > <span class="keyword">metrics</span> --fetch thermal_dissipation<br>
+                    > Optical Path Heat Generation: <span class="string">~0.0W (Nominal)</span><br>
+                    > Awaiting FPGA core handshake...
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section id="corporate">
-        <div class="container corp-grid">
-            <div class="corp-text reveal">
-                <h2>Corporate Leadership & Research</h2>
-                <p>As a deep-tech pioneer, HOCS Integrated is continuously pushing the boundaries of what is physically possible in semiconductor manufacturing. We actively collaborate with industry leaders, research institutions, and strategic investors to deploy optical computing at a global scale.</p>
-                <div class="corp-links">
-                    <a href="mailto:yusuf@hocsintegrated.com" class="btn-primary">Partner With Us</a>
-                    <a href="admin.html" class="btn-outline">Internal Portal</a>
+    <section id="features">
+        <div class="container">
+            <span class="section-tag">System Capabilities</span>
+            <h2 class="section-title">Designed for scalable AI infrastructure.</h2>
+            
+            <div class="grid-2">
+                <div class="feature-card">
+                    <div class="feature-icon">[ O / E ]</div>
+                    <h3 class="feature-title">Hybrid Integration</h3>
+                    <p class="feature-desc">We don't replace your entire stack. HOCS architecture acts as a highly efficient bridge, converting electrical signals from existing FPGA/GPU cores into high-speed optical pulses at the edge.</p>
+                    <a href="technology.html" class="link-arrow">Read Technical Whitepaper -></a>
                 </div>
-            </div>
-            <div class="corp-img reveal delay-2" style="background: var(--gray-bg); height: 350px; display: flex; align-items: center; justify-content: center; color: #aaa; border: 1px solid var(--gray-border);">
-                [ R&D Facility / Cleanroom Image ]
+                
+                <div class="feature-card">
+                    <div class="feature-icon">[ 0W ]</div>
+                    <h3 class="feature-title">Zero-Heat Transport</h3>
+                    <p class="feature-desc">By routing data through photonic waveguides rather than copper traces, we effectively eliminate the heat generated by signal resistance, solving the data center's most expensive problem: cooling.</p>
+                    <a href="technology.html" class="link-arrow">View Thermal Specs -></a>
+                </div>
             </div>
         </div>
     </section>
@@ -214,57 +164,35 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-logo">
-                    <img src="logo.png" alt="HOCS">
-                    <p style="color: #aaa; margin-top: 15px; padding-right: 20px;">Leading the transition from electrical to optical computing infrastructure. Engineering the future in Adiyaman, TR.</p>
+                <div class="footer-brand">
+                    <div class="logo-box" style="font-size: 1rem;">
+                        <img src="logo.png" alt="HOCS">
+                        HOCS INTEGRATED
+                    </div>
+                    <p>An independent hardware startup based in Adıyaman, TR. Focused on silicon photonics and high-performance computing interconnects.</p>
                 </div>
-                <div class="footer-col">
-                    <h5>Company Info</h5>
-                    <ul>
-                        <li><a href="#">About HOCS</a></li>
-                        <li><a href="#">Investor Relations</a></li>
-                        <li><a href="#">Newsroom</a></li>
-                        <li><a href="#">Careers</a></li>
+                <div>
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="technology.html">Technology & Architecture</a></li>
+                        <li><a href="team.html">Founding Team</a></li>
+                        <li><a href="admin.html">Internal Portal</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h5>Solutions</h5>
-                    <ul>
-                        <li><a href="#">Data Center</a></li>
-                        <li><a href="#">Silicon Photonics</a></li>
-                        <li><a href="#">Edge AI</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h5>Support & Admin</h5>
-                    <ul>
-                        <li><a href="mailto:yusuf@hocsintegrated.com">Contact Engineering</a></li>
-                        <li><a href="https://www.instagram.com/hocsintegrated/" target="_blank">Instagram</a></li>
-                        <li><a href="admin.html">Employee Portal Login</a></li>
+                <div>
+                    <h4 class="footer-title">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:yusuf@hocsintegrated.com">yusuf@hocsintegrated.com</a></li>
+                        <li><a href="https://www.instagram.com/hocsintegrated/" target="_blank">Instagram: @hocsintegrated</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 HOCS Integrated. All rights reserved.</p>
-                <p>Terms of Use | Privacy | Cookies</p>
+                <div>&copy; 2026 HOCS Integrated.</div>
+                <div style="font-family: 'JetBrains Mono', monospace;">STATUS: ACTIVE R&D</div>
             </div>
         </div>
     </footer>
 
-    <script>
-        const reveal = () => {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        };
-        window.addEventListener("scroll", reveal);
-        window.onload = reveal;
-    </script>
 </body>
 </html>
