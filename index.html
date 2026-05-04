@@ -3,128 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOCS Integrated | Next-Gen Optical Interconnects</title>
+    <title>HOCS Integrated | Next-Gen Optical-Electrical Hybrid Interconnects</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* --- CORE VARIABLES --- */
+        /* --- FARKLI Renk Paleti ve Değişkenler --- */
         :root {
-            --bg-dark: #030303;
-            --bg-card: #0a0a0a;
-            --bg-nav: rgba(3, 3, 3, 0.85);
+            --bg-dark: #010101; /* Tam siyah değil, çok koyu */
+            --bg-card: #080808;
+            --bg-nav: rgba(1, 1, 1, 0.9);
             --text-main: #f0f0f0;
-            --text-muted: #888888;
-            --nv-green: #76b900;
-            --nv-green-glow: rgba(118, 185, 0, 0.4);
+            --text-muted: #999999;
+            /* YENİ Vurgu: Logodaki Mavi Lazerden Alındı */
+            --nv-green: #76b900; /* Mühendislik/Eylem Yeşili */
+            --laser-blue: #00f2fe; /* Optik Mavi Vurgu */
+            --blue-glow: rgba(0, 242, 254, 0.5);
             --border-color: #1a1a1a;
             --ease: cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* --- GLOBAL RESET & TYPOGRAPHY --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; background: var(--bg-dark); }
-        body { font-family: 'Inter', sans-serif; color: var(--text-main); background: var(--bg-dark); overflow-x: hidden; line-height: 1.7; }
-        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 700; letter-spacing: -0.5px; }
+        /* --- Global Reset & Animasyon --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        html { scroll-behavior: smooth; font-size: 16px; background: var(--bg-dark); }
+        body { font-family: 'Inter', sans-serif; color: var(--text-main); background: var(--bg-dark); overflow-x: hidden; line-height: 1.6; }
+        
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; letter-spacing: -1.5px; }
         a { text-decoration: none; color: inherit; transition: 0.3s var(--ease); }
-        ul { list-style: none; }
         
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        .gradient-text { background: linear-gradient(135deg, #ffffff 0%, #76b900 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .gradient-text { background: linear-gradient(135deg, #ffffff 0%, var(--laser-blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* --- ANIMATION CLASSES (JS INTERSECTION OBSERVER) --- */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s var(--ease); }
+        /* JS Tabanlı Scroll Reveal Animasyonu */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s var(--ease); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         .delay-1 { transition-delay: 0.1s; }
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
 
-        /* --- KEYFRAMES --- */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 15px var(--nv-green-glow); }
-            50% { box-shadow: 0 0 35px var(--nv-green-glow); }
-            100% { box-shadow: 0 0 15px var(--nv-green-glow); }
-        }
+        /* Keyframes: Nefes Alma ve Hareket */
+        @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
+        @keyframes blue-pulse { 0% { box-shadow: 0 0 10px var(--blue-glow); } 50% { box-shadow: 0 0 25px var(--blue-glow); } 100% { box-shadow: 0 0 10px var(--blue-glow); } }
 
-        /* --- HEADER --- */
-        header { position: fixed; top: 0; width: 100%; background: var(--bg-nav); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); z-index: 1000; transition: 0.3s; }
+        /* --- Header / Navigation --- */
+        header { position: fixed; top: 0; width: 100%; background: var(--bg-nav); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); z-index: 1000; }
         nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
-        .logo { font-family: 'Poppins', sans-serif; font-size: 1.6rem; font-weight: 700; color: #fff; letter-spacing: -1px; display: flex; align-items: center; gap: 5px; }
-        .logo span { color: var(--nv-green); font-weight: 400; font-size: 0.9rem; letter-spacing: 2px; }
-        .nav-links { display: flex; gap: 35px; }
-        .nav-links a { font-size: 0.9rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-        .nav-links a:hover { color: var(--nv-green); }
-        .btn-cta { background: transparent; border: 1px solid var(--nv-green); color: var(--nv-green); padding: 10px 24px; border-radius: 4px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s var(--ease); }
-        .btn-cta:hover { background: var(--nv-green); color: #000; box-shadow: 0 0 20px var(--nv-green-glow); }
-
-        /* --- HERO SECTION --- */
-        #hero { min-height: 100vh; display: flex; align-items: center; text-align: center; position: relative; padding-top: 80px; }
-        .hero-content { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
-        #hero h1 { font-size: 5rem; line-height: 1.05; margin-bottom: 24px; text-transform: uppercase; }
-        #hero .tagline { font-size: 1.5rem; color: var(--text-muted); font-weight: 300; margin-bottom: 50px; }
-        .hero-btn { display: inline-block; background: var(--nv-green); color: #000; padding: 16px 40px; font-size: 1.1rem; font-weight: 700; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; animation: pulse-glow 3s infinite; transition: 0.3s; }
-        .hero-btn:hover { transform: scale(1.05); }
         
-        /* Hero Arka Plan Işığı */
-        .hero-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(118,185,0,0.15) 0%, rgba(0,0,0,0) 70%); z-index: 1; pointer-events: none; }
+        /* LOGO ALANI: Sağlanan Mükemmel Logoyu Ekleme */
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo-container img { height: 50px; width: auto; object-fit: contain; } /* LOGOYU BURAYA ÇAKTIK */
+        .logo-container span { font-family: 'Poppins', sans-serif; font-size: 1.6rem; font-weight: 700; color: #fff; letter-spacing: -1px; }
+        .logo-container span span { color: var(--laser-blue); font-weight: 400; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; margin-left: 5px; }
 
-        /* --- SPECS SECTION --- */
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 0.9rem; font-weight: 400; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--laser-blue); }
+        .btn-cta { background: transparent; border: 1px solid var(--nv-green); color: var(--nv-green); padding: 10px 25px; border-radius: 4px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s var(--ease); }
+        .btn-cta:hover { background: var(--nv-green); color: #000; box-shadow: 0 0 20px rgba(118,185,0,0.5); }
+
+        /* --- Hero Section --- */
+        #hero { padding: 200px 0 120px; text-align: center; position: relative; }
+        #hero h1 { font-size: 4.8rem; line-height: 1.1; margin-bottom: 25px; text-transform: uppercase; }
+        #hero .tagline { font-size: 1.6rem; color: var(--text-muted); font-weight: 300; margin-bottom: 50px; }
+        #hero::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; radial-gradient(circle, var(--blue-glow) 0%, rgba(0,0,0,0) 70%); z-index: -1; pointer-events: none; }
+
+        /* --- Stats/Key Specs Section (Kartların Şekillerini Değiştirdik) --- */
         #specs { padding: 100px 0; background: var(--bg-card); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
-        .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .spec-card { background: #000; padding: 40px 30px; border-radius: 8px; border: 1px solid var(--border-color); transition: 0.4s var(--ease); animation: float 6s ease-in-out infinite; }
+        .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .spec-card { background: #000; padding: 40px; border-radius: 12px; border-left: 3px solid var(--border-color); transition: all 0.4s var(--ease); animation: float 6s infinite ease-in-out; animation: blue-pulse 3s infinite ease-in-out; }
         .spec-card:nth-child(2) { animation-delay: 1s; }
         .spec-card:nth-child(3) { animation-delay: 2s; }
-        .spec-card:hover { border-color: var(--nv-green); transform: translateY(-10px) !important; }
-        .spec-value { font-size: 3.5rem; color: #fff; margin-bottom: 5px; font-family: 'Poppins', sans-serif; text-shadow: 0 0 20px rgba(255,255,255,0.1); }
-        .spec-label { font-size: 0.9rem; text-transform: uppercase; color: var(--nv-green); letter-spacing: 2px; margin-bottom: 20px; font-weight: 700; }
+        .spec-card:hover { border-left-color: var(--laser-blue); transform: translateX(10px); box-shadow: 10px 10px 30px rgba(0,0,0,0.5); }
+        .spec-value { font-size: 3.5rem; color: var(--laser-blue); margin-bottom: 5px; font-family: 'Poppins', sans-serif; text-shadow: 0 0 15px var(--blue-glow); }
+        .spec-label { font-size: 0.9rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 2px; margin-bottom: 20px; font-weight: 600; }
         .spec-desc { color: var(--text-muted); font-size: 0.95rem; }
 
-        /* --- DEEP TECH ARCHITECTURE SECTION --- */
-        #architecture { padding: 120px 0; }
+        /* --- Detailed Technology Section --- */
+        #technology { padding: 120px 0; }
         .section-header { text-align: center; margin-bottom: 80px; }
         .section-header h2 { font-size: 3.2rem; margin-bottom: 20px; text-transform: uppercase; }
         .section-header p { color: var(--text-muted); font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
         
-        .arch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .arch-text h3 { font-size: 1.8rem; margin-bottom: 20px; color: #fff; }
-        .arch-text p { margin-bottom: 20px; color: var(--text-muted); font-size: 1.1rem; }
-        
-        .arch-features { margin-top: 30px; }
-        .feature-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
-        .feature-icon { color: var(--nv-green); font-size: 1.5rem; font-weight: bold; }
-        .feature-item h4 { color: #fff; font-size: 1.1rem; margin-bottom: 5px; }
-        .feature-item p { color: #777; font-size: 0.95rem; margin: 0; }
+        .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .tech-text { font-size: 1.1rem; color: var(--text-muted); }
+        .tech-text p { margin-bottom: 25px; }
+        .tech-visual { height: 450px; background: #050505; border-radius: 8px; border: 1px solid #222; display: flex; align-items: center; justify-content: center; position: relative; color: #333; font-weight: bold; }
+        .tech-visual::before { content: ''; position: absolute; width: 150%; height: 2px; background: var(--laser-blue); opacity: 0.3; transform: rotate(45deg); animation: blue-pulse 4s infinite; }
+        .tech-visual::after { content: 'HOCS integrated Block Diagram (Placeholder)'; color: #333; position: absolute; top: 10px; left: 10px; font-size: 0.8rem;}
 
-        /* Mimarinin Görselleştirilmesi (Boşluk/Placeholder) */
-        .arch-visual { position: relative; height: 500px; background: linear-gradient(145deg, #0a0a0a, #050505); border: 1px solid #222; border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .arch-visual::before { content: ''; position: absolute; width: 200%; height: 2px; background: var(--nv-green); opacity: 0.2; transform: rotate(45deg); animation: pulse-glow 4s infinite; }
-        .arch-visual-text { position: absolute; color: #444; font-family: 'Poppins', sans-serif; font-weight: bold; text-transform: uppercase; letter-spacing: 4px; text-align: center; }
-
-        /* --- APPLICATIONS SECTION --- */
+        /* --- Target Applications --- */
         #applications { padding: 100px 0; background: var(--bg-card); border-top: 1px solid var(--border-color); }
         .app-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
-        .app-card { border-left: 3px solid var(--nv-green); padding: 20px 30px; background: #050505; }
+        .app-card { border-left: 3px solid var(--laser-blue); padding: 25px 30px; background: #000; transition: 0.3s; }
+        .app-card:hover { transform: translateY(-5px); border-left-color: var(--nv-green); }
         .app-card h4 { font-size: 1.3rem; margin-bottom: 10px; color: #fff; }
         .app-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        /* --- FOOTER --- */
-        footer { padding: 80px 0; text-align: center; background: #000; border-top: 1px solid var(--border-color); }
-        .footer-cta { font-size: 2rem; color: #fff; margin-bottom: 30px; font-family: 'Poppins', sans-serif; }
-        .copyright { color: #555; font-size: 0.85rem; margin-top: 60px; text-transform: uppercase; letter-spacing: 1px; }
+        /* --- Engineering Focus (About) --- */
+        #about { padding: 120px 0; }
+        .about-content { text-align: center; max-width: 800px; margin: 0 auto; }
+        .about-content h2 { font-size: 3.2rem; margin-bottom: 30px; text-transform: uppercase; }
+        .about-content p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; }
+        .team-badge { display: inline-flex; align-items: center; gap: 10px; background: #000; border: 1px solid var(--border-color); padding: 15px 30px; border-radius: 50px; animation: blue-pulse 3s infinite ease-in-out; }
+        .team-badge span.number { font-size: 2.2rem; font-weight: 700; color: var(--nv-green); }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 992px) {
-            .arch-grid { grid-template-columns: 1fr; }
-            .app-grid { grid-template-columns: 1fr; }
+        /* --- Footer / Contact --- */
+        footer { padding: 80px 0; border-top: 1px solid var(--border-color); text-align: center; background: #000; }
+        footer p.contact-lead { font-size: 1.6rem; color: #fff; margin-bottom: 30px; font-family: 'Poppins', sans-serif; }
+        .footer-logo { margin-top: 50px; }
+        .footer-logo img { height: 60px; opacity: 0.3; }
+
+        /* --- Responsive Ayarlar --- */
+        @media (max-width: 1024px) {
             #hero h1 { font-size: 3.5rem; }
+            .tech-grid { grid-template-columns: 1fr; }
+            .app-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            #hero h1 { font-size: 2.5rem; }
-            .spec-value { font-size: 2.5rem; }
+            #hero h1 { font-size: 2.8rem; }
+            .spec-value { font-size: 2.8rem; }
         }
     </style>
 </head>
@@ -133,23 +129,25 @@
     <header id="header">
         <div class="container">
             <nav>
-                <a href="#" class="logo">HOCS <span>INTEGRATED</span></a>
+                <a href="#" class="logo-container">
+                    <img src="logo.png" alt="HOCS">
+                    <span>HOCS<span>INTEGRATED</span></span>
+                </a>
                 <ul class="nav-links">
-                    <li><a href="#specs">Specifications</a></li>
-                    <li><a href="#architecture">Architecture</a></li>
-                    <li><a href="#applications">Applications</a></li>
+                    <li><a href="#specs">Specs</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#applications">Workloads</a></li>
                 </ul>
-                <a href="mailto:yusuf@hocsintegrated.com" class="btn-cta">Contact Team</a>
+                <a href="mailto:yusuf@hocsintegrated.com" class="btn-cta">Contact Engineering</a>
             </nav>
         </div>
     </header>
 
     <section id="hero">
-        <div class="hero-glow"></div>
-        <div class="container hero-content reveal">
-            <h1 class="gradient-text">Breaking the<br>Thermal Wall</h1>
-            <p class="tagline">The world's first hybrid optical-electrical computing architecture achieving 4.14 TB/s throughput for next-generation AI infrastructure.</p>
-            <a href="#architecture" class="hero-btn">Discover the Architecture</a>
+        <div class="container hero-content reveal active">
+            <h1 class="gradient-text">Breaking<br>the Thermal Wall</h1>
+            <p class="tagline">Introducing the Hybrid Optical-Electrical Computing Interconnect for LLM at Scale.</p>
+            <a href="#technology" class="btn-cta" style="font-size: 1rem; padding: 15px 40px; margin-top: 20px;">Discovery the Paradigm</a>
         </div>
     </section>
 
@@ -157,64 +155,36 @@
         <div class="container specs-grid">
             <div class="spec-card reveal delay-1">
                 <div class="spec-label">Throughput Target</div>
-                <div class="spec-value">4.14 TB/s</div>
-                <p class="spec-desc">Shattering the Von Neumann bottleneck. Massive data transfer capability bypassing traditional copper trace limitations.</p>
+                <div class="spec-value glowing-text">4.14 TB/s</div>
+                <p class="spec-desc">Unparalleled data throughput shattered the Von Neumann bottleneck in AI training clusters.</p>
             </div>
             <div class="spec-card reveal delay-2">
-                <div class="spec-label">Thermal Dissipation</div>
-                <div class="spec-value">&approx; 0W</div>
-                <p class="spec-desc">Optical waveguides generate near-zero heat during transmission, eliminating the primary scaling barrier in data centers.</p>
+                <div class="spec-label">Optical Heat</div>
+                <div class="spec-value glowing-text">&approx; 0W</div>
+                <p class="spec-desc">Optical waveguides generate near-zero heat dissipation, eliminating the primary scaling wall.</p>
             </div>
             <div class="spec-card reveal delay-3">
                 <div class="spec-label">Architecture</div>
-                <div class="spec-value">Hybrid</div>
-                <p class="spec-desc">Seamless integration of silicon photonics with existing electrical FPGA/GPU processing cores.</p>
+                <div class="spec-value glowing-text">Hybrid</div>
+                <p class="spec-desc">Seamless integration of high-speed silicon photonics with standard electrical compute cores (FPGAs).</p>
             </div>
         </div>
     </section>
 
-    <section id="architecture">
+    <section id="technology">
         <div class="container">
             <div class="section-header reveal">
-                <h2>The HOCS Paradigm</h2>
-                <p>We are not just optimizing current chips; we are rewriting the physical layer of data transmission.</p>
+                <h2>A New Computing Paradigm</h2>
+                <p>We are not just optimizing Current chips; we are rewriting the physical layer of data transmission.</p>
             </div>
-            
-            <div class="arch-grid">
-                <div class="arch-text reveal">
-                    <h3>Optical Routing on Silicon</h3>
-                    <p>Current High-Performance Computing (HPC) clusters rely on electrical signaling, which suffers from severe signal degradation and massive thermal output at high frequencies. HOCS Integrated converts electrical signals into optical pulses right at the edge of the processor.</p>
-                    
-                    <div class="arch-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">►</div>
-                            <div>
-                                <h4>E/O Conversion Engine</h4>
-                                <p>Proprietary micro-lasers and modulators translate processing data into optical streams instantly.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">►</div>
-                            <div>
-                                <h4>Photonic Waveguides</h4>
-                                <p>Data travels through microscopic glass/silicon channels, completely immune to electromagnetic interference.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">►</div>
-                            <div>
-                                <h4>O/E Receiver Arrays</h4>
-                                <p>Ultra-fast photodetectors catch the light and convert it back to electrical signals for the compute core with near-zero latency.</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="tech-grid">
+                <div class="tech-text reveal">
+                    <p>Current high-performance computing (HPC) clusters rely on copper-based interconnects, which suffer from massive **heat generation** and **bandwidth degradation** at high frequencies. This is the "Thermal Wall."</p>
+                    <p>HOCS Integrated solves this by seamlessly integrating high-speed **optical data paths** (silicon photonics) directly into the computing architecture. Our proprietary hybrid E/O conversion engine translates electrical processing data into optical pulses right at the chip's edge.</p>
+                    <p>Designed for data centers and large-scale parallel processing required by LLMs and real-time AI inference, HOCS provides the necessary **hardware backbone** needed to push past the limits of traditional copper trace technology. <strong>The future of computing isn't electrical; it's hybrid.</strong></p>
                 </div>
-                
-                <div class="arch-visual reveal delay-2">
-                    <div class="arch-visual-text">
-                        [ Upload Your Block Diagram ]<br><span style="font-size: 0.8rem; color: #666;">Opto-Electrical Hybrid Schematic</span>
+                <div class="tech-visual reveal delay-2">
                     </div>
-                </div>
             </div>
         </div>
     </section>
@@ -227,11 +197,11 @@
             <div class="app-grid">
                 <div class="app-card reveal delay-1">
                     <h4>LLM Training Clusters</h4>
-                    <p>Facilitating the massive parameter updates across thousands of nodes without thermal throttling.</p>
+                    <p>Facilitating massive parameter updates across thousands of nodes without thermal throttling limitations.</p>
                 </div>
                 <div class="app-card reveal delay-2">
                     <h4>High-Frequency Trading</h4>
-                    <p>Microsecond-level latency advantages in environments where every nanosecond translates to capital.</p>
+                    <p>Microsecond-level latency advantages in environments where every nanosecond is capital.</p>
                 </div>
                 <div class="app-card reveal delay-3">
                     <h4>Edge AI Infrastructure</h4>
@@ -241,14 +211,26 @@
         </div>
     </section>
 
+    <section id="about">
+        <div class="container about-content">
+            <h2 class="reveal gradient-text">Agile Deep-Tech Engineering</h2>
+            <p class="reveal delay-1">HOCS Integrated is a core team of electronics and hardware architects dedicated to pushing the physical limits of semiconductor technology. We focus on the intersection of silicon photonics and high-performance computing.</p>
+            <div class="team-badge reveal delay-2 pulse-blue">
+                <span class="number">2</span>
+                <span class="label">Core Engineers</span>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <div class="container reveal">
-            <h2 class="footer-cta">Ready to push the boundaries of silicon?</h2>
-            <br>
-            <a href="mailto:yusuf@hocsintegrated.com" class="btn-cta" style="font-size: 1.1rem; padding: 15px 40px; background: #fff; color: #000; border-color: #fff;">Contact Engineering Team</a>
-            
-            <p class="copyright">
-                &copy; 2026 HOCS Integrated. Based in Adiyaman, TR.
+        <div class="container">
+            <p class="contact-lead reveal">Ready to push the limits of computing?</p>
+            <a href="mailto:yusuf@hocsintegrated.com" class="btn-cta reveal delay-1" style="font-size: 1rem; padding: 15px 40px; background: #fff; color: #000; border-color: #fff;">Get in Touch</a>
+            <div class="footer-logo logo-container reveal delay-2">
+                <img src="logo.png" alt="HOCS" style="height: 40px;">
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 20px;">
+                Adiyaman, TR &bull; hocsintegrated.com &bull; &copy; 2026
             </p>
         </div>
     </footer>
@@ -259,19 +241,19 @@
             const header = document.getElementById('header');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
-                    header.style.background = 'rgba(0, 0, 0, 0.95)';
-                    header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.5)';
+                    header.style.background = 'rgba(1, 1, 1, 0.98)';
+                    header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)';
                 } else {
-                    header.style.background = 'rgba(3, 3, 3, 0.85)';
+                    header.style.background = 'rgba(1, 1, 1, 0.9)';
                     header.style.boxShadow = 'none';
                 }
             });
 
-            // Intersection Observer for Scroll Reveal Animations
+            // Intersection Observer for Scroll Reveal
             const revealElements = document.querySelectorAll('.reveal');
             
             const revealOptions = {
-                threshold: 0.15, // Ekranda %15'i göründüğünde tetikle
+                threshold: 0.15, // Sayfanın %15'i göründüğünde tetikle
                 rootMargin: "0px 0px -50px 0px"
             };
 
@@ -289,6 +271,10 @@
             revealElements.forEach(el => {
                 revealOnScroll.observe(el);
             });
+        });
+    </script>
+</body>
+</html>
         });
     </script>
 </body>
