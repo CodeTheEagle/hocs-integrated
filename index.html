@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOCS Integrated | Optical Computing Systems</title>
+    <title>HOCS Integrated | Optical Computing</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <nav id="navbar">
+    <nav>
         <a href="index.html" class="nav-logo">
             <img src="logo.jpg" alt="HOCS"> HOCS INTEGRATED
         </a>
@@ -17,60 +15,47 @@
             <a href="index.html" class="active-link" data-i18n="nav_home">Home</a>
             <a href="technology.html" data-i18n="nav_tech">Technology</a>
             <a href="team.html" data-i18n="nav_team">Team</a>
-            <a href="portal.html" class="btn-portal" data-i18n="nav_portal">Partner Portal</a>
+            <a href="portal.html" class="btn-portal" data-i18n="nav_portal">Portal</a>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="hero-content">
-            <div class="reveal">
-                <span class="hero-badge" data-i18n="hero_badge">Yeni Nesil Optik İşlemci</span>
-                <h1 class="hero-title" data-i18n="hero_title">Breaking the Thermal Wall.</h1>
-                <p class="hero-subtitle" data-i18n="hero_subtitle">Silikon fotoniği ile bakır darboğazını aşıyor, yapay zeka sunucuları için saniyede 4.14 TB/s hızında sıfır gecikmeli donanım altyapısı inşa ediyoruz.</p>
-                
-                <div class="metrics-row">
-                    <div class="m-item"><strong>4.14</strong> TB/s</div>
-                    <div class="m-item"><strong>&lt; 1ns</strong> Latency</div>
-                    <div class="m-item"><strong>%99.8</strong> Efficiency</div>
-                </div>
-                
-                <a href="#waitlist" class="btn-primary" data-i18n="hero_btn">PoC Bekleme Listesine Katıl</a>
+        <div class="hero-content reveal">
+            <h1 class="hero-title" data-i18n="hero_title">Breaking the Thermal Wall.</h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">4.14 TB/s zero-latency optical hardware for next-gen AI infrastructure.</p>
+            <div class="metrics-row">
+                <div class="m-item"><strong>4.14</strong> TB/s</div>
+                <div class="m-item"><strong>&lt; 1ns</strong> Latency</div>
             </div>
+            <a href="#waitlist" class="btn-primary" data-i18n="hero_btn">Join Waitlist</a>
         </div>
-        <div class="hero-visual reveal delay-1">
-            <img src="Micro-Nanoscale-Fabrication-Engineering_CHEMENG440.jpg" alt="Micro-Nanoscale Fabrication">
-            <div class="visual-caption">Fig 1.0: Micro-Nanoscale Optical Interconnect Chip</div>
+        <div class="hero-visual reveal">
+            <img src="Micro-Nanoscale-Fabrication-Engineering_CHEMENG440.jpg" alt="Processor">
         </div>
     </header>
 
     <section class="overview-section">
         <div class="overview-grid">
             <div class="overview-text reveal">
-                <h2>Elektroniğin Sınırı, Fotoniğin Başlangıcı.</h2>
-                <p>Geleneksel GPU ve TPU mimarileri veriyi işlerken devasa ısılara ulaşır. HOCS, veriyi elektronlar yerine fotonlarla ileterek işlem hızını eksponansiyel olarak artırırken, termal ısınmayı (Thermal Bottleneck) kökünden çözer.</p>
-                <p>Analiz tablolarında görüldüğü üzere, geleneksel elektronik sistemlerin gecikmeleri, HOCS mimarisinde optik hızda gerçekleşmektedir.</p>
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Light Speed Interconnects.</h2>
+                <p>HOCS leverages silicon photonics to bypass the electrical resistance of copper, enabling massive throughput with 99.8% thermal efficiency.</p>
             </div>
-            <div class="overview-image reveal delay-1">
-                <img src="indir (3).png" alt="Latency Comparison">
+            <div class="overview-image reveal">
+                <img src="indir (3).png" alt="Bench">
             </div>
         </div>
     </section>
 
     <section id="waitlist" class="waitlist-section reveal">
         <div class="waitlist-card">
-            <h2>Kurumsal PoC & Dev-Kit Talebi</h2>
             <form action="https://formspree.io/f/mrejkoky" method="POST" class="contact-form">
-                <input type="text" name="Company" placeholder="Kurum / Şirket Adı" required>
-                <input type="email" name="Email" placeholder="Kurumsal E-posta" required>
-                <textarea name="Usecase" rows="4" placeholder="Donanım entegrasyonu için kullanım senaryonuz..." required></textarea>
+                <input type="text" name="Company" placeholder="Kurum Adı" required>
+                <input type="email" name="Email" placeholder="E-posta" required>
+                <textarea name="Msg" rows="4" placeholder="Projeniz..."></textarea>
                 <button type="submit" class="btn-primary" style="width: 100%;">Talebi İlet</button>
             </form>
         </div>
     </section>
-
-    <footer>
-        <p>&copy; 2026 HOCS Integrated. Adıyaman R&D Operations Base.</p>
-    </footer>
 
     <script src="js/lang.js"></script>
     <script src="js/main.js"></script>
