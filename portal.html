@@ -13,23 +13,32 @@
         <img src="logo.jpg" class="auth-logo" alt="HOCS">
         <h2>Engineering Access</h2>
         <p>HOCS Internal telemetry verilerine erişim için kimlik doğrulaması gereklidir.</p>
-        <button id="loginBtn" class="btn-google">Google ID ile Giriş Yap</button>
+        <button id="loginBtn" class="btn-google">Corporate ID ile Giriş Yap</button>
     </div>
 
     <div id="mainSystem" style="display: none;" class="system-grid">
         <aside class="sidebar">
-            <img src="logo.jpg" alt="HOCS">
+            <img src="logo.jpg" style="height: 40px; margin-bottom: 50px;" alt="HOCS">
             <nav class="side-nav">
                 <button class="active">Genel Bakış</button>
-                <button>Sipariş Yönetimi</button>
-                <button onclick="location.reload()">Güvenli Çıkış</button>
+                <button onclick="location.href='index.html'">Siteye Dön</button>
+                <button onclick="location.reload()" style="color: #ff3333; margin-top: 50px;">Güvenli Çıkış</button>
             </nav>
         </aside>
         <main class="content">
-            <header><h2>Telemetri Merkezi</h2><div class="status-live">● LIVE_FEED_ADIYAMAN</div></header>
-            <div class="stats">
-                <div class="card"><label>Throughput</label><div class="val count" data-target="4.14">0</div><span>TB/s</span></div>
-                <div class="card"><label>Satış Hedefi (BBN)</label><div class="val count" data-target="11.13">0</div><span>Units</span></div>
+            <header>
+                <h2>Telemetri Merkezi</h2>
+                <div class="status-live">● SECURE_NODE_01</div>
+            </header>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <label>Throughput</label>
+                    <div class="value count" data-target="4.14">0</div><span>TB/s</span>
+                </div>
+                <div class="stat-card">
+                    <label>Break-Even (BBN)</label>
+                    <div class="value count" data-target="11.13">0</div><span>Units</span>
+                </div>
             </div>
         </main>
     </div>
