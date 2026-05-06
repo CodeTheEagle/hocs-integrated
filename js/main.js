@@ -1,46 +1,38 @@
-/* --- HOCS ULTIMATE ENGINE --- */
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // 1. SCROLL REVEAL: Sayfa kaydırıldıkça öğelerin nazikçe gelmesi
-    const revealOptions = { threshold: 0.1 };
-    const revealObserver = new IntersectionObserver((entries) => {
+    // Reveal Animasyonları
+    const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
+                obs.unobserve(entry.target);
             }
         });
-    }, revealOptions);
+    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // 2. METRICS COUNTER: Rakamların akıcı bir şekilde artması
-    const counters = document.querySelectorAll('.counter-val');
-    counters.forEach(counter => {
-        const target = parseFloat(counter.innerText);
-        let count = 0;
-        const speed = target / 60; // Akış hızı ayarı
-
-        const updateCount = () => {
-            if (count < target) {
-                count += speed;
-                counter.innerText = count.toFixed(2);
-                setTimeout(updateCount, 20);
-            } else {
-                counter.innerText = target;
-            }
-        };
-        updateCount();
-    });
-
-    // 3. NAVBAR SCROLL EFFECT: Aşağı inince menünün hafiflemesi
+    // Navbar Gölgesi
     window.addEventListener('scroll', () => {
-        const nav = document.querySelector('nav');
+        const nav = document.getElementById('navbar');
         if (nav && window.scrollY > 50) {
-            nav.style.background = "rgba(255,255,255,0.95)";
-            nav.style.boxShadow = "0 10px 30px rgba(0,0,0,0.03)";
+            nav.style.boxShadow = "0 10px 30px rgba(0,0,0,0.05)";
         } else if (nav) {
-            nav.style.background = "rgba(255,255,255,0.8)";
             nav.style.boxShadow = "none";
         }
+    });
+
+    // Dashboard Sayacı
+    document.querySelectorAll('.count').forEach(counter => {
+        const target = parseFloat(counter.getAttribute('data-target'));
+        const update = setInterval(() => {
+            const current = parseFloat(counter.innerText);
+            const inc = target / 30;
+            if (current < target) {
+                counter.innerText = (current + inc).toFixed(2);
+            } else {
+                counter.innerText = target;
+                clearInterval(update);
+            }
+        }, 30);
     });
 });
