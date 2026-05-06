@@ -8,13 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    
     <nav id="navbar">
-        <div class="nav-logo"><img src="logo.jpg" alt="HOCS"> HOCS INTEGRATED</div>
+        <a href="index.html" class="nav-logo">
+            <img src="logo.jpg" alt="HOCS"> HOCS INTEGRATED
+        </a>
         <div class="nav-links">
-            <a href="index.html">Ana Sayfa</a>
-            <a href="technology.html" class="active-link">Teknoloji</a>
-            <a href="team.html">Ekip</a>
-            <a href="portal.html" class="btn-portal">Partner Portal</a>
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <a href="technology.html" class="active-link" data-i18n="nav_tech">Technology</a>
+            <a href="team.html" data-i18n="nav_team">Team</a>
+            <a href="portal.html" class="btn-portal" data-i18n="nav_portal">Partner Portal</a>
         </div>
     </nav>
 
@@ -27,34 +30,41 @@
 
     <main class="whitepaper-content">
         <section class="reveal">
-            <h2>1. Enerji Tüketimi ve Termal Darboğaz (Thermal Bottleneck)</h2>
-            <p>Modern veri merkezlerinde bakır yollar üzerinden taşınan elektrik sinyalleri, iletkenlik direncinden ötürü devasa ısılar yayar. HOCS optik modülasyonu (Pasif Soğutma) bu enerjiyi femtojoule seviyelerine indirger.</p>
+            <h2>1. Enerji Tüketimi ve Termal Darboğaz</h2>
+            <p>HOCS optik modülasyonu, enerji tüketimini femtojoule seviyelerine indirgeyerek geleneksel bakır yolların yarattığı ısı engelini aşar.</p>
             <div class="academic-fig">
-                <img src="indir (1).png" alt="Energy Consumption & Heat Dissipation">
-                <span class="fig-caption"><strong>Şekil 1.1:</strong> Elektronik tabanlı GPU'lar ile HOCS Optik sistemlerinin enerji ve ısı (Thermal Bottleneck) analiz diyagramı.</span>
+                <img src="indir (1).png" alt="Energy Consumption">
+                <span class="fig-caption"><strong>Şekil 1.1:</strong> HOCS Optik sistemlerinin enerji ve ısı analizi.</span>
             </div>
         </section>
 
         <section class="reveal">
-            <h2>2. Sinyal İşleme ve Uçta Tespit (Edge Detection)</h2>
-            <p>Xilinx Kria K26 FPGA mimarimiz, gürültülü analog sinyalleri optik uzaya taşımadan önce filtreler. Sistemimiz donanım seviyesinde "Kenar Tespiti" (Edge Detection) yaparak veriyi kayıpsız iletir.</p>
+            <h2>2. Sinyal İşleme ve Uçta Tespit</h2>
+            <p>Xilinx Kria K26 FPGA mimarimiz, gürültülü analog sinyalleri filtreler ve donanım seviyesinde "Kenar Tespiti" yaparak veriyi kayıpsız iletir.</p>
             <div class="academic-fig">
-                <img src="indir (2).png" alt="Edge Detection Output">
-                <span class="fig-caption"><strong>Şekil 1.2:</strong> Gürültülü analog girdi sinyalinin HOCS optik donanımında filtrelenip kenar tespiti yapılmış temiz çıktısı.</span>
+                <img src="indir (2).png" alt="Edge Detection">
+                <span class="fig-caption"><strong>Şekil 1.2:</strong> Filtrelenip kenar tespiti yapılmış temiz veri çıktısı.</span>
             </div>
         </section>
 
         <section class="reveal">
-            <h2>3. İşlem Gecikmesi (Processing Latency)</h2>
-            <p>HOCS mimarisinde bant genişliğini $Throughput = \lambda \cdot R_b \cdot m$ denklemi ile hesaplıyoruz. Geleneksel CPU işlem gecikmelerine kıyasla hedeflediğimiz optik performans, milisaniyelerin milyonda biri düzeyindedir.</p>
+            <h2>3. İşlem Gecikmesi (Latency)</h2>
+            <p>Milisaniyelerin milyonda biri düzeyinde gecikme hedefleyen mimarimiz, yapay zeka iş yüklerini ışık hızında yönetir.</p>
             <div class="academic-fig">
-                <img src="indir.png" alt="Processing Latency Log Scale">
-                <span class="fig-caption"><strong>Şekil 1.3:</strong> Logaritmik ölçekte CPU ile HOCS Optik mimarisinin işlem gecikme (Latency) hedef performans analizi.</span>
+                <img src="indir.png" alt="Latency Log Scale">
+                <span class="fig-caption"><strong>Şekil 1.3:</strong> Logaritmik ölçekte gecikme performans analizi.</span>
             </div>
+        </section>
+
+        <section class="reveal">
+            <h2>4. Donanım Seviyesinde Hızlandırma</h2>
+            <p>Sistemin kalbi olan Xilinx donanımı, HOCS'un saniyede 4.14 TB/s veri iletim kapasitesini yöneterek HPC (Yüksek Performanslı Hesaplama) ortamlarında darboğazları ortadan kaldırır.</p>
         </section>
     </main>
 
     <footer><p>&copy; 2026 HOCS Integrated | Adıyaman R&D Station</p></footer>
+
+    <script src="js/lang.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
