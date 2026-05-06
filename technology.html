@@ -3,104 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architecture | HOCS Integrated</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Architecture & Whitepaper | HOCS Integrated</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        :root { --bg-primary: #ffffff; --bg-secondary: #f5f5f7; --text-primary: #1d1d1f; --text-secondary: #86868b; --accent-blue: #0066cc; --border-color: #e5e5ea; --ease: cubic-bezier(0.16, 1, 0.3, 1); }
+        :root {
+            --bg-white: #ffffff;
+            --surface-silver: #f5f5f7;
+            --text-main: #1d1d1f;
+            --text-secondary: #86868b;
+            --accent-blue: #0066cc;
+            --border-soft: #d2d2d7;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-        a { text-decoration: none; color: inherit; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-white); color: var(--text-main); line-height: 1.7; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: sticky; top: 0; background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-soft);
+            padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 15px; font-weight: 700; font-size: 1.2rem; }
+        .nav-logo img { height: 45px; border-radius: 8px; }
+
+        /* --- WHITEPAPER HEADER --- */
+        .wp-header { padding: 100px 8% 60px; max-width: 900px; margin: 0 auto; text-align: center; }
+        .wp-tag { color: var(--accent-blue); font-family: 'JetBrains Mono'; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; display: block; }
+        .wp-header h1 { font-size: 3rem; font-weight: 700; letter-spacing: -1.5px; margin-bottom: 25px; line-height: 1.2; }
+        .wp-header p { color: var(--text-secondary); font-size: 1.15rem; }
+
+        /* --- CONTENT BODY --- */
+        .wp-content { max-width: 800px; margin: 0 auto; padding: 0 5% 100px; }
+        .wp-content h2 { font-size: 1.8rem; font-weight: 600; margin: 50px 0 20px; letter-spacing: -0.5px; border-bottom: 1px solid var(--surface-silver); padding-bottom: 10px; }
+        .wp-content p { margin-bottom: 20px; font-size: 1.05rem; color: #333; }
         
-        .container { max-width: 800px; margin: 0 auto; padding: 0 40px; } /* Okunabilirlik için daraltıldı */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s var(--ease); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* Teknik Formül Kutusu */
+        .formula-box {
+            background: var(--surface-silver); padding: 30px; border-radius: 16px;
+            border: 1px solid var(--border-soft); margin: 30px 0; text-align: center;
+            font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; color: var(--accent-blue);
+        }
+        .formula-desc { font-family: 'Inter'; font-size: 0.85rem; color: var(--text-secondary); margin-top: 15px; display: block; }
 
-        header { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-color); z-index: 100; }
-        nav { display: flex; justify-content: space-between; align-items: center; height: 80px; max-width: 1100px; margin: 0 auto; padding: 0 40px; }
-        .logo-box { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 1.1rem; }
-        .logo-box img { height: 35px; }
-        .nav-links { display: flex; gap: 40px; }
-        .nav-links a { font-size: 0.85rem; color: var(--text-secondary); font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+        /* Akademik Görsel Çerçevesi */
+        .academic-fig { margin: 40px 0; }
+        .academic-fig img { width: 100%; border-radius: 12px; border: 1px solid var(--border-soft); display: block; }
+        .fig-caption {
+            margin-top: 12px; font-size: 0.85rem; color: var(--text-secondary);
+            border-left: 3px solid var(--accent-blue); padding-left: 15px;
+        }
+        .fig-caption strong { color: var(--text-main); }
 
-        .article-header { padding: 200px 0 100px; text-align: left; }
-        .tag { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; display: block; }
-        h1 { font-size: 4rem; font-weight: 700; letter-spacing: -2px; margin-bottom: 30px; line-height: 1.1; }
-        .lead { font-size: 1.4rem; color: var(--text-secondary); font-weight: 400; line-height: 1.5; }
-
-        .content-body { padding-bottom: 150px; }
-        .content-body h2 { font-size: 2.2rem; font-weight: 600; letter-spacing: -1px; margin: 60px 0 24px; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; }
-        .content-body p { font-size: 1.15rem; color: #333336; margin-bottom: 24px; line-height: 1.7; }
-        
-        .math-box { background: var(--bg-secondary); border-radius: 16px; padding: 40px; margin: 40px 0; border: 1px solid var(--border-color); }
-        .math-box .formula { font-family: 'JetBrains Mono', monospace; font-size: 1.3rem; color: var(--text-primary); margin-bottom: 20px; font-weight: 700; }
-        .math-box .desc { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
-
-        footer { background: var(--bg-secondary); padding: 40px 0; text-align: center; font-size: 0.85rem; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
+        /* --- FOOTER --- */
+        footer { padding: 60px 8%; border-top: 1px solid var(--border-soft); text-align: center; color: var(--text-secondary); font-size: 0.85rem; background: var(--surface-silver); }
     </style>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <a href="index.html" class="logo-box"><img src="logo.jpg" alt="HOCS"> HOCS INTEGRATED</a>
-            <div class="nav-links">
-                <a href="technology.html" class="active">Architecture</a>
-                <a href="team.html">Company</a>
-                <a href="admin.html">Portal</a>
-            </div>
-        </nav>
+    <nav>
+        <div class="nav-logo">
+            <img src="logo.jpg" alt="HOCS Logo">
+            HOCS INTEGRATED
+        </div>
+        <div style="display: flex; gap: 40px;">
+            <a href="index.html" style="text-decoration:none; color:var(--text-main); font-weight: 500;">Overview</a>
+            <a href="team.html" style="text-decoration:none; color:var(--text-main); font-weight: 500;">Company</a>
+            <a href="portal.html" style="text-decoration:none; color:var(--accent-blue); font-weight: 600;">Partner Portal</a>
+        </div>
+    </nav>
+
+    <header class="wp-header">
+        <span class="wp-tag">Proprietary Architecture</span>
+        <h1>Silicon Photonics and the Eradication of the Thermal Wall.</h1>
+        <p>A deep dive into the HOCS framework: Utilizing Xilinx K26 Edge architectures and CuO Memristors for zero-latency, 4.14 TB/s optical interconnects.</p>
     </header>
 
-    <main class="container">
-        <div class="article-header reveal">
-            <span class="tag">System Architecture</span>
-            <h1>The Physics of High-Bandwidth Interconnects</h1>
-            <p class="lead">A deep dive into the hybrid integration of silicon photonics and FPGA processing cores, designed to achieve 4.14 TB/s throughput.</p>
+    <main class="wp-content">
+        <h2>1. The Copper Bottleneck</h2>
+        <p>Geleneksel veri merkezlerinde (Tier-3 ve Tier-4) yüksek performanslı hesaplama (HPC) düğümleri arasındaki veri iletimi, elektriksel bakır yollar üzerinden sağlanmaktadır. Ancak frekanslar GHz seviyelerinin ötesine geçtiğinde, elektronların fiziksel iletim direnci "Thermal Wall" (Termal Darboğaz) adı verilen devasa bir ısı açığa çıkarır. Bu durum, sunucu odalarındaki soğutma maliyetlerini (OPEX) astronomik rakamlara ulaştırırken veri aktarım hızını fiziksel olarak sınırlar.</p>
+
+        <div class="academic-fig">
+            <img src="image_94f0dc.jpg" alt="Thermal Wall Matrix">
+            <div class="fig-caption"><strong>Fig 1.1:</strong> Geleneksel elektriksel veri yollarındaki ısı haritası ve sinyal bozulması (Signal Degradation) analizi. <em>Source: HOCS Engineering Labs.</em></div>
         </div>
 
-        <div class="content-body">
-            <h2 class="reveal">1. The Interconnect Bottleneck</h2>
-            <p class="reveal">Modern computation has outpaced data transmission. While the internal processing capabilities of GPUs and FPGAs scale according to Moore's Law, the physical copper traces connecting these nodes are bound by immutable laws of physics. At extremely high frequencies, electrical signals suffer from severe attenuation, cross-talk, and massive heat generation. This resistance dictates that the faster we push data, the more power we waste entirely on thermal dissipation.</p>
+        <h2>2. HOCS Fotonik Entegrasyonu (CuO Memristor)</h2>
+        <p>HOCS mimarisi, veriyi elektronlar yerine fotonlarla (ışık) ileterek bu fiziksel sınırı yıkar. Optik modülasyon katmanında kullandığımız Bakır Oksit (CuO) memristörler, geleneksel silikon transistörlere kıyasla optik anahtarlama işlemlerini nano-saniyeden çok daha düşük gecikmelerle (latency < 1ns) gerçekleştirir. Bu yapı, veri iletiminde %99.8'e varan termal verimlilik sağlar.</p>
 
-            <h2 class="reveal">2. The Hybrid E/O Solution</h2>
-            <p class="reveal">HOCS Integrated does not attempt to reinvent the processing core; rather, it revolutionizes the data path. Our architecture employs a Hybrid Electrical-to-Optical (E/O) methodology. Standard digital signals outputted from programmable logic arrays (FPGAs) are immediately intercepted by our proprietary optical modulation engine.</p>
-            <p class="reveal">Using silicon photonics, these electrical signals modulate continuous-wave micro-lasers. The data is encoded into pulses of light and routed through microscopic silicon waveguides. Because photons lack mass and charge, they travel without generating electrical resistance or heat, completely bypassing the "Thermal Wall."</p>
-
-            <h2 class="reveal">3. Throughput Mechanics</h2>
-            <p class="reveal">Achieving 4.14 Terabytes per second requires dense multiplexing. We utilize Dense Wavelength Division Multiplexing (DWDM) to transmit multiple distinct optical frequencies (colors of light) through a single waveguide simultaneously, without interference.</p>
-
-            <div class="math-box reveal delay-1">
-                <div class="formula">Throughput = Channels &times; Baud Rate &times; Modulation Bits</div>
-                <div class="desc">
-                    <strong>Variable Definition:</strong><br><br>
-                    <strong>Channels:</strong> The number of discrete light wavelengths injected into the waveguide grid.<br>
-                    <strong>Baud Rate:</strong> The symbol transmission rate per individual channel, governed by the electro-absorption modulators.<br>
-                    <strong>Modulation Bits:</strong> The data density per symbol (e.g., using PAM4 encoding yields 2 bits per symbol).<br><br>
-                    By scaling the channel count within the optical domain, HOCS achieves massive aggregate bandwidth scaling linearly, while the thermal cost remains virtually flat compared to equivalent copper topologies.
-                </div>
-            </div>
-
-            <h2 class="reveal">4. Enterprise Integration</h2>
-            <p class="reveal">The HOCS framework is built with practical deployment in mind. It is engineered to interface directly with existing High-Performance Computing (HPC) environments. By serving as an ultra-wide, zero-latency interconnect layer, HOCS empowers data centers to train trillion-parameter AI models without artificial hardware throttling.</p>
+        <div class="academic-fig">
+            <img src="image_94f112.png" alt="CuO Memristor Optical Routing">
+            <div class="fig-caption"><strong>Fig 1.2:</strong> Optik yönlendirme modüllerinin mikro-seviye topolojisi ve Xilinx SoM arayüzü. <em>Source: HOCS Integrated Prototyping.</em></div>
         </div>
+
+        <h2>3. Throughput (Veri Hacmi) Matematiği</h2>
+        <p>Sistemin kalbinde yer alan Xilinx Kria K26 FPGA, devasa veri paketlerini optik katmana kayıpsız olarak aktarmak üzere programlanmıştır. Sistemin toplam bant genişliği (Throughput) fiziksel ve optik parametrelere bağlı olarak aşağıdaki matematiksel modelle hesaplanır:</p>
+
+        <div class="formula-box">
+            Throughput = λ · R<sub>b</sub> · m
+            <span class="formula-desc">
+                <strong>λ (Lambda):</strong> Aktif dalga boyu/kanal sayısı (WDM Teknolojisi).<br>
+                <strong>R<sub>b</sub>:</strong> Sembol oranı (Baud Rate, Gbaud cinsinden).<br>
+                <strong>m:</strong> Modülasyon bit yoğunluğu (Örn: PAM4 = 2 bit).
+            </span>
+        </div>
+        
+        <p>HOCS, bu formüldeki kanal sayısını (λ) optik uzayda ölçeklendirerek, geleneksel bakır kabloların aksine termal bir artış yaratmadan lineer olarak saniyede <strong>4.14 Terabayt (TB/s)</strong> veri hacmine ulaşır.</p>
+
+        <h2>4. Ticari Ölçeklendirme ve PoC Süreci</h2>
+        <p>Geliştirdiğimiz HOCS Dev-Kit donanımı, veri merkezi operatörlerinin mevcut yapay zeka (AI) sunucularına doğrudan entegre olabilecek "Plug & Play" arayüzlere sahiptir. Bu teknoloji, trilyon parametreli yapay zeka modellerinin eğitilmesi sırasında donanımsal hız kısıtlamalarını (Hardware Throttling) tamamen ortadan kaldırmak üzere ticarileştirilmektedir.</p>
     </main>
 
     <footer>
-        <div class="container">
-            &copy; 2026 HOCS Integrated. Proprietary Documentation.
-        </div>
+        &copy; 2026 HOCS Integrated | Proprietary Hardware Architecture Document.<br>
+        <span style="font-size: 0.75rem; margin-top: 10px; display: block;">Document Ref: HOCS-TECH-WP-01 | Adıyaman R&D HQ</span>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const observer = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) { entry.target.classList.add('active'); obs.unobserve(entry.target); }
-                });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        });
-    </script>
 </body>
 </html>
