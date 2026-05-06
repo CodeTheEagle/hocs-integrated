@@ -8,31 +8,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    
     <nav id="navbar">
-        <div class="nav-logo">
-            <img src="logo.jpg" alt="HOCS">
-            HOCS INTEGRATED
-        </div>
+        <a href="index.html" class="nav-logo">
+            <img src="logo.jpg" alt="HOCS"> HOCS INTEGRATED
+        </a>
         <div class="nav-links">
-            <a href="index.html" class="active-link">Ana Sayfa</a>
-            <a href="technology.html">Teknoloji</a>
-            <a href="team.html">Ekip</a>
-            <a href="portal.html" class="btn-portal">Partner Portal</a>
+            <a href="index.html" class="active-link" data-i18n="nav_home">Home</a>
+            <a href="technology.html" data-i18n="nav_tech">Technology</a>
+            <a href="team.html" data-i18n="nav_team">Team</a>
+            <a href="portal.html" class="btn-portal" data-i18n="nav_portal">Partner Portal</a>
         </div>
     </nav>
 
     <header class="hero">
         <div class="hero-content">
             <div class="reveal">
-                <span class="hero-badge">Yeni Nesil Optik İşlemci</span>
-                <h1 class="hero-title">Breaking the Thermal Wall.</h1>
-                <p class="hero-subtitle">Silikon fotoniği ile bakır darboğazını aşıyor, yapay zeka sunucuları için saniyede 4.14 TB/s hızında sıfır gecikmeli donanım altyapısı inşa ediyoruz.</p>
+                <span class="hero-badge" data-i18n="hero_badge">Yeni Nesil Optik İşlemci</span>
+                <h1 class="hero-title" data-i18n="hero_title">Breaking the Thermal Wall.</h1>
+                <p class="hero-subtitle" data-i18n="hero_subtitle">Silikon fotoniği ile bakır darboğazını aşıyor, yapay zeka sunucuları için saniyede 4.14 TB/s hızında sıfır gecikmeli donanım altyapısı inşa ediyoruz.</p>
+                
                 <div class="metrics-row">
-                    <div class="m-item"><strong>4.14</strong> TB/s Hız</div>
-                    <div class="m-item"><strong>< 1ns</strong> Gecikme</div>
-                    <div class="m-item"><strong>%99.8</strong> Isı Verimi</div>
+                    <div class="m-item"><strong>4.14</strong> TB/s</div>
+                    <div class="m-item"><strong>&lt; 1ns</strong> Latency</div>
+                    <div class="m-item"><strong>%99.8</strong> Efficiency</div>
                 </div>
-                <a href="#waitlist" class="btn-primary">PoC Bekleme Listesine Katıl</a>
+                
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <a href="#waitlist" class="btn-primary" data-i18n="hero_btn">PoC Bekleme Listesine Katıl</a>
+                    <a href="HOCS_Architecture_Brief_v1.pdf" download class="btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Technical Brief (PDF)
+                    </a>
+                </div>
             </div>
         </div>
         <div class="hero-visual reveal delay-1">
@@ -45,8 +53,7 @@
         <div class="overview-grid">
             <div class="overview-text reveal">
                 <h2>Elektroniğin Sınırı, Fotoniğin Başlangıcı.</h2>
-                <p>Geleneksel GPU ve TPU mimarileri veriyi işlerken devasa ısılara ulaşır. HOCS, veriyi elektronlar yerine fotonlarla (ışık) ileterek işlem hızını eksponansiyel olarak artırırken, termal ısınmayı (Thermal Bottleneck) kökünden çözer.</p>
-                <p>Yandaki logaritmik analiz tablosunda görüldüğü üzere, geleneksel elektronik sistemlerin milisaniyeler seviyesindeki gecikmeleri, HOCS mimarisinde optik hızda (0.000005 saniye) gerçekleşmektedir.</p>
+                <p>Geleneksel GPU ve TPU mimarileri veriyi işlerken devasa ısılara ulaşır. HOCS, veriyi elektronlar yerine fotonlarla ileterek işlem hızını eksponansiyel olarak artırırken, termal ısınmayı kökünden çözer.</p>
             </div>
             <div class="overview-image reveal delay-1">
                 <img src="indir (3).png" alt="Latency Comparison" style="width: 100%; border-radius: 16px; border: 1px solid var(--border);">
@@ -57,10 +64,9 @@
     <section id="waitlist" class="waitlist-section reveal">
         <div class="waitlist-card">
             <h2>Kurumsal PoC & Dev-Kit Talebi</h2>
-            <p>Tier-3 Veri Merkezi entegrasyon süreçleri için formumuzu doldurun.</p>
             <form action="https://formspree.io/f/mrejkoky" method="POST" class="contact-form">
                 <input type="text" name="Company" placeholder="Kurum / Şirket Adı" required>
-                <input type="email" name="Email" placeholder="Kurumsal E-posta Adresi" required>
+                <input type="email" name="Email" placeholder="Kurumsal E-posta" required>
                 <textarea name="Usecase" rows="4" placeholder="Donanım entegrasyonu için kullanım senaryonuz..." required></textarea>
                 <button type="submit" class="btn-primary" style="width: 100%;">Talebi İlet</button>
             </form>
@@ -71,6 +77,7 @@
         <p>&copy; 2026 HOCS Integrated. Adıyaman R&D Operations Base.</p>
     </footer>
 
+    <script src="js/lang.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
