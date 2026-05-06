@@ -7,19 +7,22 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    
     <nav id="navbar">
-        <div class="nav-logo"><img src="logo.jpg" alt="HOCS"> HOCS INTEGRATED</div>
+        <a href="index.html" class="nav-logo">
+            <img src="logo.jpg" alt="HOCS"> HOCS INTEGRATED
+        </a>
         <div class="nav-links">
-            <a href="index.html">Ana Sayfa</a>
-            <a href="technology.html">Teknoloji</a>
-            <a href="team.html" class="active-link">Ekip</a>
-            <a href="portal.html" class="btn-portal">Partner Portal</a>
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <a href="technology.html" data-i18n="nav_tech">Technology</a>
+            <a href="team.html" class="active-link" data-i18n="nav_team">Team</a>
+            <a href="portal.html" class="btn-portal" data-i18n="nav_portal">Partner Portal</a>
         </div>
     </nav>
 
     <header class="team-header reveal">
         <h1>Engineering Force.</h1>
-        <p>Derin teknoloji ve silikon fotoniği sınırlarını zorlayan, HOCS mimarisini gerçeğe dönüştüren kurucu ve mühendis kadromuz.</p>
+        <p>HOCS mimarisini gerçeğe dönüştüren kurucu ve mühendis kadromuz.</p>
     </header>
 
     <div class="team-grid">
@@ -27,42 +30,42 @@
             <div class="t-avatar">Y</div>
             <h3>Muhammed Yusuf</h3>
             <span class="t-role">Lead Architect & Founder</span>
-            <p>Mimari teorik modelleme, Xilinx donanım altyapısı ve stratejik yatırım vizyonu lideri.</p>
+            <p>Mimari teorik modelleme ve Xilinx donanım altyapısı lideri.</p>
         </div>
 
         <div class="t-card reveal">
             <div class="t-avatar">M</div>
             <h3>Mikail Yusuf</h3>
             <span class="t-role">Co-Founder</span>
-            <p>HOCS projesinin vizyoner kurucu ortaklarından; stratejik planlama, operasyonel süreçler ve teknoloji yönetimi sorumlusu.</p>
+            <p>Stratejik planlama ve teknoloji yönetimi sorumlusu.</p>
         </div>
 
         <div class="t-card reveal">
             <div class="t-avatar">M</div>
             <h3>Mert Poyraz Akcan</h3>
             <span class="t-role">Co-Founder & Photonics R&D</span>
-            <p>Kurucu ortak olarak optik sinyal bütünlüğü ve fiziksel katman (PHY) test laboratuvarı optimizasyonunu yürütür.</p>
+            <p>Optik sinyal bütünlüğü ve test laboratuvarı optimizasyonu.</p>
         </div>
 
         <div class="t-card reveal">
             <div class="t-avatar">A</div>
             <h3>Ali Ekber Şahin</h3>
             <span class="t-role">Embedded Systems Engineer</span>
-            <p>Xilinx FPGA programlama, yüksek hızlı veri yönlendirme ve VHDL algoritmaları yöneticisi.</p>
+            <p>FPGA programlama ve VHDL algoritmaları yöneticisi.</p>
         </div>
 
         <div class="t-card reveal">
             <div class="t-avatar">K</div>
             <h3>Muhammed Koç</h3>
             <span class="t-role">Hardware Design Engineer</span>
-            <p>Çok katmanlı empedans kontrollü PCB tasarım ve termal yönetim sistemleri mühendisi.</p>
+            <p>PCB tasarım ve termal yönetim sistemleri mühendisi.</p>
         </div>
 
         <div class="t-card reveal">
             <div class="t-avatar">B</div>
             <h3>Mustafa Bayram</h3>
             <span class="t-role">Integration Engineer</span>
-            <p>Donanımın Tier-3 Veri Merkezlerine fiziksel PoC kurulumu ve saha entegrasyonu sorumlusu.</p>
+            <p>Donanımın saha entegrasyonu ve kurulum sorumlusu.</p>
         </div>
     </div>
 
@@ -71,7 +74,9 @@
         <p>Saniyede 4.14 TB/s iletişim sınırlarının test edildiği ana donanım laboratuvarımız.</p>
     </div>
 
-    <footer><p>&copy; 2026 HOCS Integrated | Private Engineering Entity</p></footer>
+    <footer><p>&copy; 2026 HOCS Integrated</p></footer>
+
+    <script src="js/lang.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
