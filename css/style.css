@@ -1,3 +1,11 @@
+/* LİNKLERDEKİ ÇİZGİ SORUNUNU KÖKTEN ÇÖZEN KURAL */
+a, a:hover, a:visited, a:active {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    outline: none !important;
+}
+
+/* Mevcut diğer css kodların buradan aşağıya devam etsin... */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
 :root { --bg: #ffffff; --surface: #fbfbfd; --text: #1d1d1f; --text-muted: #86868b; --accent: #0066cc; --border: #d2d2d7; }
