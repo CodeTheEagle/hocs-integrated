@@ -1,123 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Architecture & Whitepaper | HOCS Integrated</title>
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-white: #ffffff;
-            --surface-silver: #f5f5f7;
-            --text-main: #1d1d1f;
-            --text-secondary: #86868b;
-            --accent-blue: #0066cc;
-            --border-soft: #d2d2d7;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg-white); color: var(--text-main); line-height: 1.7; }
-
-        /* --- NAVIGATION --- */
-        nav {
-            position: sticky; top: 0; background: rgba(255,255,255,0.8);
-            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-soft);
-            padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
-        }
-        .nav-logo { display: flex; align-items: center; gap: 15px; font-weight: 700; font-size: 1.2rem; }
-        .nav-logo img { height: 45px; border-radius: 8px; }
-
-        /* --- WHITEPAPER HEADER --- */
-        .wp-header { padding: 100px 8% 60px; max-width: 900px; margin: 0 auto; text-align: center; }
-        .wp-tag { color: var(--accent-blue); font-family: 'JetBrains Mono'; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; display: block; }
-        .wp-header h1 { font-size: 3rem; font-weight: 700; letter-spacing: -1.5px; margin-bottom: 25px; line-height: 1.2; }
-        .wp-header p { color: var(--text-secondary); font-size: 1.15rem; }
-
-        /* --- CONTENT BODY --- */
-        .wp-content { max-width: 800px; margin: 0 auto; padding: 0 5% 100px; }
-        .wp-content h2 { font-size: 1.8rem; font-weight: 600; margin: 50px 0 20px; letter-spacing: -0.5px; border-bottom: 1px solid var(--surface-silver); padding-bottom: 10px; }
-        .wp-content p { margin-bottom: 20px; font-size: 1.05rem; color: #333; }
-        
-        /* Teknik Formül Kutusu */
-        .formula-box {
-            background: var(--surface-silver); padding: 30px; border-radius: 16px;
-            border: 1px solid var(--border-soft); margin: 30px 0; text-align: center;
-            font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; color: var(--accent-blue);
-        }
-        .formula-desc { font-family: 'Inter'; font-size: 0.85rem; color: var(--text-secondary); margin-top: 15px; display: block; }
-
-        /* Akademik Görsel Çerçevesi */
-        .academic-fig { margin: 40px 0; }
-        .academic-fig img { width: 100%; border-radius: 12px; border: 1px solid var(--border-soft); display: block; }
-        .fig-caption {
-            margin-top: 12px; font-size: 0.85rem; color: var(--text-secondary);
-            border-left: 3px solid var(--accent-blue); padding-left: 15px;
-        }
-        .fig-caption strong { color: var(--text-main); }
-
-        /* --- FOOTER --- */
-        footer { padding: 60px 8%; border-top: 1px solid var(--border-soft); text-align: center; color: var(--text-secondary); font-size: 0.85rem; background: var(--surface-silver); }
-    </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-logo">
-            <img src="logo.jpg" alt="HOCS Logo">
-            HOCS INTEGRATED
-        </div>
-        <div style="display: flex; gap: 40px;">
-            <a href="index.html" style="text-decoration:none; color:var(--text-main); font-weight: 500;">Overview</a>
-            <a href="team.html" style="text-decoration:none; color:var(--text-main); font-weight: 500;">Company</a>
-            <a href="portal.html" style="text-decoration:none; color:var(--accent-blue); font-weight: 600;">Partner Portal</a>
+        <div class="nav-logo"><img src="logo.jpg" alt="HOCS"> HOCS INTEGRATED</div>
+        <div class="nav-links">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="technology.html" class="active-link">Teknoloji</a>
+            <a href="team.html">Ekip</a>
+            <a href="portal.html" class="btn-portal">Partner Access</a>
         </div>
     </nav>
 
-    <header class="wp-header">
-        <span class="wp-tag">Proprietary Architecture</span>
-        <h1>Silicon Photonics and the Eradication of the Thermal Wall.</h1>
-        <p>A deep dive into the HOCS framework: Utilizing Xilinx K26 Edge architectures and CuO Memristors for zero-latency, 4.14 TB/s optical interconnects.</p>
+    <header class="hero" style="text-align: center; display: block; padding-bottom: 50px;">
+        <span style="color: var(--accent); font-family: 'JetBrains Mono'; font-weight: 700; letter-spacing: 2px;">PROPRIETARY WHITEPAPER</span>
+        <h1 class="reveal" style="font-size: 3.5rem; margin-top: 20px;">Silikon Fotoniği ile Termal Darboğazın Yıkımı.</h1>
+        <p class="reveal" style="max-width: 800px; margin: 0 auto; font-size: 1.2rem;">HOCS (Hybrid Optical Computing System) mimarisinin derinlemesine analizi: Xilinx K26 Edge mimarisi ve Bakır Oksit (CuO) Memristörler kullanılarak saniyede 4.14 TB/s optik veri iletimine ulaşılması.</p>
     </header>
 
-    <main class="wp-content">
-        <h2>1. The Copper Bottleneck</h2>
-        <p>Geleneksel veri merkezlerinde (Tier-3 ve Tier-4) yüksek performanslı hesaplama (HPC) düğümleri arasındaki veri iletimi, elektriksel bakır yollar üzerinden sağlanmaktadır. Ancak frekanslar GHz seviyelerinin ötesine geçtiğinde, elektronların fiziksel iletim direnci "Thermal Wall" (Termal Darboğaz) adı verilen devasa bir ısı açığa çıkarır. Bu durum, sunucu odalarındaki soğutma maliyetlerini (OPEX) astronomik rakamlara ulaştırırken veri aktarım hızını fiziksel olarak sınırlar.</p>
-
-        <div class="academic-fig">
-            <img src="image_94f0dc.jpg" alt="Thermal Wall Matrix">
-            <div class="fig-caption"><strong>Fig 1.1:</strong> Geleneksel elektriksel veri yollarındaki ısı haritası ve sinyal bozulması (Signal Degradation) analizi. <em>Source: HOCS Engineering Labs.</em></div>
-        </div>
-
-        <h2>2. HOCS Fotonik Entegrasyonu (CuO Memristor)</h2>
-        <p>HOCS mimarisi, veriyi elektronlar yerine fotonlarla (ışık) ileterek bu fiziksel sınırı yıkar. Optik modülasyon katmanında kullandığımız Bakır Oksit (CuO) memristörler, geleneksel silikon transistörlere kıyasla optik anahtarlama işlemlerini nano-saniyeden çok daha düşük gecikmelerle (latency < 1ns) gerçekleştirir. Bu yapı, veri iletiminde %99.8'e varan termal verimlilik sağlar.</p>
-
-        <div class="academic-fig">
-            <img src="image_94f112.png" alt="CuO Memristor Optical Routing">
-            <div class="fig-caption"><strong>Fig 1.2:</strong> Optik yönlendirme modüllerinin mikro-seviye topolojisi ve Xilinx SoM arayüzü. <em>Source: HOCS Integrated Prototyping.</em></div>
-        </div>
-
-        <h2>3. Throughput (Veri Hacmi) Matematiği</h2>
-        <p>Sistemin kalbinde yer alan Xilinx Kria K26 FPGA, devasa veri paketlerini optik katmana kayıpsız olarak aktarmak üzere programlanmıştır. Sistemin toplam bant genişliği (Throughput) fiziksel ve optik parametrelere bağlı olarak aşağıdaki matematiksel modelle hesaplanır:</p>
-
-        <div class="formula-box">
-            Throughput = λ · R<sub>b</sub> · m
-            <span class="formula-desc">
-                <strong>λ (Lambda):</strong> Aktif dalga boyu/kanal sayısı (WDM Teknolojisi).<br>
-                <strong>R<sub>b</sub>:</strong> Sembol oranı (Baud Rate, Gbaud cinsinden).<br>
-                <strong>m:</strong> Modülasyon bit yoğunluğu (Örn: PAM4 = 2 bit).
-            </span>
-        </div>
+    <main style="max-width: 900px; margin: 0 auto; padding: 0 5% 100px; line-height: 1.8;">
         
-        <p>HOCS, bu formüldeki kanal sayısını (λ) optik uzayda ölçeklendirerek, geleneksel bakır kabloların aksine termal bir artış yaratmadan lineer olarak saniyede <strong>4.14 Terabayt (TB/s)</strong> veri hacmine ulaşır.</p>
+        <section class="reveal">
+            <h2 style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px;">1. Geleneksel Bakır Darboğazı (The Copper Bottleneck)</h2>
+            <p>Tier-3 ve Tier-4 veri merkezlerinde Yüksek Performanslı Hesaplama (HPC) düğümleri arasındaki veri aktarımı, elektriksel bakır yollar üzerinden sağlanmaktadır. Frekanslar GHz seviyelerinin ötesine geçtiğinde, elektronların fiziksel iletim direnci "Thermal Wall" (Termal Darboğaz) adı verilen devasa bir ısı açığa çıkarır. Bu durum, veri aktarım hızını fiziksel olarak sınırlamakla kalmaz, aynı zamanda PUE (Power Usage Effectiveness) oranlarını bozarak operasyonel maliyetleri (OPEX) astronomik seviyelere çeker.</p>
+            
+            <div style="margin: 40px 0; text-align: center;">
+                <img src="image_94f0dc.jpg" alt="Thermal Wall Analysis" style="width: 100%; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <span style="display: block; margin-top: 15px; font-size: 0.85rem; color: #86868b; border-left: 3px solid var(--accent); padding-left: 10px; text-align: left;">
+                    <strong>Şekil 1.1:</strong> Geleneksel elektriksel veri yollarındaki ısı haritası ve sinyal bozulması (Signal Degradation) analizi.
+                </span>
+            </div>
+        </section>
 
-        <h2>4. Ticari Ölçeklendirme ve PoC Süreci</h2>
-        <p>Geliştirdiğimiz HOCS Dev-Kit donanımı, veri merkezi operatörlerinin mevcut yapay zeka (AI) sunucularına doğrudan entegre olabilecek "Plug & Play" arayüzlere sahiptir. Bu teknoloji, trilyon parametreli yapay zeka modellerinin eğitilmesi sırasında donanımsal hız kısıtlamalarını (Hardware Throttling) tamamen ortadan kaldırmak üzere ticarileştirilmektedir.</p>
+        <section class="reveal">
+            <h2 style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; margin-top: 60px;">2. HOCS Fotonik Entegrasyonu ve CuO Memristörler</h2>
+            <p>HOCS mimarisi, veriyi elektronlar yerine fotonlarla (ışık) ileterek fiziksel iletkenlik sınırlarını aşar. Optik modülasyon katmanında kullandığımız Bakır Oksit (CuO) memristörler, geleneksel silikon transistörlere kıyasla optik anahtarlama işlemlerini çok daha düşük gecikmelerle (latency < 1ns) gerçekleştirir. Bu hibrit yapı, veri iletiminde <strong>%99.8'e varan termal verimlilik</strong> sağlar.</p>
+
+            <div style="margin: 40px 0; text-align: center;">
+                <img src="image_94f112.png" alt="CuO Memristor Architecture" style="width: 100%; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <span style="display: block; margin-top: 15px; font-size: 0.85rem; color: #86868b; border-left: 3px solid var(--accent); padding-left: 10px; text-align: left;">
+                    <strong>Şekil 1.2:</strong> Optik yönlendirme modüllerinin mikro-seviye topolojisi ve Xilinx SoM arayüzünün silikon katmana entegrasyonu.
+                </span>
+            </div>
+        </section>
+
+        <section class="reveal">
+            <h2 style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; margin-top: 60px;">3. Throughput (Veri Hacmi) ve Matematiksel Model</h2>
+            <p>Sistemin beyni olan Xilinx Kria K26 FPGA donanımı, gelen devasa veri paketlerini optik katmana kayıpsız aktarmak üzere programlanmıştır. Sistemin toplam bant genişliği (Throughput), fiziksel ve optik parametrelere bağlı olarak aşağıdaki modelle hesaplanır:</p>
+
+            <div style="background: var(--surface); padding: 40px; border-radius: 16px; text-align: center; border: 1px solid var(--border); margin: 30px 0;">
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; color: var(--accent); font-weight: 700; margin-bottom: 20px;">
+                    Throughput = λ · R<sub>b</sub> · m
+                </div>
+                <div style="font-size: 0.9rem; color: #555; text-align: left; display: inline-block;">
+                    <strong>λ (Lambda):</strong> Aktif dalga boyu/kanal sayısı (WDM Teknolojisi).<br>
+                    <strong>R<sub>b</sub>:</strong> Sembol oranı (Baud Rate, Gbaud cinsinden).<br>
+                    <strong>m:</strong> Modülasyon bit yoğunluğu (Örn: PAM4 = 2 bit).
+                </div>
+            </div>
+            
+            <p>HOCS, bu formüldeki kanal sayısını (λ) optik uzayda ölçeklendirerek, termal bir artış yaratmadan lineer olarak saniyede <strong>4.14 Terabayt (TB/s)</strong> veri hacmine ulaşır. Bu kapasite, LLM (Büyük Dil Modelleri) eğitim sürelerini dramatik biçimde kısaltır.</p>
+        </section>
+
     </main>
 
     <footer>
-        &copy; 2026 HOCS Integrated | Proprietary Hardware Architecture Document.<br>
-        <span style="font-size: 0.75rem; margin-top: 10px; display: block;">Document Ref: HOCS-TECH-WP-01 | Adıyaman R&D HQ</span>
+        <p>&copy; 2026 HOCS Integrated. Proprietary Hardware Architecture Document.</p>
+        <p style="font-size: 0.75rem; margin-top: 10px;">Document Ref: HOCS-TECH-WP-01 | Adıyaman R&D Station</p>
     </footer>
 
+    <script src="js/main.js"></script>
 </body>
 </html>
