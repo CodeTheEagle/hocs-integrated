@@ -3,75 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ekip | HOCS Integrated</title>
+    <title>Team | HOCS Integrated</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav id="navbar">
-        <div class="nav-logo"><img src="logo.jpg" alt="HOCS"> HOCS INTEGRATED</div>
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <img src="logo.jpg" alt="HOCS"> HOCS INTEGRATED
+        </a>
         <div class="nav-links">
             <a href="index.html">Ana Sayfa</a>
             <a href="technology.html">Teknoloji</a>
             <a href="team.html" class="active-link">Ekip</a>
-            <a href="portal.html" class="btn-portal">Partner Portal</a>
+            <a href="portal.html" style="color:var(--accent); font-weight:600;">Portal</a>
         </div>
     </nav>
 
-    <header class="team-header reveal">
-        <h1>Engineering Force.</h1>
-        <p>Derin teknoloji ve silikon fotoniği sınırlarını zorlayan, HOCS mimarisini gerçeğe dönüştüren kurucu ve mühendis kadromuz.</p>
+    <header style="padding: 80px 8% 20px; text-align: center;">
+        <h1 style="font-size: 3rem; letter-spacing: -1.5px;">Engineering Force</h1>
     </header>
 
     <div class="team-grid">
-        <div class="t-card reveal">
-            <div class="t-avatar">Y</div>
-            <h3>Muhammed Yusuf</h3>
-            <span class="t-role">Lead Architect & Founder</span>
-            <p>Mimari teorik modelleme, Xilinx donanım altyapısı ve stratejik yatırım vizyonu lideri.</p>
-        </div>
+        <div class="t-card reveal"><div class="t-avatar">Y</div><h3>Muhammed Yusuf</h3><span class="t-role">Founder & Architect</span></div>
+        <div class="t-card reveal"><div class="t-avatar">M</div><h3>Mikail Yusuf</h3><span class="t-role">Founder</span></div>
+        <div class="t-card reveal"><div class="t-avatar">M</div><h3>Mert Poyraz Akcan</h3><span class="t-role">Founder & R&D</span></div>
+        <div class="t-card reveal"><h3>Ali Ekber Şahin</h3><span class="t-role">Embedded Systems</span></div>
+        <div class="t-card reveal"><h3>Muhammed Koç</h3><span class="t-role">Hardware Design</span></div>
+        <div class="t-card reveal"><h3>Mustafa Bayram</h3><span class="t-role">Integration Engineer</span></div>
+    </div>
 
-        <div class="t-card reveal">
-            <div class="t-avatar">M</div>
-            <h3>Mikail Yusuf</h3>
-            <span class="t-role">Co-Founder</span>
-            <p>HOCS projesinin vizyoner kurucu ortaklarından; stratejik planlama, operasyonel süreçler ve teknoloji yönetimi sorumlusu.</p>
-        </div>
-
-        <div class="t-card reveal">
-            <div class="t-avatar">M</div>
-            <h3>Mert Poyraz Akcan</h3>
-            <span class="t-role">Co-Founder & Photonics R&D</span>
-            <p>Kurucu ortak olarak optik sinyal bütünlüğü ve fiziksel katman (PHY) test laboratuvarı optimizasyonunu yürütür.</p>
-        </div>
-
-        <div class="t-card reveal">
-            <div class="t-avatar">A</div>
-            <h3>Ali Ekber Şahin</h3>
-            <span class="t-role">Embedded Systems Engineer</span>
-            <p>Xilinx FPGA programlama, yüksek hızlı veri yönlendirme ve VHDL algoritmaları yöneticisi.</p>
-        </div>
-
-        <div class="t-card reveal">
-            <div class="t-avatar">K</div>
-            <h3>Muhammed Koç</h3>
-            <span class="t-role">Hardware Design Engineer</span>
-            <p>Çok katmanlı empedans kontrollü PCB tasarım ve termal yönetim sistemleri mühendisi.</p>
-        </div>
-
-        <div class="t-card reveal">
-            <div class="t-avatar">B</div>
-            <h3>Mustafa Bayram</h3>
-            <span class="t-role">Integration Engineer</span>
-            <p>Donanımın Tier-3 Veri Merkezlerine fiziksel PoC kurulumu ve saha entegrasyonu sorumlusu.</p>
+    <div class="hq-banner reveal">
+        <div class="banner-bg-img" style="background-image: url('images.jpg');"></div>
+        <div class="banner-content">
+            <h2 style="font-size: 2.5rem;">Adıyaman R&D Station</h2>
+            <p>Main Hardware Testing & Prototyping Facility</p>
         </div>
     </div>
 
-    <div class="hq-banner reveal" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images.jpg');">
-        <h2>Adıyaman R&D Operations Base</h2>
-        <p>Saniyede 4.14 TB/s iletişim sınırlarının test edildiği ana donanım laboratuvarımız.</p>
-    </div>
-
-    <footer><p>&copy; 2026 HOCS Integrated | Private Engineering Entity</p></footer>
     <script src="js/main.js"></script>
 </body>
 </html>
