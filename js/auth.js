@@ -11,15 +11,18 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
-document.getElementById('loginBtn').onclick = () => {
-    auth.signInWithPopup(provider).then((result) => {
-        const allowed = ["yusuf@hocsintegrated.com", "m.yusufcobanoglu1@gmail.com", "EagleSTORM@gmail.com"];
-        if (allowed.includes(result.user.email)) {
-            document.getElementById('authLayer').style.display = 'none';
-            document.getElementById('mainSystem').style.display = 'flex';
-        } else {
-            alert("Yetkisiz erişim denemesi! Adıyaman HQ tarafından loglandı.");
-            auth.signOut();
-        }
-    });
-};
+const loginBtn = document.getElementById('loginBtn');
+if (loginBtn) {
+    loginBtn.onclick = () => {
+        auth.signInWithPopup(provider).then((result) => {
+            const allowed = ["yusuf@hocsintegrated.com", "m.yusufcobanoglu1@gmail.com", "EagleSTORM@gmail.com"];
+            if (allowed.includes(result.user.email)) {
+                document.getElementById('authLayer').style.display = 'none';
+                document.getElementById('mainSystem').style.display = 'flex';
+            } else {
+                alert("Security Alert: Unauthorized Node.");
+                auth.signOut();
+            }
+        });
+    };
+}
