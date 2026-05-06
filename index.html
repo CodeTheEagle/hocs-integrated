@@ -1,158 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOCS Integrated | Optical Computing Systems</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-clean: #ffffff;
-            --surface-silver: #f5f5f7;
-            --text-bold: #1d1d1f;
-            --text-secondary: #86868b;
-            --accent-blue: #0066cc;
-            --border: #d2d2d7;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg-clean); color: var(--text-bold); line-height: 1.6; }
-
-        /* --- NAV & LOGO --- */
-        nav {
-            position: sticky; top: 0; background: rgba(255,255,255,0.8);
-            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
-            padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
-        }
-        .nav-logo { display: flex; align-items: center; gap: 15px; font-weight: 700; font-size: 1.3rem; letter-spacing: -0.5px; }
-        .nav-logo img { height: 50px; border-radius: 10px; } /* Logo boyutu buradan ayarlanabilir */
-
-        /* --- HERO & TECHNICAL VISUAL --- */
-        .hero-tech { padding: 80px 8%; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; }
-        .hero-text h1 { font-size: 3.5rem; font-weight: 700; letter-spacing: -2px; margin-bottom: 20px; line-height: 1.1; }
-        .hero-text p { font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 30px; max-width: 600px; }
-
-        .img-box { position: relative; border-radius: 28px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.12); border: 1px solid var(--border); }
-        .img-box img { width: 100%; display: block; transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-        .img-box:hover img { transform: scale(1.03); }
-        .img-caption { 
-            position: absolute; bottom: 0; width: 100%; background: rgba(255,255,255,0.9); 
-            padding: 12px 20px; font-size: 0.75rem; font-family: 'JetBrains Mono'; border-top: 1px solid var(--border);
-        }
-
-        /* --- STRATEGIC DATA TABLES --- */
-        .data-section { padding: 100px 8%; background: var(--surface-silver); }
-        .table-wrap { 
-            background: #fff; border-radius: 30px; padding: 50px; 
-            border: 1px solid var(--border); box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-        }
-        .table-title { font-size: 2rem; font-weight: 700; margin-bottom: 40px; letter-spacing: -1px; }
-        
-        table { width: 100%; border-collapse: collapse; }
-        th { text-align: left; padding: 20px; color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid var(--surface-silver); }
-        td { padding: 20px; border-bottom: 1px solid var(--surface-silver); font-size: 1rem; font-weight: 500; }
-        .value-cell { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--accent-blue); }
-
-        /* --- FOOTER & CITATIONS --- */
-        footer { padding: 80px 8%; border-top: 1px solid var(--border); background: #fff; }
-        .citation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px; }
-        .cite-item { padding-left: 20px; border-left: 3px solid var(--accent-blue); }
-        .cite-item h4 { font-size: 0.9rem; margin-bottom: 8px; color: var(--text-bold); }
-        .cite-item p { font-size: 0.85rem; color: var(--text-secondary); }
-
-        .copyright { text-align: center; font-size: 0.8rem; color: #999; margin-top: 40px; }
-    </style>
+    <title>HOCS Integrated | Optical Computing</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <nav>
-        <div class="nav-logo">
-            <img src="logo.jpg" alt="HOCS Logo">
-            HOCS INTEGRATED
-        </div>
-        <div style="display: flex; gap: 40px;">
-            <a href="portal.html" style="text-decoration:none; color:var(--text-bold); font-weight: 600; font-size: 0.95rem;">System Portal</a>
+        <div class="nav-logo"><img src="logo.jpg" alt="HOCS"> HOCS INTEGRATED</div>
+        <div class="nav-links">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="technology.html">Teknoloji</a>
+            <a href="team.html">Ekip</a>
+            <a href="portal.html" class="btn-portal">Partner Access</a>
         </div>
     </nav>
 
-    <section class="hero-tech">
-        <div class="hero-text">
-            <h1>Hybrid Optical Computing Architecture.</h1>
-            <p>HOCS eliminates the 'Thermal Wall' in high-performance data centers by shifting data interconnects from copper to silicon photonics, achieving 4.14 TB/s aggregate bandwidth.</p>
-            <div style="display: flex; gap: 20px;">
-                <div style="padding: 15px; border: 1px solid var(--border); border-radius: 12px; text-align:center;">
-                    <div style="font-family:'JetBrains Mono'; font-weight:700; font-size:1.5rem;">4.14 TB/s</div>
-                    <div style="font-size:0.7rem; color:var(--text-secondary);">THROUGHPUT</div>
-                </div>
-                <div style="padding: 15px; border: 1px solid var(--border); border-radius: 12px; text-align:center;">
-                    <div style="font-family:'JetBrains Mono'; font-weight:700; font-size:1.5rem;">&lt; 1ns</div>
-                    <div style="font-size:0.7rem; color:var(--text-secondary);">LATENCY</div>
-                </div>
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="reveal">Breaking the Thermal Wall.</h1>
+            <p class="reveal">4.14 TB/s hızında optik veri iletimi ile yeni nesil AI sunucu mimarisi.</p>
+            <div class="metrics reveal">
+                <div class="metric-item"><span>4.14</span><small>TB/s</small></div>
+                <div class="metric-item"><span>&lt;1</span><small>ns Latency</small></div>
             </div>
+            <a href="#waitlist" class="btn-primary reveal">Dev-Kit Bekleme Listesine Katıl</a>
         </div>
-        <div class="img-box">
-            <img src="Micro-Nanoscale-Fabrication-Engineering_CHEMENG440.jpg" alt="Optical Fabrication Engineering">
-            <div class="img-caption">Fig 1.1: Micro-Nanoscale Optical Interconnect Fabrication Interface.</div>
+        <div class="hero-image reveal">
+            <img src="Micro-Nanoscale-Fabrication-Engineering_CHEMENG440.jpg" alt="Nano Fabrication">
+        </div>
+    </header>
+
+    <section id="waitlist" class="waitlist-section">
+        <h2 class="reveal">Kurumsal Ön Sipariş & PoC Talebi</h2>
+        <div class="form-container reveal">
+            <form action="https://formspree.io/f/mrejkoky" method="POST">
+                <input type="text" name="Company" placeholder="Kurum Adı" required>
+                <input type="email" name="Email" placeholder="Kurumsal E-posta" required>
+                <textarea name="Message" placeholder="Projenizden bahsedin..." rows="4"></textarea>
+                <button type="submit" class="btn-submit">Talep Gönder</button>
+            </form>
         </div>
     </section>
 
-    <section class="data-section">
-        <div class="table-wrap">
-            <h2 class="table-title">Strategic Financial Modeling</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Metric Category</th>
-                        <th>Phase 1 (2026)</th>
-                        <th>Phase 2 (Projected)</th>
-                        <th>Deployment Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Operational Budget (OPEX)</td>
-                        <td class="value-cell">1,073,900 ₺</td>
-                        <td class="value-cell">2,432,775 ₺</td>
-                        <td>Seed Capital Allocated</td>
-                    </tr>
-                    <tr>
-                        <td>Commercial Revenue (Dev-Kit)</td>
-                        <td class="value-cell">425,000 ₺</td>
-                        <td class="value-cell">27,625,000 ₺</td>
-                        <td>Strategic Scaling Mode</td>
-                    </tr>
-                    <tr>
-                        <td>Break-Even Point (BBN)</td>
-                        <td class="value-cell">11.13 Units</td>
-                        <td class="value-cell">Positive Cashflow</td>
-                        <td>Tier-3 Infrastructure Ready</td>
-                    </tr>
-                    <tr>
-                        <td>LTV / CAC Efficiency</td>
-                        <td class="value-cell">6.0 Ratio</td>
-                        <td class="value-cell">Optimized</td>
-                        <td>B2B Market Validation</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <footer>
-        <div class="citation-grid">
-            <div class="cite-item">
-                <h4>Source: Internal R&D Projections</h4>
-                <p>Derived from HOCS Integrated Module 5 Financial Architecture. All metrics verified for B2B scalability in HPC environments.</p>
-            </div>
-            <div class="cite-item">
-                <h4>Source: Hardware Specifications</h4>
-                <p>Based on Xilinx Kria K26 SoC Benchmarks and Silicon Photonics Interconnect Standards for 4.14 TB/s transmission.</p>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2026 HOCS Integrated | Adıyaman R&D Operations Base | Proprietary Technology.
-        </div>
-    </footer>
-
+    <script src="js/main.js"></script>
 </body>
 </html>
