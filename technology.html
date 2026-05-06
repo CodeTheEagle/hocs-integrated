@@ -3,79 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architecture & Whitepaper | HOCS Integrated</title>
+    <title>Whitepaper | HOCS Integrated</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <nav>
+    <nav id="navbar">
         <div class="nav-logo"><img src="logo.jpg" alt="HOCS"> HOCS INTEGRATED</div>
         <div class="nav-links">
             <a href="index.html">Ana Sayfa</a>
             <a href="technology.html" class="active-link">Teknoloji</a>
             <a href="team.html">Ekip</a>
-            <a href="portal.html" class="btn-portal">Partner Access</a>
+            <a href="portal.html" class="btn-portal">Partner Portal</a>
         </div>
     </nav>
 
-    <header class="hero" style="text-align: center; display: block; padding-bottom: 50px;">
-        <span style="color: var(--accent); font-family: 'JetBrains Mono'; font-weight: 700; letter-spacing: 2px;">PROPRIETARY WHITEPAPER</span>
-        <h1 class="reveal" style="font-size: 3.5rem; margin-top: 20px;">Silikon Fotoniği ile Termal Darboğazın Yıkımı.</h1>
-        <p class="reveal" style="max-width: 800px; margin: 0 auto; font-size: 1.2rem;">HOCS (Hybrid Optical Computing System) mimarisinin derinlemesine analizi: Xilinx K26 Edge mimarisi ve Bakır Oksit (CuO) Memristörler kullanılarak saniyede 4.14 TB/s optik veri iletimine ulaşılması.</p>
-    </header>
+    <div class="tech-banner reveal">
+        <img src="cse-research-14-1024x683.jpg" alt="Processor Core">
+        <div class="banner-overlay">
+            <h1>Proprietary Architecture.</h1>
+        </div>
+    </div>
 
-    <main style="max-width: 900px; margin: 0 auto; padding: 0 5% 100px; line-height: 1.8;">
-        
+    <main class="whitepaper-content">
         <section class="reveal">
-            <h2 style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px;">1. Geleneksel Bakır Darboğazı (The Copper Bottleneck)</h2>
-            <p>Tier-3 ve Tier-4 veri merkezlerinde Yüksek Performanslı Hesaplama (HPC) düğümleri arasındaki veri aktarımı, elektriksel bakır yollar üzerinden sağlanmaktadır. Frekanslar GHz seviyelerinin ötesine geçtiğinde, elektronların fiziksel iletim direnci "Thermal Wall" (Termal Darboğaz) adı verilen devasa bir ısı açığa çıkarır. Bu durum, veri aktarım hızını fiziksel olarak sınırlamakla kalmaz, aynı zamanda PUE (Power Usage Effectiveness) oranlarını bozarak operasyonel maliyetleri (OPEX) astronomik seviyelere çeker.</p>
-            
-            <div style="margin: 40px 0; text-align: center;">
-                <img src="image_94f0dc.jpg" alt="Thermal Wall Analysis" style="width: 100%; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-                <span style="display: block; margin-top: 15px; font-size: 0.85rem; color: #86868b; border-left: 3px solid var(--accent); padding-left: 10px; text-align: left;">
-                    <strong>Şekil 1.1:</strong> Geleneksel elektriksel veri yollarındaki ısı haritası ve sinyal bozulması (Signal Degradation) analizi.
-                </span>
+            <h2>1. Enerji Tüketimi ve Termal Darboğaz (Thermal Bottleneck)</h2>
+            <p>Modern veri merkezlerinde bakır yollar üzerinden taşınan elektrik sinyalleri, iletkenlik direncinden ötürü devasa ısılar yayar. HOCS optik modülasyonu (Pasif Soğutma) bu enerjiyi femtojoule seviyelerine indirger.</p>
+            <div class="academic-fig">
+                <img src="indir (1).png" alt="Energy Consumption & Heat Dissipation">
+                <span class="fig-caption"><strong>Şekil 1.1:</strong> Elektronik tabanlı GPU'lar ile HOCS Optik sistemlerinin enerji ve ısı (Thermal Bottleneck) analiz diyagramı.</span>
             </div>
         </section>
 
         <section class="reveal">
-            <h2 style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; margin-top: 60px;">2. HOCS Fotonik Entegrasyonu ve CuO Memristörler</h2>
-            <p>HOCS mimarisi, veriyi elektronlar yerine fotonlarla (ışık) ileterek fiziksel iletkenlik sınırlarını aşar. Optik modülasyon katmanında kullandığımız Bakır Oksit (CuO) memristörler, geleneksel silikon transistörlere kıyasla optik anahtarlama işlemlerini çok daha düşük gecikmelerle (latency < 1ns) gerçekleştirir. Bu hibrit yapı, veri iletiminde <strong>%99.8'e varan termal verimlilik</strong> sağlar.</p>
-
-            <div style="margin: 40px 0; text-align: center;">
-                <img src="image_94f112.png" alt="CuO Memristor Architecture" style="width: 100%; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-                <span style="display: block; margin-top: 15px; font-size: 0.85rem; color: #86868b; border-left: 3px solid var(--accent); padding-left: 10px; text-align: left;">
-                    <strong>Şekil 1.2:</strong> Optik yönlendirme modüllerinin mikro-seviye topolojisi ve Xilinx SoM arayüzünün silikon katmana entegrasyonu.
-                </span>
+            <h2>2. Sinyal İşleme ve Uçta Tespit (Edge Detection)</h2>
+            <p>Xilinx Kria K26 FPGA mimarimiz, gürültülü analog sinyalleri optik uzaya taşımadan önce filtreler. Sistemimiz donanım seviyesinde "Kenar Tespiti" (Edge Detection) yaparak veriyi kayıpsız iletir.</p>
+            <div class="academic-fig">
+                <img src="indir (2).png" alt="Edge Detection Output">
+                <span class="fig-caption"><strong>Şekil 1.2:</strong> Gürültülü analog girdi sinyalinin HOCS optik donanımında filtrelenip kenar tespiti yapılmış temiz çıktısı.</span>
             </div>
         </section>
 
         <section class="reveal">
-            <h2 style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; margin-top: 60px;">3. Throughput (Veri Hacmi) ve Matematiksel Model</h2>
-            <p>Sistemin beyni olan Xilinx Kria K26 FPGA donanımı, gelen devasa veri paketlerini optik katmana kayıpsız aktarmak üzere programlanmıştır. Sistemin toplam bant genişliği (Throughput), fiziksel ve optik parametrelere bağlı olarak aşağıdaki modelle hesaplanır:</p>
-
-            <div style="background: var(--surface); padding: 40px; border-radius: 16px; text-align: center; border: 1px solid var(--border); margin: 30px 0;">
-                <div style="font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; color: var(--accent); font-weight: 700; margin-bottom: 20px;">
-                    Throughput = λ · R<sub>b</sub> · m
-                </div>
-                <div style="font-size: 0.9rem; color: #555; text-align: left; display: inline-block;">
-                    <strong>λ (Lambda):</strong> Aktif dalga boyu/kanal sayısı (WDM Teknolojisi).<br>
-                    <strong>R<sub>b</sub>:</strong> Sembol oranı (Baud Rate, Gbaud cinsinden).<br>
-                    <strong>m:</strong> Modülasyon bit yoğunluğu (Örn: PAM4 = 2 bit).
-                </div>
+            <h2>3. İşlem Gecikmesi (Processing Latency)</h2>
+            <p>HOCS mimarisinde bant genişliğini $Throughput = \lambda \cdot R_b \cdot m$ denklemi ile hesaplıyoruz. Geleneksel CPU işlem gecikmelerine kıyasla hedeflediğimiz optik performans, milisaniyelerin milyonda biri düzeyindedir.</p>
+            <div class="academic-fig">
+                <img src="indir.png" alt="Processing Latency Log Scale">
+                <span class="fig-caption"><strong>Şekil 1.3:</strong> Logaritmik ölçekte CPU ile HOCS Optik mimarisinin işlem gecikme (Latency) hedef performans analizi.</span>
             </div>
-            
-            <p>HOCS, bu formüldeki kanal sayısını (λ) optik uzayda ölçeklendirerek, termal bir artış yaratmadan lineer olarak saniyede <strong>4.14 Terabayt (TB/s)</strong> veri hacmine ulaşır. Bu kapasite, LLM (Büyük Dil Modelleri) eğitim sürelerini dramatik biçimde kısaltır.</p>
         </section>
-
     </main>
 
-    <footer>
-        <p>&copy; 2026 HOCS Integrated. Proprietary Hardware Architecture Document.</p>
-        <p style="font-size: 0.75rem; margin-top: 10px;">Document Ref: HOCS-TECH-WP-01 | Adıyaman R&D Station</p>
-    </footer>
-
+    <footer><p>&copy; 2026 HOCS Integrated | Adıyaman R&D Station</p></footer>
     <script src="js/main.js"></script>
 </body>
 </html>
