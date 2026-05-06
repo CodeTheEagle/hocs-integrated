@@ -3,193 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOCS Integrated | Breaking the Thermal Wall</title>
-    <meta name="description" content="Next-Generation Optical Computing for AI Workloads. 4.14 TB/s optical interconnects.">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
+    <title>HOCS Integrated | Hybrid Optical Computing System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #000000;
-            --bg-card: rgba(20, 20, 20, 0.6);
-            --accent: #0071e3;
-            --accent-glow: rgba(0, 113, 227, 0.4);
-            --text-light: #f5f5f7;
-            --text-muted: #86868b;
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --bg-apple: #ffffff;
+            --surface-silver: #f5f5f7;
+            --text-dark: #1d1d1f;
+            --accent-blue: #0066cc;
+            --border-line: #d2d2d7;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-main); 
-            color: var(--text-light); 
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-apple); color: var(--text-dark); line-height: 1.6; }
 
-        /* --- NAVBAR (Glassmorphism) --- */
+        /* --- LOGO VE NAV --- */
         nav {
-            position: fixed; top: 0; width: 100%; z-index: 100;
-            background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 20px 5%; display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-line);
+            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
         }
-        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -1px; }
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover { color: var(--text-light); }
-        .btn-nav {
-            background: var(--text-light); color: var(--bg-main);
-            padding: 10px 20px; border-radius: 20px; font-weight: 600; text-decoration: none;
-            transition: 0.3s;
-        }
-        .btn-nav:hover { transform: scale(1.05); }
+        .nav-logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.2rem; }
+        .nav-logo img { height: 40px; border-radius: 8px; } /* Logoyu buradan büyütebilirsin */
 
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
-            background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 50%);
-            padding: 0 20px;
+        /* --- TEKNOLOJİ VE GÖRSEL BÖLÜMÜ --- */
+        .tech-section { padding: 100px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .tech-image-container { position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .tech-image-container img { width: 100%; display: block; transition: transform 0.5s; }
+        .tech-image-container:hover img { transform: scale(1.05); }
+        .source-tag { 
+            position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); 
+            color: #fff; padding: 5px 12px; border-radius: 4px; font-size: 0.7rem; font-family: 'JetBrains Mono';
         }
-        .hero h1 { font-size: 4.5rem; font-weight: 700; letter-spacing: -2px; margin-bottom: 20px; line-height: 1.1; }
-        .hero p { font-size: 1.5rem; color: var(--text-muted); max-width: 700px; margin-bottom: 40px; }
+
+        /* --- FİNANSAL TABLOLAR (EXCEL'DEN GELEN VERİLER) --- */
+        .data-section { padding: 80px 10%; background: var(--surface-silver); }
+        .section-title { font-size: 2.5rem; font-weight: 700; letter-spacing: -1px; margin-bottom: 40px; text-align: center; }
         
-        .hero-metrics { display: flex; gap: 40px; margin-bottom: 50px; }
-        .metric { text-align: center; }
-        .metric .val { font-family: 'JetBrains Mono', monospace; font-size: 2.5rem; font-weight: 700; color: #fff; }
-        .metric .lbl { color: var(--accent); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
-
-        .btn-primary {
-            background: var(--accent); color: #fff; padding: 18px 40px;
-            border-radius: 30px; font-size: 1.2rem; font-weight: 600; text-decoration: none;
-            box-shadow: 0 10px 30px var(--accent-glow); transition: 0.3s; border: none; cursor: pointer;
+        .table-container { 
+            background: #fff; border-radius: 24px; padding: 40px; border: 1px solid var(--border-line);
+            overflow-x: auto; box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px var(--accent-glow); }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { text-align: left; padding: 15px; border-bottom: 2px solid var(--surface-silver); color: var(--text-dark); font-size: 0.85rem; text-transform: uppercase; }
+        td { padding: 15px; border-bottom: 1px solid var(--surface-silver); font-size: 0.95rem; }
+        .mono { font-family: 'JetBrains Mono', monospace; font-weight: 600; color: var(--accent-blue); }
 
-        /* --- TECH SPECS GRID --- */
-        .section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-size: 2.5rem; margin-bottom: 60px; text-align: center; letter-spacing: -1px; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card {
-            background: var(--bg-card); border: 1px solid var(--glass-border);
-            padding: 40px; border-radius: 24px; transition: 0.4s;
-            backdrop-filter: blur(10px);
-        }
-        .card:hover { border-color: var(--accent); transform: translateY(-10px); }
-        .card h3 { font-size: 1.5rem; margin-bottom: 15px; }
-        .card p { color: var(--text-muted); }
-
-        /* --- WAITLIST FORM --- */
-        .waitlist-section {
-            background: #0a0a0a; border-top: 1px solid var(--glass-border);
-            padding: 100px 5%; text-align: center;
-        }
-        .form-container { max-width: 500px; margin: 0 auto; }
-        .form-input {
-            width: 100%; background: #141414; border: 1px solid #333;
-            color: #fff; padding: 16px 20px; border-radius: 12px;
-            margin-bottom: 20px; font-size: 1rem; font-family: 'Inter', sans-serif;
-            transition: 0.3s;
-        }
-        .form-input:focus { outline: none; border-color: var(--accent); background: #1a1a1a; }
-        
-        footer { padding: 40px 5%; text-align: center; color: #555; border-top: 1px solid #111; font-size: 0.9rem; }
-
-        /* Animations */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* --- FOOTER / KAYNAKÇA --- */
+        footer { padding: 60px 10%; border-top: 1px solid var(--border-line); font-size: 0.85rem; color: #86868b; }
+        .citation { margin-bottom: 10px; padding-left: 20px; border-left: 2px solid var(--accent-blue); }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">HOCS</div>
-        <div class="nav-links">
-            <a href="#architecture">Architecture</a>
-            <a href="technology.html">Whitepaper</a>
-            <a href="team.html">Company</a>
-            <a href="admin.html">Internal Portal</a>
+        <div class="nav-logo">
+            <img src="logo.jpg" alt="HOCS Logo">
+            HOCS INTEGRATED
         </div>
-        <a href="#waitlist" class="btn-nav">Request Dev-Kit</a>
+        <div style="display: flex; gap: 30px; font-weight: 500;">
+            <a href="portal.html" style="text-decoration:none; color:var(--accent-blue)">Partner Access</a>
+        </div>
     </nav>
 
-    <section class="hero">
-        <h1 class="reveal">Breaking the Thermal Wall.</h1>
-        <p class="reveal">Silicon photonics meets edge computing. Eliminate copper bottlenecks and achieve zero-latency optical data transmission for AI workloads.</p>
-        
-        <div class="hero-metrics reveal">
-            <div class="metric">
-                <div class="val">4.14</div>
-                <div class="lbl">TB/s Throughput</div>
-            </div>
-            <div class="metric">
-                <div class="val">&lt;1ns</div>
-                <div class="lbl">Optical Latency</div>
-            </div>
-            <div class="metric">
-                <div class="val">99.8%</div>
-                <div class="lbl">Thermal Efficiency</div>
-            </div>
+    <section class="tech-section">
+        <div>
+            <h2 style="font-size: 3rem; margin-bottom: 20px;">Thermal Wall: Solved.</h2>
+            <p style="font-size: 1.2rem; color: #86868b; margin-bottom: 30px;">Xilinx FPGA mimarisi üzerine inşa edilen HOCS, fotonik veri iletimi ile geleneksel bakır yolların yarattığı ısınma darboğazını saniyede 4.14 TB/s hızla aşıyor.</p>
         </div>
-
-        <a href="#waitlist" class="btn-primary reveal">Join the PoC Waitlist</a>
-    </section>
-
-    <section id="architecture" class="section">
-        <h2 class="section-title reveal">Engineered for Data Centers</h2>
-        <div class="grid">
-            <div class="card reveal">
-                <h3>Xilinx FPGA Core</h3>
-                <p>Powered by the robust Xilinx Kria K26 SoM architecture, enabling dynamic routing and programmable logic processing directly at the optical transceiver edge.</p>
-            </div>
-            <div class="card reveal">
-                <h3>CuO Memristor Matrix</h3>
-                <p>Advanced Copper Oxide memristors handle data modulation efficiently, dropping the thermal output significantly compared to traditional electrical routing.</p>
-            </div>
-            <div class="card reveal">
-                <h3>Plug & Play Integration</h3>
-                <p>Designed for Tier-3 and Tier-4 HPC environments. Drop the HOCS Dev-Kit into existing infrastructure and bypass the limitations of electrical interconnects.</p>
-            </div>
+        <div class="tech-image-container">
+            <img src="Micro-Nanoscale-Fabrication-Engineering_CHEMENG440.jpg" alt="Microscale Optical Fabrication">
+            <div class="source-tag">Source: Nano-Fabrication Engineering Lab</div>
         </div>
     </section>
 
-    <section id="waitlist" class="waitlist-section">
-        <h2 class="section-title reveal" style="margin-bottom: 20px;">Secure Early Access</h2>
-        <p class="reveal" style="color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
-            HOCS v1.0 Dev-Kits are allocated strictly for enterprise PoC integration. Submit your engineering details to join the priority evaluation queue.
-        </p>
-        
-        <div class="form-container reveal">
-            <form action="https://formspree.io/f/mrejkoky" method="POST">
-                <input type="text" name="Company" class="form-input" placeholder="Company / Institution Name" required>
-                <input type="email" name="Email" class="form-input" placeholder="Work Email Address" required>
-                <textarea name="Usecase" class="form-input" rows="4" placeholder="Briefly describe your HPC or AI server workload..." required></textarea>
-                <button type="submit" class="btn-primary" style="width: 100%;">Submit Integration Request</button>
-            </form>
+    <section class="data-section">
+        <h2 class="section-title">Strategic Financial Roadmap</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric Group</th>
+                        <th>1. Year Target</th>
+                        <th>3. Year Target</th>
+                        <th>Strategic Index</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Operational Budget (OPEX)</td>
+                        <td class="mono">1,073,900 ₺</td>
+                        <td class="mono">2,432,775 ₺</td>
+                        <td>TÜBİTAK BİGG Support</td>
+                    </tr>
+                    <tr>
+                        <td>Revenue (HOCS Dev-Kit)</td>
+                        <td class="mono">425,000 ₺</td>
+                        <td class="mono">27,625,000 ₺</td>
+                        <td>85k / Unit Pricing</td>
+                    </tr>
+                    <tr>
+                        <td>Break-Even Point (BBN)</td>
+                        <td class="mono">11.13 Units</td>
+                        <td class="mono">Achieved</td>
+                        <td>Tier-3 Scalability</td>
+                    </tr>
+                    <tr>
+                        <td>LTV / CAC Ratio</td>
+                        <td class="mono">6.0</td>
+                        <td class="mono">Healthy</td>
+                        <td>Growth Investment Factor</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
     <footer>
-        <div style="margin-bottom: 10px; font-weight: 600;">HOCS INTEGRATED HQ - Adıyaman R&D Station</div>
-        &copy; 2026 HOCS Integrated. Proprietary Hardware Architecture.
+        <div class="citation">
+            <strong>Data Source [1]:</strong> HOCS Integrated Module 5 Financial Projections (2026). Approved by R&D Lead Muhammed Yusuf Çobanoğlu.
+        </div>
+        <div class="citation">
+            <strong>Technical Source [2]:</strong> Xilinx Kria K26 SoM Architecture Documentation & Silicon Photonics Interconnect Standards.
+        </div>
+        <div style="margin-top: 40px; text-align: center;">
+            &copy; 2026 HOCS Integrated | Adıyaman R&D Station | All Rights Reserved.
+        </div>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        });
-    </script>
 </body>
 </html>
