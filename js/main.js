@@ -1,31 +1,25 @@
-/* --- HOCS MAIN ENGINE --- */
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // 1. Reveal Animasyonu
-    const revealObserver = new IntersectionObserver((entries) => {
+    // 1. Reveal (Kaydırınca Gelme)
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('active');
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // 2. Sayaçlar (Metrics)
+    // 2. Sayaç (Metrics)
     const counters = document.querySelectorAll('.counter-val');
     counters.forEach(counter => {
         const target = parseFloat(counter.innerText);
-        let count = 0;
+        let current = 0;
+        const step = target / 50;
         const update = () => {
-            const speed = target / 40;
-            if (count < target) {
-                count += speed;
-                counter.innerText = count.toFixed(2);
-                setTimeout(update, 30);
-            } else {
-                counter.innerText = target;
-            }
+            if (current < target) {
+                current += step;
+                counter.innerText = current.toFixed(2);
+                setTimeout(update, 20);
+            } else counter.innerText = target;
         };
         update();
     });
