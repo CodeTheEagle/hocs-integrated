@@ -68,3 +68,44 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .reveal.active { opacity: 1; transform: translateY(0); }
 .delay-1 { transition-delay: 0.2s; }
 footer { text-align: center; padding: 40px; border-top: 1px solid var(--border); color: #888; font-size: 0.9rem; }
+/* ==========================================================================
+   RESPONSIVE DESIGN (MOBİL & TABLET UYUMU)
+   ========================================================================== */
+
+/* TABLET EKRANLAR (1024px ve altı) */
+@media screen and (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; text-align: center; padding: 60px 5%; gap: 30px; }
+    .hero-subtitle { margin: 0 auto 30px; }
+    .metrics-row { justify-content: center; flex-wrap: wrap; }
+    .overview-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+    .nav-links { gap: 15px; }
+    .nav-links a { margin-left: 10px; font-size: 0.9rem; }
+    .hero-title { font-size: 3.5rem; }
+    .system-grid { flex-direction: column; }
+    .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; }
+    .side-nav { display: flex; gap: 15px; }
+    .side-nav button { padding: 5px 10px; }
+}
+
+/* MOBİL EKRANLAR (768px ve altı) */
+@media screen and (max-width: 768px) {
+    nav { flex-direction: column; padding: 15px 5%; gap: 15px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; }
+    
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1.1rem; }
+    .metrics-row { flex-direction: column; gap: 20px; }
+    
+    .overview-text h2 { font-size: 2rem; }
+    .tech-banner { height: 300px; }
+    .banner-overlay h1 { font-size: 2.5rem; }
+    
+    .team-grid, .stats-grid { grid-template-columns: 1fr; }
+    .waitlist-card { padding: 30px 20px; }
+    .t-card { padding: 30px 20px; }
+    
+    .btn-primary, .btn-google { width: 100%; text-align: center; }
+    .sidebar { flex-direction: column; align-items: flex-start; }
+    .side-nav { flex-direction: column; width: 100%; margin-top: 15px; }
+    .content { padding: 30px 5%; }
+}
