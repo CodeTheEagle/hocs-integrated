@@ -3,131 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Team | HOCS Integrated</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Engineering Team | HOCS Integrated</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #000000;
-            --bg-card: rgba(20, 20, 20, 0.7);
-            --accent: #0071e3;
-            --text-light: #f5f5f7;
-            --text-muted: #86868b;
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --bg-white: #ffffff;
+            --surface-silver: #f5f5f7;
+            --text-main: #1d1d1f;
+            --text-secondary: #86868b;
+            --accent-blue: #0066cc;
+            --border-soft: #d2d2d7;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-main); 
-            color: var(--text-light); 
-            line-height: 1.6;
-        }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-white); color: var(--text-main); line-height: 1.6; }
 
+        /* --- NAVIGATION --- */
         nav {
-            position: fixed; top: 0; width: 100%; z-index: 100;
-            background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 20px 5%; display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-soft);
+            padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
         }
-        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -1px; text-decoration: none; color: #fff; }
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover { color: var(--text-light); }
+        .nav-logo { display: flex; align-items: center; gap: 15px; font-weight: 700; font-size: 1.2rem; }
+        .nav-logo img { height: 45px; border-radius: 8px; }
 
-        .container { max-width: 1200px; margin: 120px auto 60px; padding: 0 20px; }
-        .page-title { font-size: 3.5rem; font-weight: 700; letter-spacing: -2px; margin-bottom: 20px; text-align: center; }
-        .page-sub { color: var(--text-muted); text-align: center; max-width: 700px; margin: 0 auto 80px; font-size: 1.2rem; }
+        /* --- TEAM HEADER --- */
+        .team-header { padding: 100px 8% 60px; text-align: center; }
+        .team-header h1 { font-size: 3.5rem; font-weight: 700; letter-spacing: -2px; margin-bottom: 20px; }
+        .team-header p { color: var(--text-secondary); font-size: 1.25rem; max-width: 800px; margin: 0 auto; }
 
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .team-card {
-            background: var(--bg-card); border: 1px solid var(--glass-border);
-            padding: 40px; border-radius: 32px; text-align: center;
-            transition: 0.4s; backdrop-filter: blur(10px);
+        /* --- TEAM GRID --- */
+        .team-grid { padding: 40px 8% 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .t-card {
+            background: var(--bg-white); border: 1px solid var(--border-soft);
+            padding: 50px 40px; border-radius: 32px; text-align: center;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .team-card:hover { border-color: var(--accent); transform: translateY(-10px); }
+        .t-card:hover { border-color: var(--accent-blue); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.04); }
         
-        .avatar {
-            width: 120px; height: 120px; background: #1a1a1a;
+        .initials {
+            width: 100px; height: 100px; background: var(--surface-silver);
             border-radius: 50%; margin: 0 auto 25px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 3rem; font-weight: 700; color: var(--accent);
-            border: 2px solid var(--glass-border);
+            font-size: 2.5rem; font-weight: 700; color: var(--accent-blue);
+            border: 1px solid var(--border-soft);
         }
-        .team-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
-        .team-card .role { color: var(--accent); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 20px; display: block; }
-        .team-card p { color: var(--text-muted); font-size: 0.95rem; }
+        .t-card h3 { font-size: 1.6rem; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .t-card .title { color: var(--accent-blue); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; display: block; }
+        .t-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; }
 
-        .hq-section {
-            margin-top: 100px; padding: 80px 40px; background: #0a0a0a;
-            border-radius: 40px; border: 1px solid var(--glass-border); text-align: center;
-        }
-        .hq-section h2 { font-size: 2rem; margin-bottom: 20px; }
-        .hq-section p { color: var(--text-muted); }
+        /* --- HQ / OPERATIONS --- */
+        .hq-box { margin: 0 8% 100px; padding: 80px; background: var(--surface-silver); border-radius: 40px; text-align: center; border: 1px solid var(--border-soft); }
+        .hq-box h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 20px; }
+        .hq-box p { color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
 
-        footer { padding: 60px 5%; text-align: center; color: #444; border-top: 1px solid #111; font-size: 0.9rem; }
+        footer { padding: 60px 8%; border-top: 1px solid var(--border-soft); text-align: center; color: var(--text-secondary); font-size: 0.85rem; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="logo">HOCS</a>
-        <div class="nav-links">
-            <a href="index.html#architecture">Architecture</a>
-            <a href="technology.html">Technology</a>
-            <a href="team.html" style="color: #fff;">Company</a>
-            <a href="admin.html">Internal Portal</a>
+        <div class="nav-logo">
+            <img src="logo.jpg" alt="HOCS Logo">
+            HOCS INTEGRATED
+        </div>
+        <div style="display: flex; gap: 40px;">
+            <a href="index.html" style="text-decoration:none; color:var(--text-main); font-weight: 500;">Technology</a>
+            <a href="portal.html" style="text-decoration:none; color:var(--accent-blue); font-weight: 600;">Partner Portal</a>
         </div>
     </nav>
 
-    <div class="container">
-        <h1 class="page-title">The Engineering Force</h1>
-        <p class="page-sub">Adıyaman R&D Station bünyesinde, saniyede 4.14 TB/s veri hızlarını gerçeğe dönüştüren disiplinlerarası mühendislik kadrosu.</p>
+    <div class="team-header">
+        <h1>Engineering the Future.</h1>
+        <p>HOCS Integrated, silikon fotoniği ve ultra yüksek hızlı veri iletim mimarileri üzerine uzmanlaşmış, Adıyaman R&D Station merkezli bir derin teknoloji mürettebatıdır.</p>
+    </div>
 
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="avatar">Y</div>
-                <h3>Muhammed Yusuf</h3>
-                <span class="role">Kurucu (Founder) & Lead Architect</span>
-                <p>HOCS mimarisinin teorik modellemesi ve silikon fotoniği entegrasyonundan sorumlu vizyoner lider.</p>
-            </div>
-
-            <div class="team-card">
-                <div class="avatar">M</div>
-                <h3>Mert Poyraz Akcan</h3>
-                <span class="role">Fotonik Ar-Ge Mühendisi</span>
-                <p>Optik sinyal testleri ve CuO memristörlerin fotonik katman performans optimizasyonu üzerine uzman.</p>
-            </div>
-
-            <div class="team-card">
-                <div class="avatar">A</div>
-                <h3>Ali Ekber Şahin</h3>
-                <span class="role">Gömülü Sistem Mühendisi</span>
-                <p>Xilinx Kria K26 FPGA programlama ve ultra yüksek hızlı veri yolu mimarilerinin tasarımı sorumlusu.</p>
-            </div>
-
-            <div class="team-card">
-                <div class="avatar">M</div>
-                <h3>Muhammed Koç</h3>
-                <span class="role">Donanım Mühendisi</span>
-                <p>Altium tabanlı çok katmanlı PCB tasarımı ve yüksek frekanslı sinyal bütünlüğü (Signal Integrity) uzmanı.</p>
-            </div>
-
-            <div class="team-card">
-                <div class="avatar">M</div>
-                <h3>Mustafa Bayram</h3>
-                <span class="role">Entegrasyon Mühendisi</span>
-                <p>HOCS Dev-Kit saha kurulumları ve Tier-3 veri merkezleri için donanım PoC entegrasyon süreçleri yöneticisi.</p>
-            </div>
+    <div class="team-grid">
+        <div class="t-card">
+            <div class="initials">Y</div>
+            <h3>Muhammed Yusuf</h3>
+            <span class="title">Lead Hardware Architect & Founder</span>
+            <p>Fotonik veri yolları ve hibrit hesaplama mimarilerinin uçtan uca tasarımından ve stratejik operasyon yönetiminden sorumludur.</p>
         </div>
 
-        <div class="hq-section">
-            <h2>Operations Base: Adıyaman R&D Station</h2>
-            <p>Tüm mimari tasarım, donanım prototipleme ve yüksek hız test süreçleri Adıyaman'daki ana merkezimizde yürütülmektedir.</p>
+        <div class="t-card">
+            <div class="initials">M</div>
+            <h3>Mert Poyraz Akcan</h3>
+            <span class="title">Photonics R&D Engineer</span>
+            <p>Optik sinyal bütünlüğü ve saniyede 4.14 TB/s hız hedefleri için fiziksel katman testleri ve optimizasyon süreçlerini yönetir.</p>
+        </div>
+
+        <div class="t-card">
+            <div class="initials">A</div>
+            <h3>Ali Ekber Şahin</h3>
+            <span class="title">Embedded Systems Engineer</span>
+            <p>Xilinx Kria K26 FPGA mimarisi üzerinde yüksek hızlı veri paketleme ve kontrol algoritmalarının geliştirilmesine odaklanır.</p>
+        </div>
+
+        <div class="t-card">
+            <div class="initials">K</div>
+            <h3>Muhammed Koç</h3>
+            <span class="title">Hardware Design Engineer</span>
+            <p>Çok katmanlı, empedans kontrollü PCB tasarımları ve donanım seviyesinde termal yönetim sistemlerinin mühendisliğini yürütür.</p>
+        </div>
+
+        <div class="t-card">
+            <div class="initials">B</div>
+            <h3>Mustafa Bayram</h3>
+            <span class="title">Integration Engineer</span>
+            <p>HOCS donanımının Tier-3 veri merkezleri ve PoC sahalarındaki teknik entegrasyon ve kurulum süreçlerinden sorumludur.</p>
         </div>
     </div>
 
+    <div class="hq-box">
+        <h2>Adıyaman R&D Operations Base</h2>
+        <p>HOCS mimarisinin tüm laboratuvar testleri, donanım prototipleme ve global ticarileşme stratejileri bu merkezden yönetilmektedir.</p>
+    </div>
+
     <footer>
-        &copy; 2026 HOCS Integrated. Proprietary Hardware Architecture.
+        &copy; 2026 HOCS Integrated | Private Engineering Entity | All Rights Reserved.
     </footer>
 
 </body>
