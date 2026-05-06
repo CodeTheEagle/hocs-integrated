@@ -3,76 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering Team | HOCS Integrated</title>
+    <title>Ekip | HOCS Integrated</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; padding: 40px 8% 100px; }
-        .t-card { background: var(--bg); border: 1px solid var(--border); padding: 50px 30px; border-radius: 24px; text-align: center; transition: 0.3s; }
-        .t-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: var(--accent); }
-        .initials { width: 90px; height: 90px; background: var(--surface); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: var(--accent); border: 1px solid var(--border); }
-        .t-role { color: var(--accent); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; display: block; letter-spacing: 1px; }
-    </style>
 </head>
 <body>
-
-    <nav>
+    <nav id="navbar">
         <div class="nav-logo"><img src="logo.jpg" alt="HOCS"> HOCS INTEGRATED</div>
         <div class="nav-links">
             <a href="index.html">Ana Sayfa</a>
             <a href="technology.html">Teknoloji</a>
             <a href="team.html" class="active-link">Ekip</a>
-            <a href="portal.html" class="btn-portal">Partner Access</a>
+            <a href="portal.html" class="btn-portal">Partner Portal</a>
         </div>
     </nav>
 
-    <header class="hero" style="text-align: center; display: block; padding-bottom: 20px;">
-        <h1 class="reveal" style="font-size: 3.5rem;">The Engineering Force.</h1>
-        <p class="reveal" style="max-width: 700px; margin: 0 auto; font-size: 1.2rem;">HOCS Integrated, silikon fotoniği ve ultra yüksek hızlı veri iletim mimarileri üzerine uzmanlaşmış, disiplinlerarası bir derin teknoloji mürettebatıdır.</p>
+    <header class="team-header reveal">
+        <h1>Engineering Force.</h1>
+        <p>Derin teknoloji ve silikon fotoniği sınırlarını zorlayan disiplinlerarası araştırma kadromuz.</p>
     </header>
 
     <div class="team-grid">
         <div class="t-card reveal">
-            <div class="initials">Y</div>
-            <h3 style="font-size: 1.5rem; margin-bottom: 5px;">Muhammed Yusuf</h3>
+            <div class="t-avatar">Y</div>
+            <h3>Muhammed Yusuf</h3>
             <span class="t-role">Lead Architect & Founder</span>
-            <p style="color: #666; font-size: 0.95rem;">Fotonik veri yolları ve hibrit hesaplama mimarilerinin uçtan uca teorik modellenmesinden, yatırım süreçlerinden ve genel R&D stratejilerinden sorumludur.</p>
+            <p>Mimari teorik modelleme, Xilinx donanım altyapısı ve stratejik yatırım vizyonu lideri.</p>
         </div>
-
         <div class="t-card reveal">
-            <div class="initials">M</div>
-            <h3 style="font-size: 1.5rem; margin-bottom: 5px;">Mert Poyraz Akcan</h3>
+            <div class="t-avatar">M</div>
+            <h3>Mert Poyraz Akcan</h3>
             <span class="t-role">Photonics R&D Engineer</span>
-            <p style="color: #666; font-size: 0.95rem;">Optik sinyal bütünlüğü (Signal Integrity) ve 4.14 TB/s veri yolu için fiziksel katman (PHY) testlerinin laboratuvar optimizasyonunu yürütür.</p>
+            <p>Optik sinyal bütünlüğü ve fiziksel katman (PHY) test laboratuvarı sorumlusu.</p>
         </div>
-
         <div class="t-card reveal">
-            <div class="initials">A</div>
-            <h3 style="font-size: 1.5rem; margin-bottom: 5px;">Ali Ekber Şahin</h3>
+            <div class="t-avatar">A</div>
+            <h3>Ali Ekber Şahin</h3>
             <span class="t-role">Embedded Systems Engineer</span>
-            <p style="color: #666; font-size: 0.95rem;">Sistemin kalbi olan Xilinx Kria K26 FPGA mimarisinin donanım tanımlama dilleriyle (VHDL/Verilog) programlanmasını ve paket yönlendirmesini sağlar.</p>
+            <p>Xilinx FPGA programlama, yüksek hızlı veri yönlendirme ve VHDL algoritmaları yöneticisi.</p>
         </div>
-
         <div class="t-card reveal">
-            <div class="initials">K</div>
-            <h3 style="font-size: 1.5rem; margin-bottom: 5px;">Muhammed Koç</h3>
+            <div class="t-avatar">K</div>
+            <h3>Muhammed Koç</h3>
             <span class="t-role">Hardware Design Engineer</span>
-            <p style="color: #666; font-size: 0.95rem;">Çok katmanlı, yüksek hızlı empedans kontrollü PCB (Baskılı Devre Kartı) tasarımlarını ve donanım seviyesindeki termal yönetim topolojisini kurgular.</p>
+            <p>Çok katmanlı empedans kontrollü PCB tasarım ve termal yönetim sistemleri mühendisi.</p>
         </div>
-
         <div class="t-card reveal">
-            <div class="initials">B</div>
-            <h3 style="font-size: 1.5rem; margin-bottom: 5px;">Mustafa Bayram</h3>
+            <div class="t-avatar">B</div>
+            <h3>Mustafa Bayram</h3>
             <span class="t-role">Integration Engineer</span>
-            <p style="color: #666; font-size: 0.95rem;">Üretilen HOCS Dev-Kit donanımlarının müşteri sahalarındaki (Tier-3 Veri Merkezleri) rack-mount kurulumlarından ve Proof of Concept (PoC) entegrasyonlarından sorumludur.</p>
+            <p>Donanımın Tier-3 Veri Merkezlerine fiziksel PoC kurulumu ve saha entegrasyonu sorumlusu.</p>
         </div>
     </div>
 
-    <div class="reveal" style="background: var(--surface); margin: 0 8% 100px; padding: 60px; border-radius: 24px; text-align: center; border: 1px solid var(--border);">
-        <h2 style="font-size: 2rem; margin-bottom: 15px;">Adıyaman R&D Operations Base</h2>
-        <p style="color: #666; max-width: 600px; margin: 0 auto;">Tüm mimari tasarımlar, donanım prototipleme testleri ve yazılım-donanım entegrasyon süreçleri ana Ar-Ge merkezimiz olan Adıyaman İstasyonu'nda yürütülmektedir.</p>
+    <div class="hq-banner reveal" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images.jpg');">
+        <h2>Adıyaman R&D Operations Base</h2>
+        <p>Saniyede 4.14 TB/s iletişim sınırlarının test edildiği ana donanım laboratuvarımız.</p>
     </div>
 
+    <footer><p>&copy; 2026 HOCS Integrated | Private Engineering Entity</p></footer>
     <script src="js/main.js"></script>
 </body>
 </html>
