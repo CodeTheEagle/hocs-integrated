@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard | HOCS</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
+<head><meta charset="UTF-8"><link rel="stylesheet" href="css/style.css"></head>
 <body>
     <div class="dashboard-layout">
         <aside class="sidebar">
             <a href="index.html"><img src="logo.jpg" style="height:40px; margin-bottom:40px;"></a>
-            <p style="font-weight:600; color:var(--accent);">● Canlı Veri Akışı</p>
-            <p style="margin-top:15px; color:#666;">Donanım Sağlığı</p>
-            <a href="index.html" style="display:block; margin-top:50px; color:red; font-size:0.9rem;">Çıkış Yap</a>
+            <p style="font-weight:700; color:var(--accent);">● LIVE TELEMETRY</p>
+            <p style="margin-top:20px; color:#555;">Hardware Health</p>
+            <a href="index.html" style="display:block; margin-top:50px; color:red; font-weight:600;">Secure Logout</a>
         </aside>
         <main class="main-content">
-            <header style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
-                <h1>Mühendislik Paneli</h1>
-                <span style="font-family:'JetBrains Mono'; color:#34c759;">ONLINE: ADY_HQ</span>
-            </header>
-            <div class="grid-2">
-                <div class="card"><strong>Throughput</strong><h1 style="font-size:3rem;"><span class="counter-val">4.14</span> TB/s</h1></div>
-                <div class="card"><strong>Gecikme</strong><h1 style="font-size:3rem;">&lt; 1 ns</h1></div>
+            <h1 style="margin-bottom:40px;">Operations Control</h1>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+                <div style="background:#fff; padding:30px; border-radius:20px; border:1px solid var(--border)!important;">
+                    <label style="font-size:0.8rem; color:#888;">THROUGHPUT</label>
+                    <h2 style="font-size:3rem; font-family:'JetBrains Mono';"><span class="counter-val">4.14</span> <small>TB/s</small></h2>
+                </div>
+                <div style="background:#fff; padding:30px; border-radius:20px; border:1px solid var(--border)!important;">
+                    <label style="font-size:0.8rem; color:#888;">LATENCY</label>
+                    <h2 style="font-size:3rem; font-family:'JetBrains Mono';">&lt; 1 <small>ns</small></h2>
+                </div>
             </div>
-            <div style="background:#1c1c1e; color:#34c759; padding:20px; border-radius:12px; margin-top:30px; font-family:'JetBrains Mono'; font-size:0.8rem;">
-                <div>[14:15:02] INITIALIZING XILINX KRIA K26... OK</div>
-                <div>[14:15:05] OPTIC_LINK: ACTIVE (4.14 TB/s)</div>
-                <div style="color:#fff;">[14:15:10] STREAMING DATA...</div>
+            <div style="background:#1c1c1e; color:#34c759; padding:25px; border-radius:15px; margin-top:25px; font-family:'JetBrains Mono';">
+                <div>[SYSTEM] INITIALIZING XILINX KRIA K26... OK</div>
+                <div>[SYSTEM] OPTIC_LINK: ACTIVE (4.14 TB/s)</div>
+                <div style="color:#fff;">[SYSTEM] STREAMING DATA FROM ADY_HQ...</div>
             </div>
         </main>
     </div>
