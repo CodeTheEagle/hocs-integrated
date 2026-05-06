@@ -56,25 +56,19 @@ const translations = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Ziyaretçinin tarayıcı dilini çek (Örn: "tr-TR" ise sadece "tr" kısmını alır)
+    // Tarayıcı dilini tespit et
     const browserLang = navigator.language.slice(0, 2).toLowerCase();
-    
-    // 2. Sistemimizde desteklenen dillerin listesi
     const supportedLangs = ['en', 'tr', 'fr', 'ja', 'zh'];
     
-    // 3. Karar Mekanizması: Tarayıcı dili destekleniyorsa onu seç, DEĞİLSE DEFAULT İNGİLİZCE (en) YAP!
+    // Desteklenmiyorsa varsayılanı İngilizce (en) yap
     const currentLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
 
-    // 4. Çeviriyi HTML'e anında bas
-    applyLanguage(currentLang);
-});
-
-function applyLanguage(lang) {
+    // Çeviriyi HTML'e bas
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-            el.innerHTML = translations[lang][key];
+        if (translations[currentLang] && translations[currentLang][key]) {
+            el.innerHTML = translations[currentLang][key];
         }
     });
-}
+});
