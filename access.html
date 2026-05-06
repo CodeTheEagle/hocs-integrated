@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOCS Portal | Integrated Optical Systems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --surface: #fbfbfd;
+            --text: #1d1d1f;
+            --accent: #0066cc;
+            --border: #d2d2d7;
+            --success: #28a745;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+        /* --- AUTH SECTION (Gömülü Giriş) --- */
+        #authLayer {
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+        }
+        .portal-logo { height: 50px; margin-bottom: 30px; }
+        .auth-card { max-width: 400px; padding: 20px; }
+        .auth-card h1 { font-size: 1.8rem; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 10px; }
+        .btn-verify {
+            background: var(--text); color: #fff; border: none; padding: 14px 28px;
+            border-radius: 8px; font-weight: 500; cursor: pointer; transition: 0.3s;
+            margin-top: 25px; width: 100%;
+        }
+
+        /* --- DASHBOARD SECTION (Gömülü Sistem) --- */
+        #mainSystem { display: none; min-height: 100vh; }
+        
+        .sidebar {
+            width: 260px; border-right: 1px solid var(--border);
+            padding: 40px 20px; display: flex; flex-direction: column;
+        }
+        .main-content { flex: 1; padding: 60px; background: var(--surface); }
+
+        /* Satış & Metrik Kartları */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
+        .hocs-card {
+            background: #fff; padding: 30px; border-radius: 18px;
+            border: 1px solid var(--border); transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hocs-card:hover { transform: translateY(-5px); box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+        .label { color: var(--text-secondary); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }
+        .value { font-size: 2.8rem; font-weight: 700; font-family: 'JetBrains Mono'; margin: 15px 0; }
+        
+        /* Satış Durumu (Sales Tracking) */
+        .sales-indicator {
+            margin-top: 40px; padding: 30px; background: #fff;
+            border-radius: 18px; border: 1px solid var(--border);
+        }
+        .tag-soon { background: #eef6ff; color: var(--accent); padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <div id="authLayer">
+        <img src="logo.jpg" class="portal-logo" alt="HOCS">
+        <div class="auth-card">
+            <h1>Engineering Portal</h1>
+            <p style="color: #86868b;">Verified credentials required to access telemetry and order management.</p>
+            <button id="loginBtn" class="btn-verify">Authenticate via Corporate ID</button>
+        </div>
+    </div>
+
+    <div id="mainSystem">
+        <div style="display: flex;">
+            <aside class="sidebar">
+                <img src="logo.jpg" style="height: 30px; margin-bottom: 50px;" alt="">
+                <nav>
+                    <p style="font-weight: 600; font-size: 0.8rem; color: #86868b; margin-bottom: 20px;">COMMAND</p>
+                    <div style="color: var(--accent); font-weight: 500; margin-bottom: 15px;">System Overview</div>
+                    <div style="margin-bottom: 15px;">Hardware Telemetry</div>
+                    <div style="margin-bottom: 15px;">Order Tracking <span class="tag-soon">SOON</span></div>
+                </nav>
+            </aside>
+
+            <main class="main-content">
+                <header style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px;">
+                    <div>
+                        <h2 style="font-size: 2rem; font-weight: 600;">System Telemetry</h2>
+                        <p style="color: #86868b;">Real-time performance metrics of HOCS v1.0 Node</p>
+                    </div>
+                    <div style="font-family: 'JetBrains Mono'; font-size: 0.9rem; color: var(--success);">● LIVE_FEED_ADIYAMAN_HQ</div>
+                </header>
+
+                <div class="grid">
+                    <div class="hocs-card">
+                        <label>Data Throughput</label>
+                        <div class="value">4.14 <small style="font-size: 1rem;">TB/s</small></div>
+                        <p style="color: var(--success); font-weight: 500;">Optimal Bandwidth</p>
+                    </div>
+                    <div class="hocs-card">
+                        <label>Reserved Dev-Kits</label>
+                        <div class="value">05 <small style="font-size: 1rem;">/ 12</small></div>
+                        <p style="color: #86868b;">Targeting BBN: 11.13</p>
+                    </div>
+                    <div class="hocs-card">
+                        <label>Thermal Delta</label>
+                        <div class="value">+0.2<small style="font-size: 1rem;">°C</small></div>
+                        <p style="color: var(--success); font-weight: 500;">Thermal Wall: Resolved</p>
+                    </div>
+                </div>
+
+                <div class="sales-indicator">
+                    <h3 style="margin-bottom: 15px;">Commercial Rollout Status</h3>
+                    <p style="color: #86868b; margin-bottom: 20px;">HOCS Dev-Kit ticarileşme süreci %85 oranında tamamlandı. Yakında kurumsal "Pre-Order" (Ön Sipariş) altyapısı bu panel üzerinden aktif edilecektir.</p>
+                    <div style="height: 10px; background: #f5f5f7; border-radius: 5px; width: 100%;">
+                        <div style="height: 100%; background: var(--accent); width: 85%; border-radius: 5px;"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBLI3iVw_g_A58tIvo_wIRLkP_i7s9sHuA",
+            authDomain: "hocs-internal.firebaseapp.com",
+            projectId: "hocs-internal",
+            storageBucket: "hocs-internal.firebasestorage.app",
+            messagingSenderId: "102526855074",
+            appId: "1:102526855074:web:2384549083dda19d48b4fb"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        document.getElementById('loginBtn').onclick = () => {
+            auth.signInWithPopup(provider).then((result) => {
+                const allowed = ["yusuf@hocsintegrated.com", "m.yusufcobanoglu1@gmail.com", "EagleSTORM@gmail.com"];
+                if (allowed.includes(result.user.email)) {
+                    document.getElementById('authLayer').style.display = 'none';
+                    document.getElementById('mainSystem').style.display = 'block';
+                    document.getElementById('mainSystem').style.display = 'flex';
+                } else {
+                    alert("Unauthorized access detected.");
+                    auth.signOut();
+                }
+            });
+        };
+    </script>
+</body>
+</html>
