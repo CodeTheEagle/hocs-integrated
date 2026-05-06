@@ -1,0 +1,57 @@
+/* ==========================================================================
+   HOCS INTEGRATED - CORE STYLESHEET
+   Adıyaman R&D Station | Version 1.0
+   ========================================================================== */
+
+:root {
+    --bg-clean: #ffffff;
+    --surface-silver: #f5f5f7;
+    --text-bold: #1d1d1f;
+    --text-secondary: #86868b;
+    --accent-blue: #0066cc;
+    --border: #d2d2d7;
+    --success: #28a745;
+}
+
+/* --- GLOBAL RESET & TYPOGRAPHY --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { 
+    font-family: 'Inter', -apple-system, sans-serif; 
+    background: var(--bg-clean); 
+    color: var(--text-bold); 
+    line-height: 1.6; 
+    overflow-x: hidden; 
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- NAVIGATION BAR (Tüm Sayfalarda Ortak) --- */
+nav {
+    position: sticky; top: 0; background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+}
+.nav-logo { display: flex; align-items: center; gap: 15px; font-weight: 700; font-size: 1.3rem; letter-spacing: -0.5px; }
+.nav-logo img { height: 50px; border-radius: 10px; }
+.nav-links { display: flex; gap: 40px; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--text-bold); font-weight: 500; font-size: 0.95rem; transition: 0.2s; }
+.nav-links a:hover { color: var(--accent-blue); }
+.nav-links a.active-link { color: var(--accent-blue); font-weight: 600; }
+
+/* --- GLOBAL ANIMATIONS (Scroll ile gelen akıcılık) --- */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* --- COMMON COMPONENTS (Tablolar ve Formlar) --- */
+.table-wrap { 
+    background: #fff; border-radius: 30px; padding: 50px; 
+    border: 1px solid var(--border); box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+}
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; padding: 20px; color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid var(--surface-silver); }
+td { padding: 20px; border-bottom: 1px solid var(--surface-silver); font-size: 1rem; font-weight: 500; }
+.value-cell { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--accent-blue); }
+
+/* --- FOOTER --- */
+footer { padding: 60px 8%; border-top: 1px solid var(--border); background: var(--surface-silver); text-align: center; color: var(--text-secondary); font-size: 0.85rem; }
