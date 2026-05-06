@@ -2,19 +2,50 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Teknoloji | HOCS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology | HOCS Integrated</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <nav>
-        <a href="index.html" class="nav-logo"><img src="logo.jpg" alt="HOCS"> HOCS</a>
-        <div class="nav-links"><a href="index.html">Ana Sayfa</a><a href="technology.html" class="active-link">Teknoloji</a><a href="team.html">Ekip</a></div>
+        <a href="index.html" class="nav-logo">
+            <img src="logo.jpg" alt="HOCS"> HOCS INTEGRATED
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="technology.html" class="active-link">Teknoloji</a>
+            <a href="team.html">Ekip</a>
+            <a href="portal.html" style="color:var(--accent); font-weight:600;">Portal</a>
+        </div>
     </nav>
 
+    <div class="tech-hero-banner">
+        <div class="banner-bg-img" style="background-image: url('cse-research-14-1024x683.jpg');"></div>
+        <div class="banner-content">
+            <span class="reveal">R&D CLASSIFIED</span>
+            <h1 class="reveal">Proprietary Technology</h1>
+            <p class="reveal">HOCS Hybrid Optical Computing & Silicon Photonics Architecture</p>
+        </div>
+    </div>
+
     <main class="section">
-        <div class="card reveal" style="margin-bottom:30px;"><img src="indir (1).png"></div>
-        <div class="card reveal" style="margin-bottom:30px;"><img src="indir (2).png"></div>
-        <div class="card reveal"><img src="indir.png"></div>
+        <div class="card reveal" style="margin-bottom:40px;">
+            <h3 style="margin-bottom:20px; color:var(--accent);">Thermal Bottleneck Analysis</h3>
+            <img src="indir (1).png" alt="Thermal Analysis">
+            <p style="margin-top:20px; font-size:0.9rem; color:var(--text-muted);">Elektronik ve Optik veri yolları arasındaki ısı dağılım farklarının laboratuvar verileri.</p>
+        </div>
+
+        <div class="card reveal" style="margin-bottom:40px;">
+            <h3 style="margin-bottom:20px; color:var(--accent);">Hardware Edge Detection</h3>
+            <img src="indir (2).png" alt="Signal Processing">
+            <p style="margin-top:20px; font-size:0.9rem; color:var(--text-muted);">Analog sinyallerin donanım seviyesinde filtrelenerek dijital optik uzaya aktarımı.</p>
+        </div>
+
+        <div class="card reveal">
+            <h3 style="margin-bottom:20px; color:var(--accent);">Latency Performance (Log Scale)</h3>
+            <img src="indir.png" alt="Latency Stats">
+            <p style="margin-top:20px; font-size:0.9rem; color:var(--text-muted);">Milisaniyelerden nanosaniyelere geçişin matematiksel ispatı.</p>
+        </div>
     </main>
 
     <script src="js/main.js"></script>
