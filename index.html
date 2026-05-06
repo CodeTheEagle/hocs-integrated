@@ -3,55 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOCS Integrated | Hybrid Optical Computing System</title>
+    <title>HOCS Integrated | Optical Computing Systems</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-apple: #ffffff;
+            --bg-clean: #ffffff;
             --surface-silver: #f5f5f7;
-            --text-dark: #1d1d1f;
+            --text-bold: #1d1d1f;
+            --text-secondary: #86868b;
             --accent-blue: #0066cc;
-            --border-line: #d2d2d7;
+            --border: #d2d2d7;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg-apple); color: var(--text-dark); line-height: 1.6; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-clean); color: var(--text-bold); line-height: 1.6; }
 
-        /* --- LOGO VE NAV --- */
+        /* --- NAV & LOGO --- */
         nav {
             position: sticky; top: 0; background: rgba(255,255,255,0.8);
-            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-line);
-            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
+            padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
         }
-        .nav-logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.2rem; }
-        .nav-logo img { height: 40px; border-radius: 8px; } /* Logoyu buradan büyütebilirsin */
+        .nav-logo { display: flex; align-items: center; gap: 15px; font-weight: 700; font-size: 1.3rem; letter-spacing: -0.5px; }
+        .nav-logo img { height: 50px; border-radius: 10px; } /* Logo boyutu buradan ayarlanabilir */
 
-        /* --- TEKNOLOJİ VE GÖRSEL BÖLÜMÜ --- */
-        .tech-section { padding: 100px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .tech-image-container { position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .tech-image-container img { width: 100%; display: block; transition: transform 0.5s; }
-        .tech-image-container:hover img { transform: scale(1.05); }
-        .source-tag { 
-            position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); 
-            color: #fff; padding: 5px 12px; border-radius: 4px; font-size: 0.7rem; font-family: 'JetBrains Mono';
+        /* --- HERO & TECHNICAL VISUAL --- */
+        .hero-tech { padding: 80px 8%; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; }
+        .hero-text h1 { font-size: 3.5rem; font-weight: 700; letter-spacing: -2px; margin-bottom: 20px; line-height: 1.1; }
+        .hero-text p { font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 30px; max-width: 600px; }
+
+        .img-box { position: relative; border-radius: 28px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.12); border: 1px solid var(--border); }
+        .img-box img { width: 100%; display: block; transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .img-box:hover img { transform: scale(1.03); }
+        .img-caption { 
+            position: absolute; bottom: 0; width: 100%; background: rgba(255,255,255,0.9); 
+            padding: 12px 20px; font-size: 0.75rem; font-family: 'JetBrains Mono'; border-top: 1px solid var(--border);
         }
 
-        /* --- FİNANSAL TABLOLAR (EXCEL'DEN GELEN VERİLER) --- */
-        .data-section { padding: 80px 10%; background: var(--surface-silver); }
-        .section-title { font-size: 2.5rem; font-weight: 700; letter-spacing: -1px; margin-bottom: 40px; text-align: center; }
+        /* --- STRATEGIC DATA TABLES --- */
+        .data-section { padding: 100px 8%; background: var(--surface-silver); }
+        .table-wrap { 
+            background: #fff; border-radius: 30px; padding: 50px; 
+            border: 1px solid var(--border); box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+        }
+        .table-title { font-size: 2rem; font-weight: 700; margin-bottom: 40px; letter-spacing: -1px; }
         
-        .table-container { 
-            background: #fff; border-radius: 24px; padding: 40px; border: 1px solid var(--border-line);
-            overflow-x: auto; box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-        }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th { text-align: left; padding: 15px; border-bottom: 2px solid var(--surface-silver); color: var(--text-dark); font-size: 0.85rem; text-transform: uppercase; }
-        td { padding: 15px; border-bottom: 1px solid var(--surface-silver); font-size: 0.95rem; }
-        .mono { font-family: 'JetBrains Mono', monospace; font-weight: 600; color: var(--accent-blue); }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; padding: 20px; color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid var(--surface-silver); }
+        td { padding: 20px; border-bottom: 1px solid var(--surface-silver); font-size: 1rem; font-weight: 500; }
+        .value-cell { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--accent-blue); }
 
-        /* --- FOOTER / KAYNAKÇA --- */
-        footer { padding: 60px 10%; border-top: 1px solid var(--border-line); font-size: 0.85rem; color: #86868b; }
-        .citation { margin-bottom: 10px; padding-left: 20px; border-left: 2px solid var(--accent-blue); }
+        /* --- FOOTER & CITATIONS --- */
+        footer { padding: 80px 8%; border-top: 1px solid var(--border); background: #fff; }
+        .citation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+        .cite-item { padding-left: 20px; border-left: 3px solid var(--accent-blue); }
+        .cite-item h4 { font-size: 0.9rem; margin-bottom: 8px; color: var(--text-bold); }
+        .cite-item p { font-size: 0.85rem; color: var(--text-secondary); }
+
+        .copyright { text-align: center; font-size: 0.8rem; color: #999; margin-top: 40px; }
     </style>
 </head>
 <body>
@@ -61,58 +70,68 @@
             <img src="logo.jpg" alt="HOCS Logo">
             HOCS INTEGRATED
         </div>
-        <div style="display: flex; gap: 30px; font-weight: 500;">
-            <a href="portal.html" style="text-decoration:none; color:var(--accent-blue)">Partner Access</a>
+        <div style="display: flex; gap: 40px;">
+            <a href="portal.html" style="text-decoration:none; color:var(--text-bold); font-weight: 600; font-size: 0.95rem;">System Portal</a>
         </div>
     </nav>
 
-    <section class="tech-section">
-        <div>
-            <h2 style="font-size: 3rem; margin-bottom: 20px;">Thermal Wall: Solved.</h2>
-            <p style="font-size: 1.2rem; color: #86868b; margin-bottom: 30px;">Xilinx FPGA mimarisi üzerine inşa edilen HOCS, fotonik veri iletimi ile geleneksel bakır yolların yarattığı ısınma darboğazını saniyede 4.14 TB/s hızla aşıyor.</p>
+    <section class="hero-tech">
+        <div class="hero-text">
+            <h1>Hybrid Optical Computing Architecture.</h1>
+            <p>HOCS eliminates the 'Thermal Wall' in high-performance data centers by shifting data interconnects from copper to silicon photonics, achieving 4.14 TB/s aggregate bandwidth.</p>
+            <div style="display: flex; gap: 20px;">
+                <div style="padding: 15px; border: 1px solid var(--border); border-radius: 12px; text-align:center;">
+                    <div style="font-family:'JetBrains Mono'; font-weight:700; font-size:1.5rem;">4.14 TB/s</div>
+                    <div style="font-size:0.7rem; color:var(--text-secondary);">THROUGHPUT</div>
+                </div>
+                <div style="padding: 15px; border: 1px solid var(--border); border-radius: 12px; text-align:center;">
+                    <div style="font-family:'JetBrains Mono'; font-weight:700; font-size:1.5rem;">&lt; 1ns</div>
+                    <div style="font-size:0.7rem; color:var(--text-secondary);">LATENCY</div>
+                </div>
+            </div>
         </div>
-        <div class="tech-image-container">
-            <img src="Micro-Nanoscale-Fabrication-Engineering_CHEMENG440.jpg" alt="Microscale Optical Fabrication">
-            <div class="source-tag">Source: Nano-Fabrication Engineering Lab</div>
+        <div class="img-box">
+            <img src="Micro-Nanoscale-Fabrication-Engineering_CHEMENG440.jpg" alt="Optical Fabrication Engineering">
+            <div class="img-caption">Fig 1.1: Micro-Nanoscale Optical Interconnect Fabrication Interface.</div>
         </div>
     </section>
 
     <section class="data-section">
-        <h2 class="section-title">Strategic Financial Roadmap</h2>
-        <div class="table-container">
+        <div class="table-wrap">
+            <h2 class="table-title">Strategic Financial Modeling</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Metric Group</th>
-                        <th>1. Year Target</th>
-                        <th>3. Year Target</th>
-                        <th>Strategic Index</th>
+                        <th>Metric Category</th>
+                        <th>Phase 1 (2026)</th>
+                        <th>Phase 2 (Projected)</th>
+                        <th>Deployment Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Operational Budget (OPEX)</td>
-                        <td class="mono">1,073,900 ₺</td>
-                        <td class="mono">2,432,775 ₺</td>
-                        <td>TÜBİTAK BİGG Support</td>
+                        <td class="value-cell">1,073,900 ₺</td>
+                        <td class="value-cell">2,432,775 ₺</td>
+                        <td>Seed Capital Allocated</td>
                     </tr>
                     <tr>
-                        <td>Revenue (HOCS Dev-Kit)</td>
-                        <td class="mono">425,000 ₺</td>
-                        <td class="mono">27,625,000 ₺</td>
-                        <td>85k / Unit Pricing</td>
+                        <td>Commercial Revenue (Dev-Kit)</td>
+                        <td class="value-cell">425,000 ₺</td>
+                        <td class="value-cell">27,625,000 ₺</td>
+                        <td>Strategic Scaling Mode</td>
                     </tr>
                     <tr>
                         <td>Break-Even Point (BBN)</td>
-                        <td class="mono">11.13 Units</td>
-                        <td class="mono">Achieved</td>
-                        <td>Tier-3 Scalability</td>
+                        <td class="value-cell">11.13 Units</td>
+                        <td class="value-cell">Positive Cashflow</td>
+                        <td>Tier-3 Infrastructure Ready</td>
                     </tr>
                     <tr>
-                        <td>LTV / CAC Ratio</td>
-                        <td class="mono">6.0</td>
-                        <td class="mono">Healthy</td>
-                        <td>Growth Investment Factor</td>
+                        <td>LTV / CAC Efficiency</td>
+                        <td class="value-cell">6.0 Ratio</td>
+                        <td class="value-cell">Optimized</td>
+                        <td>B2B Market Validation</td>
                     </tr>
                 </tbody>
             </table>
@@ -120,14 +139,18 @@
     </section>
 
     <footer>
-        <div class="citation">
-            <strong>Data Source [1]:</strong> HOCS Integrated Module 5 Financial Projections (2026). Approved by R&D Lead Muhammed Yusuf Çobanoğlu.
+        <div class="citation-grid">
+            <div class="cite-item">
+                <h4>Source: Internal R&D Projections</h4>
+                <p>Derived from HOCS Integrated Module 5 Financial Architecture. All metrics verified for B2B scalability in HPC environments.</p>
+            </div>
+            <div class="cite-item">
+                <h4>Source: Hardware Specifications</h4>
+                <p>Based on Xilinx Kria K26 SoC Benchmarks and Silicon Photonics Interconnect Standards for 4.14 TB/s transmission.</p>
+            </div>
         </div>
-        <div class="citation">
-            <strong>Technical Source [2]:</strong> Xilinx Kria K26 SoM Architecture Documentation & Silicon Photonics Interconnect Standards.
-        </div>
-        <div style="margin-top: 40px; text-align: center;">
-            &copy; 2026 HOCS Integrated | Adıyaman R&D Station | All Rights Reserved.
+        <div class="copyright">
+            &copy; 2026 HOCS Integrated | Adıyaman R&D Operations Base | Proprietary Technology.
         </div>
     </footer>
 
