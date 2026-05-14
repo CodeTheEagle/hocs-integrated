@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOCS Integrated | Hybrid Optical Computing System</title>
+    
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+
+    <link rel="alternate" hreflang="tr" href="https://www.hocsintegrated.com/" />
+    <link rel="alternate" hreflang="en" href="https://www.hocsintegrated.com/?lang=en" />
+    <link rel="alternate" hreflang="de" href="https://www.hocsintegrated.com/?lang=de" />
+    <link rel="alternate" hreflang="fr" href="https://www.hocsintegrated.com/?lang=fr" />
+    <link rel="alternate" hreflang="ru" href="https://www.hocsintegrated.com/?lang=ru" />
+    <link rel="alternate" hreflang="ja" href="https://www.hocsintegrated.com/?lang=ja" />
+    <link rel="alternate" hreflang="zh" href="https://www.hocsintegrated.com/?lang=zh" />
+    <link rel="alternate" hreflang="x-default" href="https://www.hocsintegrated.com/?lang=en" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    
     <style>
         :root {
             --bg-color: #ffffff;
@@ -27,60 +40,19 @@
         }
 
         /* Navbar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 8%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            color: var(--text-main);
-            font-size: 22px;
-        }
-
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+        .nav-logo { display: flex; align-items: center; gap: 12px; font-weight: 700; text-decoration: none; color: var(--text-main); font-size: 22px; }
         .nav-logo img { height: 35px; width: auto; }
         .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 30px; font-weight: 600; font-size: 15px; }
         .nav-links a:hover, .active-link { color: var(--accent-blue) !important; }
 
         /* Hero Section */
-        .hero {
-            padding: 100px 8%;
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            border-bottom: 1px solid var(--border);
-        }
-
+        .hero { padding: 100px 8%; display: flex; align-items: center; gap: 50px; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); border-bottom: 1px solid var(--border); }
         .hero-content { flex: 1; }
         .hero-content h1 { font-size: 64px; font-weight: 700; letter-spacing: -2px; line-height: 1.1; margin-bottom: 25px; }
         .hero-content p { font-size: 20px; color: var(--text-muted); margin-bottom: 35px; max-width: 600px; }
-        
-        .cta-button {
-            padding: 18px 35px;
-            background: var(--accent-blue);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 16px;
-            transition: 0.3s;
-            display: inline-block;
-        }
+        .cta-button { padding: 18px 35px; background: var(--accent-blue); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 16px; transition: 0.3s; display: inline-block; }
         .cta-button:hover { background: #0088dd; transform: translateY(-3px); }
-
         .hero-image { flex: 1; text-align: right; }
         .hero-image img { width: 100%; max-width: 600px; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
 
@@ -93,7 +65,7 @@
         .value-card h3 { font-size: 24px; margin-bottom: 15px; }
         .value-card p { color: var(--text-muted); font-size: 16px; }
 
-        /* PoC Section (Proof of Concept) */
+        /* PoC Section */
         .poc-section { padding: 100px 8%; background-color: #fcfcfc; border-top: 1px solid var(--border); }
         .poc-container { display: flex; align-items: center; gap: 60px; }
         .poc-img { flex: 1; }
@@ -105,26 +77,10 @@
 
         /* Request Section */
         .request-section { padding: 100px 8%; text-align: center; }
-        .request-card {
-            background: linear-gradient(135deg, #00a2ff 0%, #0066cc 100%);
-            padding: 80px 40px;
-            border-radius: 30px;
-            color: white;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+        .request-card { background: linear-gradient(135deg, #00a2ff 0%, #0066cc 100%); padding: 80px 40px; border-radius: 30px; color: white; max-width: 1000px; margin: 0 auto; }
         .request-card h2 { font-size: 48px; margin-bottom: 20px; }
         .request-card p { font-size: 20px; opacity: 0.9; margin-bottom: 40px; }
-        .white-button {
-            padding: 18px 40px;
-            background: white;
-            color: var(--accent-blue);
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 700;
-            transition: 0.3s;
-            display: inline-block;
-        }
+        .white-button { padding: 18px 40px; background: white; color: var(--accent-blue); text-decoration: none; border-radius: 12px; font-weight: 700; transition: 0.3s; display: inline-block; }
         .white-button:hover { transform: scale(1.05); }
 
         footer { padding: 40px 8%; text-align: center; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 14px; }
@@ -137,17 +93,17 @@
             <img src="logo.jpg" alt="Logo"> HOCS Integrated
         </a>
         <div class="nav-links">
-            <a href="index.html" class="active-link">Home</a>
-            <a href="technology.html">Technology</a>
-            <a href="team.html">Team</a>
+            <a href="index.html" class="active-link" data-i18n="nav_home">Home</a>
+            <a href="technology.html" data-i18n="nav_tech">Technology</a>
+            <a href="team.html" data-i18n="nav_team">Team</a>
         </div>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Geleceğin Hesaplama Mimarisi: <span style="color: #00a2ff;">Fotonik.</span></h1>
-            <p>HOCS Integrated, silikon dünyasının termal sınırlarını ışıkla aşarak yapay zeka operasyonlarını saniyeler değil, nanosaniyeler seviyesine taşıyor.</p>
-            <a href="technology.html" class="cta-button">Teknolojiyi Keşfet</a>
+            <h1 data-i18n="hero_title">Geleceğin Hesaplama Mimarisi: <span style="color: #00a2ff;">Fotonik.</span></h1>
+            <p data-i18n="hero_desc">HOCS Integrated, silikon dünyasının termal sınırlarını ışıkla aşarak yapay zeka operasyonlarını saniyeler değil, nanosaniyeler seviyesine taşıyor.</p>
+            <a href="technology.html" class="cta-button" data-i18n="hero_btn">Teknolojiyi Keşfet</a>
         </div>
         <div class="hero-image">
             <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" alt="Future Tech">
@@ -155,19 +111,19 @@
     </section>
 
     <section class="values">
-        <h2>Neden HOCS Integrated?</h2>
+        <h2 data-i18n="values_title">Neden HOCS Integrated?</h2>
         <div class="value-grid">
             <div class="value-card">
-                <h3 style="color: #00a2ff;">Sıfır Isı</h3>
-                <p>50nm CuO aktivasyon katmanımız sayesinde Joule ısınmasını kaynağında yok ediyor, aktif soğutma ihtiyacını ortadan kaldırıyoruz.</p>
+                <h3 style="color: #00a2ff;" data-i18n="val1_title">Sıfır Isı</h3>
+                <p data-i18n="val1_desc">50nm CuO aktivasyon katmanımız sayesinde Joule ısınmasını kaynağında yok ediyor, aktif soğutma ihtiyacını ortadan kaldırıyoruz.</p>
             </div>
             <div class="value-card">
-                <h3 style="color: #00a2ff;">Işık Hızı</h3>
-                <p>3.2 PetaOPS işlem kapasitesiyle, matris-vektör çarpımlarını standart donanımlardan 10.000 kat daha hızlı gerçekleştiriyoruz.</p>
+                <h3 style="color: #00a2ff;" data-i18n="val2_title">Işık Hızı</h3>
+                <p data-i18n="val2_desc">3.2 PetaOPS işlem kapasitesiyle, matris-vektör çarpımlarını standart donanımlardan 10.000 kat daha hızlı gerçekleştiriyoruz.</p>
             </div>
             <div class="value-card">
-                <h3 style="color: #00a2ff;">Tam Entegrasyon</h3>
-                <p>AMD Xilinx® Kria K26 SoM ile uyumlu hibrit mimarimiz, mevcut sistemlerle pürüzsüz bir sinerji içinde çalışır.</p>
+                <h3 style="color: #00a2ff;" data-i18n="val3_title">Tam Entegrasyon</h3>
+                <p data-i18n="val3_desc">AMD Xilinx® Kria K26 SoM ile uyumlu hibrit mimarimiz, mevcut sistemlerle pürüzsüz bir sinerji içinde çalışır.</p>
             </div>
         </div>
     </section>
@@ -178,9 +134,9 @@
                 <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=2069&auto=format&fit=crop" alt="PoC Hardware">
             </div>
             <div class="poc-text">
-                <span class="badge-small">HARDWARE VALIDATION</span>
-                <h2>Proof of Concept (PoC)</h2>
-                <p>
+                <span class="badge-small" data-i18n="poc_badge">HARDWARE VALIDATION</span>
+                <h2 data-i18n="poc_title">Proof of Concept (PoC)</h2>
+                <p data-i18n="poc_desc">
                     HOCS V1.0 donanım doğrulama süreçleri başarıyla tamamlandı. Dördüncü nesil taşıyıcı kartımız (Carrier Board), 
                     <strong>fotonik çekirdek</strong> ve dijital kontrol birimleri arasındaki veri akışını 4.14 TB/s hızında 
                     pürüzsüzce gerçekleştiriyor. Adıyaman R&D Station'da yürütülen testler, teorik verilerimizin fiziksel donanım üzerindeki %100 uyumunu kanıtlamıştır.
@@ -191,16 +147,161 @@
 
     <section class="request-section">
         <div class="request-card">
-            <h2>Geleceği Birlikte İnşa Edelim.</h2>
-            <p>HOCS Integrated test kitleri, teknik dokümantasyon başvuruları ve stratejik ortaklık talepleriniz için bize ulaşın.</p>
-            <a href="mailto:request@hocsintegrated.com" class="white-button">Başvuru Yap (Request)</a>
+            <h2 data-i18n="req_title">Geleceği Birlikte İnşa Edelim.</h2>
+            <p data-i18n="req_desc">HOCS Integrated test kitleri, teknik dokümantasyon başvuruları ve stratejik ortaklık talepleriniz için bize ulaşın.</p>
+            <a href="mailto:request@hocsintegrated.com" class="white-button" data-i18n="req_btn">Başvuru Yap (Request)</a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 HOCS Integrated. Altınşehir, Adıyaman / Türkiye.</p>
+        <p data-i18n="footer_text">&copy; 2026 HOCS Integrated. Altınşehir, Adıyaman / Türkiye.</p>
     </footer>
 
+    <script>
+        const translations = {
+            "tr": {
+                "nav_home": "Ana Sayfa", "nav_tech": "Teknoloji", "nav_team": "Ekip",
+                "hero_title": "Geleceğin Hesaplama Mimarisi: <span style='color: #00a2ff;'>Fotonik.</span>",
+                "hero_desc": "HOCS Integrated, silikon dünyasının termal sınırlarını ışıkla aşarak yapay zeka operasyonlarını saniyeler değil, nanosaniyeler seviyesine taşıyor.",
+                "hero_btn": "Teknolojiyi Keşfet",
+                "values_title": "Neden HOCS Integrated?",
+                "val1_title": "Sıfır Isı", "val1_desc": "50nm CuO aktivasyon katmanımız sayesinde Joule ısınmasını kaynağında yok ediyor, aktif soğutma ihtiyacını ortadan kaldırıyoruz.",
+                "val2_title": "Işık Hızı", "val2_desc": "3.2 PetaOPS işlem kapasitesiyle, matris-vektör çarpımlarını standart donanımlardan 10.000 kat daha hızlı gerçekleştiriyoruz.",
+                "val3_title": "Tam Entegrasyon", "val3_desc": "AMD Xilinx® Kria K26 SoM ile uyumlu hibrit mimarimiz, mevcut sistemlerle pürüzsüz bir sinerji içinde çalışır.",
+                "poc_badge": "DONANIM DOĞRULAMASI",
+                "poc_title": "Proof of Concept (PoC)",
+                "poc_desc": "HOCS V1.0 donanım doğrulama süreçleri başarıyla tamamlandı. Dördüncü nesil taşıyıcı kartımız (Carrier Board), <strong>fotonik çekirdek</strong> ve dijital kontrol birimleri arasındaki veri akışını 4.14 TB/s hızında pürüzsüzce gerçekleştiriyor. Adıyaman R&D Station'da yürütülen testler, teorik verilerimizin fiziksel donanım üzerindeki %100 uyumunu kanıtlamıştır.",
+                "req_title": "Geleceği Birlikte İnşa Edelim.",
+                "req_desc": "HOCS Integrated test kitleri, teknik dokümantasyon başvuruları ve stratejik ortaklık talepleriniz için bize ulaşın.",
+                "req_btn": "Başvuru Yap (Request)",
+                "footer_text": "&copy; 2026 HOCS Integrated. Altınşehir, Adıyaman / Türkiye."
+            },
+            "en": {
+                "nav_home": "Home", "nav_tech": "Technology", "nav_team": "Team",
+                "hero_title": "The Future of Computing: <span style='color: #00a2ff;'>Photonics.</span>",
+                "hero_desc": "HOCS Integrated transcends the thermal limits of silicon with light, pushing AI operations from seconds to nanoseconds.",
+                "hero_btn": "Discover Technology",
+                "values_title": "Why HOCS Integrated?",
+                "val1_title": "Zero Heat", "val1_desc": "Thanks to our 50nm CuO activation layer, we eliminate Joule heating at the source, completely removing the need for active cooling.",
+                "val2_title": "Speed of Light", "val2_desc": "With 3.2 PetaOPS of processing capacity, we execute matrix-vector multiplications 10,000 times faster than standard hardware.",
+                "val3_title": "Full Integration", "val3_desc": "Our hybrid architecture, compatible with the AMD Xilinx® Kria K26 SoM, operates in seamless synergy with existing systems.",
+                "poc_badge": "HARDWARE VALIDATION",
+                "poc_title": "Proof of Concept (PoC)",
+                "poc_desc": "HOCS V1.0 hardware validation is complete. Our 4th generation Carrier Board facilitates flawless data flow at 4.14 TB/s between the <strong>photonic core</strong> and digital control units. Tests at the Adıyaman R&D Station have proven 100% compliance of our theoretical data on physical hardware.",
+                "req_title": "Let's Build the Future Together.",
+                "req_desc": "Contact us for HOCS Integrated test kits, technical documentation requests, and strategic partnership inquiries.",
+                "req_btn": "Submit Request",
+                "footer_text": "&copy; 2026 HOCS Integrated. Altınşehir, Adıyaman / Turkey."
+            },
+            "de": {
+                "nav_home": "Startseite", "nav_tech": "Technologie", "nav_team": "Team",
+                "hero_title": "Die Zukunft des Computings: <span style='color: #00a2ff;'>Photonik.</span>",
+                "hero_desc": "HOCS Integrated überwindet die thermischen Grenzen von Silizium mit Licht und beschleunigt KI-Operationen auf Nanosekunden.",
+                "hero_btn": "Technologie Entdecken",
+                "values_title": "Warum HOCS Integrated?",
+                "val1_title": "Null Hitze", "val1_desc": "Dank unserer 50nm CuO-Schicht eliminieren wir die Joule-Erwärmung an der Quelle und machen eine aktive Kühlung überflüssig.",
+                "val2_title": "Lichtgeschwindigkeit", "val2_desc": "Mit 3.2 PetaOPS Kapazität führen wir Matrix-Multiplikationen 10.000-mal schneller aus als Standardhardware.",
+                "val3_title": "Volle Integration", "val3_desc": "Unsere hybride Architektur, kompatibel mit dem AMD Xilinx® Kria K26 SoM, arbeitet nahtlos mit bestehenden Systemen zusammen.",
+                "poc_badge": "HARDWARE-VALIDIERUNG",
+                "poc_title": "Proof of Concept (PoC)",
+                "poc_desc": "Die Hardware-Validierung von HOCS V1.0 ist abgeschlossen. Unser Carrier Board der 4. Generation ermöglicht einen reibungslosen Datenfluss mit 4.14 TB/s. Die Tests in der Adıyaman R&D Station beweisen die 100%ige Übereinstimmung unserer theoretischen Daten.",
+                "req_title": "Lassen Sie uns die Zukunft gemeinsam bauen.",
+                "req_desc": "Kontaktieren Sie uns für Test-Kits, technische Dokumentationen und strategische Partnerschaften.",
+                "req_btn": "Anfrage Senden",
+                "footer_text": "&copy; 2026 HOCS Integrated. Altınşehir, Adıyaman / Türkei."
+            },
+            "fr": {
+                "nav_home": "Accueil", "nav_tech": "Technologie", "nav_team": "Équipe",
+                "hero_title": "L'Avenir de l'Informatique : <span style='color: #00a2ff;'>La Photonique.</span>",
+                "hero_desc": "HOCS Integrated dépasse les limites thermiques du silicium grâce à la lumière, propulsant les opérations d'IA à la nanoseconde.",
+                "hero_btn": "Découvrir la Technologie",
+                "values_title": "Pourquoi HOCS Integrated ?",
+                "val1_title": "Zéro Chaleur", "val1_desc": "Grâce à notre couche d'activation CuO de 50 nm, nous éliminons l'effet Joule à la source.",
+                "val2_title": "Vitesse de la Lumière", "val2_desc": "Avec une capacité de 3.2 PetaOPS, nous exécutons les calculs 10 000 fois plus vite.",
+                "val3_title": "Intégration Totale", "val3_desc": "Notre architecture hybride s'intègre parfaitement avec le SoM AMD Xilinx® Kria K26.",
+                "poc_badge": "VALIDATION MATÉRIELLE",
+                "poc_title": "Proof of Concept (PoC)",
+                "poc_desc": "La validation matérielle HOCS V1.0 est terminée. Notre carte porteuse garantit un flux de données de 4.14 To/s. Les tests à la station R&D d'Adıyaman ont prouvé une conformité de 100%.",
+                "req_title": "Construisons l'avenir ensemble.",
+                "req_desc": "Contactez-nous pour des kits de test, la documentation technique et les partenariats stratégiques.",
+                "req_btn": "Soumettre une Demande",
+                "footer_text": "&copy; 2026 HOCS Integrated. Altınşehir, Adıyaman / Turquie."
+            },
+            "ru": {
+                "nav_home": "Главная", "nav_tech": "Технологии", "nav_team": "Команда",
+                "hero_title": "Будущее вычислений: <span style='color: #00a2ff;'>Фотоника.</span>",
+                "hero_desc": "HOCS Integrated преодолевает тепловые пределы кремния с помощью света, ускоряя операции ИИ до наносекунд.",
+                "hero_btn": "Изучить технологию",
+                "values_title": "Почему HOCS Integrated?",
+                "val1_title": "Нулевой Нагрев", "val1_desc": "Благодаря слою CuO 50 нм мы устраняем джоулев нагрев в источнике, избавляясь от активного охлаждения.",
+                "val2_title": "Скорость Света", "val2_desc": "С мощностью 3.2 PetaOPS мы выполняем матричные вычисления в 10 000 раз быстрее стандартного оборудования.",
+                "val3_title": "Полная Интеграция", "val3_desc": "Наша гибридная архитектура бесшовно работает с существующими системами (AMD Xilinx® Kria K26).",
+                "poc_badge": "АППАРАТНАЯ ПРОВЕРКА",
+                "poc_title": "Proof of Concept (PoC)",
+                "poc_desc": "Аппаратная проверка HOCS V1.0 завершена. Наша несущая плата обеспечивает поток данных со скоростью 4.14 ТБ/с. Тесты на станции R&D в Адыямане подтвердили 100% соответствие теории физическому оборудованию.",
+                "req_title": "Давайте строить будущее вместе.",
+                "req_desc": "Свяжитесь с нами для получения тестовых наборов, документации и по вопросам партнерства.",
+                "req_btn": "Оставить заявку",
+                "footer_text": "&copy; 2026 HOCS Integrated. Алтыншехир, Адыяман / Турция."
+            },
+            "ja": {
+                "nav_home": "ホーム", "nav_tech": "テクノロジー", "nav_team": "チーム",
+                "hero_title": "コンピューティングの未来: <span style='color: #00a2ff;'>フォトニクス.</span>",
+                "hero_desc": "HOCS Integratedは光を用いてシリコンの熱限界を超え、AI演算をナノ秒レベルへ押し上げます。",
+                "hero_btn": "テクノロジーを探る",
+                "values_title": "なぜ HOCS Integrated なのか？",
+                "val1_title": "ゼロヒート", "val1_desc": "50nm CuO層により、ジュール熱を根源から排除し、冷却システムを不要にします。",
+                "val2_title": "光の速度", "val2_desc": "3.2 PetaOPSの処理能力で、行列演算を標準ハードウェアの1万倍の速度で実行します。",
+                "val3_title": "完全な統合", "val3_desc": "AMD Xilinx® Kria K26 SoMと互換性のあるハイブリッドアーキテクチャは、既存のシステムとシームレスに連携します。",
+                "poc_badge": "ハードウェア検証",
+                "poc_title": "概念実証 (PoC)",
+                "poc_desc": "HOCS V1.0のハードウェア検証が完了しました。Adıyaman R&D Stationでのテストにより、理論データが物理ハードウェアで100%機能することが証明されました。",
+                "req_title": "共に未来を築きましょう。",
+                "req_desc": "テストキット、技術ドキュメント、および戦略的パートナーシップについてはお問い合わせください。",
+                "req_btn": "リクエストを送信",
+                "footer_text": "&copy; 2026 HOCS Integrated. アドゥヤマン / トルコ."
+            },
+            "zh": {
+                "nav_home": "首页", "nav_tech": "技术", "nav_team": "团队",
+                "hero_title": "计算的未来：<span style='color: #00a2ff;'>光子学.</span>",
+                "hero_desc": "HOCS Integrated 利用光突破硅的热极限，将 AI 运算从秒级推向纳秒级。",
+                "hero_btn": "探索技术",
+                "values_title": "为什么选择 HOCS Integrated？",
+                "val1_title": "零热量", "val1_desc": "得益于我们的 50nm CuO 层，我们从源头消除了焦耳热，彻底摆脱了主动散热的需要。",
+                "val2_title": "光速", "val2_desc": "凭借 3.2 PetaOPS 的处理能力，我们执行矩阵运算的速度比标准硬件快 10,000 倍。",
+                "val3_title": "完全集成", "val3_desc": "我们的混合架构与 AMD Xilinx® Kria K26 SoM 兼容，可与现有系统无缝协同工作。",
+                "poc_badge": "硬件验证",
+                "poc_title": "概念验证 (PoC)",
+                "poc_desc": "HOCS V1.0 硬件验证已完成。我们的第四代载板实现了 4.14 TB/s 的无缝数据流。在阿德亚曼研发站 (Adıyaman R&D Station) 的测试证明了我们的理论在物理硬件上的 100% 契合。",
+                "req_title": "共创未来。",
+                "req_desc": "请联系我们获取测试套件、技术文档和战略合作信息。",
+                "req_btn": "提交申请",
+                "footer_text": "&copy; 2026 HOCS Integrated. 阿德亚曼 / 土耳其。"
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Tarayıcının ana dilini al (örn: "tr", "en", "ru")
+            let userLang = navigator.language.slice(0, 2);
+            
+            // Eğer dil JSON sözlüğünde yoksa, varsayılan olarak "en" (İngilizce) yap
+            if (!translations[userLang]) {
+                userLang = "en";
+            }
+
+            // HTML lang etiketini güncelle
+            document.documentElement.lang = userLang;
+
+            // Çevirileri sayfaya bas
+            const elements = document.querySelectorAll("[data-i18n]");
+            elements.forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (translations[userLang][key]) {
+                    el.innerHTML = translations[userLang][key];
+                }
+            });
+        });
+    </script>
     <script src="js/main.js"></script>
 </body>
 </html>
