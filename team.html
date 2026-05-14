@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team | HOCS Integrated</title>
+    
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+
+    <link rel="alternate" hreflang="tr" href="https://www.hocsintegrated.com/team.html" />
+    <link rel="alternate" hreflang="en" href="https://www.hocsintegrated.com/team.html?lang=en" />
+    <link rel="alternate" hreflang="de" href="https://www.hocsintegrated.com/team.html?lang=de" />
+    <link rel="alternate" hreflang="fr" href="https://www.hocsintegrated.com/team.html?lang=fr" />
+    <link rel="alternate" hreflang="ru" href="https://www.hocsintegrated.com/team.html?lang=ru" />
+    <link rel="alternate" hreflang="ja" href="https://www.hocsintegrated.com/team.html?lang=ja" />
+    <link rel="alternate" hreflang="zh" href="https://www.hocsintegrated.com/team.html?lang=zh" />
+    <link rel="alternate" hreflang="x-default" href="https://www.hocsintegrated.com/team.html?lang=en" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -26,29 +38,8 @@
         }
 
         /* Navbar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 8%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            color: var(--text-main);
-            font-size: 22px;
-        }
-
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+        .nav-logo { display: flex; align-items: center; gap: 12px; font-weight: 700; text-decoration: none; color: var(--text-main); font-size: 22px; }
         .nav-logo img { height: 35px; width: auto; object-fit: contain; }
         .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 30px; font-weight: 600; font-size: 15px; }
         .nav-links a:hover, .active-link { color: var(--accent-blue) !important; }
@@ -60,67 +51,23 @@
 
         /* Detailed Team Section */
         .team-section { padding: 40px 8% 80px; max-width: 1200px; margin: 0 auto; }
-        .member-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 50px;
-            margin-bottom: 30px;
-            transition: all 0.4s ease;
-        }
+        .member-card { background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: 50px; margin-bottom: 30px; transition: all 0.4s ease; }
         .member-card:hover { border-color: var(--accent-blue); box-shadow: 0 20px 40px rgba(0,0,0,0.04); }
-        
         .member-info h2 { font-size: 32px; font-weight: 700; margin: 0; color: var(--text-main); }
         .member-info .role { font-size: 14px; font-weight: 700; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; }
         .member-info p { font-size: 18px; line-height: 1.7; color: var(--text-muted); margin-top: 15px; max-width: 900px; }
 
         /* Bottom Short Summary */
-        .final-vision {
-            padding: 80px 15%;
-            text-align: center;
-            background-color: #f9f9f9;
-            border-top: 1px solid var(--border);
-        }
+        .final-vision { padding: 80px 15%; text-align: center; background-color: #f9f9f9; border-top: 1px solid var(--border); }
         .final-vision p { font-size: 17px; line-height: 1.8; color: #888; max-width: 800px; margin: 0 auto; font-style: italic; }
 
-        /* Facility Banner (High Quality Focus) */
+        /* Facility Banner */
         .facility-section { padding: 60px 8%; background: #fff; }
-        .facility-banner {
-            height: 500px;
-            border-radius: 32px;
-            overflow: hidden;
-            position: relative;
-            background-image: url('images.jpg'); /* Yüksek çözünürlüklü versiyonunu kullandığından emin ol */
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--border);
-        }
-
-        .facility-banner::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.2); /* Görseli çok karartmadan derinlik katar */
-            z-index: 1;
-        }
-
-        .facility-glass {
-            position: relative;
-            z-index: 2;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 40px 80px;
-            border-radius: 24px;
-            text-align: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.4);
-        }
+        .facility-banner { height: 500px; border-radius: 32px; overflow: hidden; position: relative; background-image: url('images.jpg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); }
+        .facility-banner::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.2); z-index: 1; }
+        .facility-glass { position: relative; z-index: 2; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 40px 80px; border-radius: 24px; text-align: center; box-shadow: 0 30px 60px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.4); }
         .facility-glass h2 { font-size: 40px; font-weight: 700; margin: 0; color: #000; }
         .facility-glass p { margin: 10px 0 0; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 4px; font-size: 14px; }
-
     </style>
 </head>
 <body>
@@ -130,82 +77,184 @@
             <img src="logo.jpg" alt="Logo"> HOCS Integrated
         </a>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="technology.html">Technology</a>
-            <a href="team.html" class="active-link">Team</a>
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <a href="technology.html" data-i18n="nav_tech">Technology</a>
+            <a href="team.html" class="active-link" data-i18n="nav_team">Team</a>
         </div>
     </nav>
 
     <header class="page-header">
-        <span class="badge">Innovation Leaders</span>
-        <h1>Ekibimiz</h1>
+        <span class="badge" data-i18n="header_badge">Innovation Leaders</span>
+        <h1 data-i18n="header_title">Ekibimiz</h1>
     </header>
 
     <main class="team-section">
         
         <div class="member-card">
             <div class="member-info">
-                <span class="role">Founder & Lead Architect</span>
+                <span class="role" data-i18n="role_my">Founder & Lead Architect</span>
                 <h2>Muhammed Yusuf Çobanoğlu</h2>
-                <p>HOCS (Hybrid Optical Computing System) mimarisinin vizyoner tasarımcısıdır. Fotonik işlem birimlerinin silikon üzerindeki entegrasyonu, 50nm CuO aktivasyon katmanının fiziksel tasarımı ve dökümhaneye hazır GDSII süreçlerinin yönetiminden sorumludur. Elektronik direnci ışıkla aşma misyonuyla projenin teknik çekirdeğini yönetmektedir.</p>
+                <p data-i18n="desc_my">HOCS (Hybrid Optical Computing System) mimarisinin vizyoner tasarımcısıdır. Fotonik işlem birimlerinin silikon üzerindeki entegrasyonu, 50nm CuO aktivasyon katmanının fiziksel tasarımı ve dökümhaneye hazır GDSII süreçlerinin yönetiminden sorumludur. Elektronik direnci ışıkla aşma misyonuyla projenin teknik çekirdeğini yönetmektedir.</p>
             </div>
         </div>
 
         <div class="member-card">
             <div class="member-info">
-                <span class="role">Co-Founder</span>
+                <span class="role" data-i18n="role_mu">Co-Founder</span>
                 <h2>Mikail Yusuf Urğun</h2>
-                <p>Projenin kuruluş aşamasından itibaren stratejik planlama ve iş geliştirme süreçlerini yönetmektedir. HOCS Integrated'in global donanım pazarındaki konumlandırılması ve operasyonel süreçlerin sürdürülebilirliği üzerine odaklanmaktadır.</p>
+                <p data-i18n="desc_mu">Projenin kuruluş aşamasından itibaren stratejik planlama ve iş geliştirme süreçlerini yönetmektedir. HOCS Integrated'in global donanım pazarındaki konumlandırılması ve operasyonel süreçlerin sürdürülebilirliği üzerine odaklanmaktadır.</p>
             </div>
         </div>
 
         <div class="member-card">
             <div class="member-info">
-                <span class="role">Founder & R&D Lead</span>
+                <span class="role" data-i18n="role_mpa">Founder & R&D Lead</span>
                 <h2>Mert Poyraz Akcan</h2>
-                <p>Fotonik sistemlerin araştırma ve geliştirme safhalarında kritik rol oynamaktadır. Non-lineer optik hesaplama algoritmaları ve sinyal işleme modellerinin donanım üzerindeki optimizasyonu çalışmalarını yürütmektedir.</p>
+                <p data-i18n="desc_mpa">Fotonik sistemlerin araştırma ve geliştirme safhalarında kritik rol oynamaktadır. Non-lineer optik hesaplama algoritmaları ve sinyal işleme modellerinin donanım üzerindeki optimizasyonu çalışmalarını yürütmektedir.</p>
             </div>
         </div>
 
         <div class="member-card">
             <div class="member-info">
-                <span class="role">Embedded Systems Engineer</span>
+                <span class="role" data-i18n="role_aes">Embedded Systems Engineer</span>
                 <h2>Ali Ekber Şahin</h2>
-                <p>Donanım ve yazılım arasındaki köprüyü inşa etmektedir. PhotonX-OS mikroçekirdek mimarisinin geliştirilmesi ve düşük seviyeli sürücülerin fotonik birimlerle pürüzsüz haberleşmesi süreçlerini yönetmektedir.</p>
+                <p data-i18n="desc_aes">Donanım ve yazılım arasındaki köprüyü inşa etmektedir. PhotonX-OS mikroçekirdek mimarisinin geliştirilmesi ve düşük seviyeli sürücülerin fotonik birimlerle pürüzsüz haberleşmesi süreçlerini yönetmektedir.</p>
             </div>
         </div>
 
         <div class="member-card">
             <div class="member-info">
-                <span class="role">Hardware Design Specialist</span>
+                <span class="role" data-i18n="role_mk">Hardware Design Specialist</span>
                 <h2>Muhammed Koç</h2>
-                <p>Yüksek hızlı dijital tasarım ve PCB yerleşimi konularında uzmanlaşmıştır. HOCS V1.0 taşıyıcı kartın empedans kontrolü, sinyal bütünlüğü ve Kria K26 SoM entegrasyonunun fiziksel tasarımını gerçekleştirmektedir.</p>
+                <p data-i18n="desc_mk">Yüksek hızlı dijital tasarım ve PCB yerleşimi konularında uzmanlaşmıştır. HOCS V1.0 taşıyıcı kartın empedans kontrolü, sinyal bütünlüğü ve Kria K26 SoM entegrasyonunun fiziksel tasarımını gerçekleştirmektedir.</p>
             </div>
         </div>
 
         <div class="member-card">
             <div class="member-info">
-                <span class="role">Integration Engineer</span>
+                <span class="role" data-i18n="role_mb">Integration Engineer</span>
                 <h2>Mustafa Bayram</h2>
-                <p>Sistem seviyesinde entegrasyon ve doğrulama süreçlerinden sorumludur. Fotonik çekirdeğin farklı platformlardaki performans testlerini yürüterek, donanımın MIL-STD standartlarına uyumunu denetlemektedir.</p>
+                <p data-i18n="desc_mb">Sistem seviyesinde entegrasyon ve doğrulama süreçlerinden sorumludur. Fotonik çekirdeğin farklı platformlardaki performans testlerini yürüterek, donanımın MIL-STD standartlarına uyumunu denetlemektedir.</p>
             </div>
         </div>
 
     </main>
 
     <section class="final-vision">
-        <p>HOCS Integrated, silikon dünyasının termal sınırlarını fotonikle aşarak yapay zeka operasyonlarını ışık hızında ve sıfır ısı kaybıyla gerçekleştiren, donanım dünyasında yeni bir standart inşa eden mühendislik ekibidir.</p>
+        <p data-i18n="final_vision">HOCS Integrated, silikon dünyasının termal sınırlarını fotonikle aşarak yapay zeka operasyonlarını ışık hızında ve sıfır ısı kaybıyla gerçekleştiren, donanım dünyasında yeni bir standart inşa eden mühendislik ekibidir.</p>
     </section>
 
     <section class="facility-section">
         <div class="facility-banner">
             <div class="facility-glass">
-                <h2>Adıyaman R&D Station</h2>
-                <p>Main Testing & Validation Facility</p>
+                <h2 data-i18n="facility_title">Adıyaman R&D Station</h2>
+                <p data-i18n="facility_desc">Main Testing & Validation Facility</p>
             </div>
         </div>
     </section>
 
+    <script>
+        const translations = {
+            "tr": {
+                "nav_home": "Ana Sayfa", "nav_tech": "Teknoloji", "nav_team": "Ekip",
+                "header_badge": "İnovasyon Liderleri", "header_title": "Ekibimiz",
+                "role_my": "Kurucu & Baş Mimar", "desc_my": "HOCS (Hybrid Optical Computing System) mimarisinin vizyoner tasarımcısıdır. Fotonik işlem birimlerinin silikon üzerindeki entegrasyonu, 50nm CuO aktivasyon katmanının fiziksel tasarımı ve dökümhaneye hazır GDSII süreçlerinin yönetiminden sorumludur. Elektronik direnci ışıkla aşma misyonuyla projenin teknik çekirdeğini yönetmektedir.",
+                "role_mu": "Kurucu Ortak", "desc_mu": "Projenin kuruluş aşamasından itibaren stratejik planlama ve iş geliştirme süreçlerini yönetmektedir. HOCS Integrated'in global donanım pazarındaki konumlandırılması ve operasyonel süreçlerin sürdürülebilirliği üzerine odaklanmaktadır.",
+                "role_mpa": "Kurucu & AR-GE Lideri", "desc_mpa": "Fotonik sistemlerin araştırma ve geliştirme safhalarında kritik rol oynamaktadır. Non-lineer optik hesaplama algoritmaları ve sinyal işleme modellerinin donanım üzerindeki optimizasyonu çalışmalarını yürütmektedir.",
+                "role_aes": "Gömülü Sistem Mühendisi", "desc_aes": "Donanım ve yazılım arasındaki köprüyü inşa etmektedir. PhotonX-OS mikroçekirdek mimarisinin geliştirilmesi ve düşük seviyeli sürücülerin fotonik birimlerle pürüzsüz haberleşmesi süreçlerini yönetmektedir.",
+                "role_mk": "Donanım Tasarım Uzmanı", "desc_mk": "Yüksek hızlı dijital tasarım ve PCB yerleşimi konularında uzmanlaşmıştır. HOCS V1.0 taşıyıcı kartın empedans kontrolü, sinyal bütünlüğü ve Kria K26 SoM entegrasyonunun fiziksel tasarımını gerçekleştirmektedir.",
+                "role_mb": "Entegrasyon Mühendisi", "desc_mb": "Sistem seviyesinde entegrasyon ve doğrulama süreçlerinden sorumludur. Fotonik çekirdeğin farklı platformlardaki performans testlerini yürüterek, donanımın MIL-STD standartlarına uyumunu denetlemektedir.",
+                "final_vision": "HOCS Integrated, silikon dünyasının termal sınırlarını fotonikle aşarak yapay zeka operasyonlarını ışık hızında ve sıfır ısı kaybıyla gerçekleştiren, donanım dünyasında yeni bir standart inşa eden mühendislik ekibidir.",
+                "facility_title": "Adıyaman R&D Station", "facility_desc": "Ana Test ve Doğrulama Tesisi"
+            },
+            "en": {
+                "nav_home": "Home", "nav_tech": "Technology", "nav_team": "Team",
+                "header_badge": "Innovation Leaders", "header_title": "Our Team",
+                "role_my": "Founder & Lead Architect", "desc_my": "Visionary designer of the HOCS (Hybrid Optical Computing System) architecture. Responsible for integrating photonic processing units on silicon, physical design of the 50nm CuO activation layer, and managing foundry-ready GDSII processes.",
+                "role_mu": "Co-Founder", "desc_mu": "Manages strategic planning and business development from the project's inception. Focuses on positioning HOCS Integrated in the global hardware market and ensuring the sustainability of operational processes.",
+                "role_mpa": "Founder & R&D Lead", "desc_mpa": "Plays a critical role in the R&D phases of photonic systems. Conducts optimization of non-linear optical computing algorithms and signal processing models on hardware.",
+                "role_aes": "Embedded Systems Engineer", "desc_aes": "Builds the bridge between hardware and software. Manages the development of the PhotonX-OS microkernel architecture and the seamless communication of low-level drivers with photonic units.",
+                "role_mk": "Hardware Design Specialist", "desc_mk": "Specializes in high-speed digital design and PCB layout. Performs the physical design of the HOCS V1.0 carrier board's impedance control, signal integrity, and Kria K26 SoM integration.",
+                "role_mb": "Integration Engineer", "desc_mb": "Responsible for system-level integration and validation processes. Conducts performance tests of the photonic core across different platforms, ensuring MIL-STD compliance.",
+                "final_vision": "HOCS Integrated is an engineering team establishing a new standard in the hardware world by surpassing the thermal limits of silicon with photonics, executing AI operations at the speed of light with zero heat loss.",
+                "facility_title": "Adıyaman R&D Station", "facility_desc": "Main Testing & Validation Facility"
+            },
+            "de": {
+                "nav_home": "Startseite", "nav_tech": "Technologie", "nav_team": "Team",
+                "header_badge": "Innovationsführer", "header_title": "Unser Team",
+                "role_my": "Gründer & Chefarchitekt", "desc_my": "Visionärer Designer der HOCS-Architektur. Verantwortlich für die Integration photonischer Prozessoren, das 50nm CuO-Design und GDSII-Prozesse.",
+                "role_mu": "Mitgründer", "desc_mu": "Leitet die strategische Planung und Geschäftsentwicklung. Konzentriert sich auf die globale Marktpositionierung von HOCS Integrated.",
+                "role_mpa": "Gründer & F&E-Leiter", "desc_mpa": "Spielt eine kritische Rolle bei der Forschung und Entwicklung photonischer Systeme und der Hardware-Optimierung.",
+                "role_aes": "Embedded Systems Ingenieur", "desc_aes": "Baut die Brücke zwischen Hard- und Software, einschließlich der Entwicklung des PhotonX-OS-Mikrokernels.",
+                "role_mk": "Hardware-Design-Spezialist", "desc_mk": "Spezialisiert auf High-Speed-Digitaldesign und PCB-Layout für das HOCS V1.0 Carrier Board.",
+                "role_mb": "Integrationsingenieur", "desc_mb": "Verantwortlich für Systemintegration und Validierungsprozesse zur Sicherstellung der MIL-STD-Konformität.",
+                "final_vision": "HOCS Integrated überwindet die thermischen Grenzen von Silizium mit Photonik und führt KI-Operationen mit Lichtgeschwindigkeit aus.",
+                "facility_title": "Adıyaman R&D Station", "facility_desc": "Haupttest- und Validierungseinrichtung"
+            },
+            "fr": {
+                "nav_home": "Accueil", "nav_tech": "Technologie", "nav_team": "Équipe",
+                "header_badge": "Leaders de l'Innovation", "header_title": "Notre Équipe",
+                "role_my": "Fondateur & Architecte Principal", "desc_my": "Concepteur visionnaire de l'architecture HOCS. Responsable de l'intégration photonique, de la couche CuO 50nm et des processus GDSII.",
+                "role_mu": "Co-Fondateur", "desc_mu": "Gère la planification stratégique et le développement commercial depuis la création du projet.",
+                "role_mpa": "Fondateur & Chef R&D", "desc_mpa": "Joue un rôle critique dans le développement des systèmes photoniques et l'optimisation matérielle.",
+                "role_aes": "Ingénieur Systèmes Embarqués", "desc_aes": "Développe l'architecture du micro-noyau PhotonX-OS et la communication des pilotes de bas niveau.",
+                "role_mk": "Spécialiste en Conception Matérielle", "desc_mk": "Spécialiste de la conception numérique haute vitesse et du routage PCB pour la carte porteuse HOCS V1.0.",
+                "role_mb": "Ingénieur d'Intégration", "desc_mb": "Responsable des processus d'intégration et de validation du système selon les normes MIL-STD.",
+                "final_vision": "HOCS Integrated repousse les limites thermiques du silicium avec la photonique, exécutant des opérations d'IA à la vitesse de la lumière.",
+                "facility_title": "Adıyaman R&D Station", "facility_desc": "Centre Principal de Test et Validation"
+            },
+            "ru": {
+                "nav_home": "Главная", "nav_tech": "Технологии", "nav_team": "Команда",
+                "header_badge": "Лидеры Инноваций", "header_title": "Наша Команда",
+                "role_my": "Основатель и Главный Архитектор", "desc_my": "Дальновидный разработчик архитектуры HOCS. Отвечает за интеграцию фотонных процессоров и слоев CuO 50 нм.",
+                "role_mu": "Соучредитель", "desc_mu": "Руководит стратегическим планированием и развитием бизнеса с момента создания проекта.",
+                "role_mpa": "Основатель и Руководитель R&D", "desc_mpa": "Оптимизирует алгоритмы нелинейных оптических вычислений на аппаратном уровне.",
+                "role_aes": "Инженер Встраиваемых Систем", "desc_aes": "Управляет разработкой микроядерной архитектуры PhotonX-OS и связи драйверов.",
+                "role_mk": "Специалист по Аппаратному Дизайну", "desc_mk": "Специализируется на высокоскоростном цифровом проектировании и разводке плат.",
+                "role_mb": "Инженер по Интеграции", "desc_mb": "Отвечает за системную интеграцию и проверку соответствия стандартам MIL-STD.",
+                "final_vision": "HOCS Integrated преодолевает тепловые пределы кремния с помощью фотоники, выполняя операции ИИ со скоростью света.",
+                "facility_title": "Adıyaman R&D Station", "facility_desc": "Главный Центр Испытаний и Валидации"
+            },
+            "ja": {
+                "nav_home": "ホーム", "nav_tech": "テクノロジー", "nav_team": "チーム",
+                "header_badge": "イノベーションリーダー", "header_title": "私たちのチーム",
+                "role_my": "創設者兼リードアーキテクト", "desc_my": "HOCSアーキテクチャの先見の明のある設計者。50nm CuO層の物理設計とGDSIIプロセスの管理を担当。",
+                "role_mu": "共同創設者", "desc_mu": "プロジェクト発足時から戦略的計画と事業開発を管理しています。",
+                "role_mpa": "創設者兼R&Dリード", "desc_mpa": "ハードウェア上の非線形光学計算アルゴリズムの最適化を実施します。",
+                "role_aes": "組み込みシステムエンジニア", "desc_aes": "ハードウェアとソフトウェアの架け橋を構築し、PhotonX-OSの開発を管理します。",
+                "role_mk": "ハードウェア設計スペシャリスト", "desc_mk": "高速デジタル設計とPCBレイアウトを専門としています。",
+                "role_mb": "インテグレーションエンジニア", "desc_mb": "システムレベルの統合とMIL-STD規格の検証プロセスを担当します。",
+                "final_vision": "HOCS Integratedは、光を用いてシリコンの熱限界を超え、AI演算を光の速度で実行します。",
+                "facility_title": "Adıyaman R&D Station", "facility_desc": "主要テストおよび検証施設"
+            },
+            "zh": {
+                "nav_home": "首页", "nav_tech": "技术", "nav_team": "团队",
+                "header_badge": "创新领导者", "header_title": "我们的团队",
+                "role_my": "创始人兼首席架构师", "desc_my": "HOCS 架构的远见设计师。负责 50nm CuO 层的物理设计和 GDSII 流程的管理。",
+                "role_mu": "联合创始人", "desc_mu": "从项目成立起负责战略规划和业务开发。",
+                "role_mpa": "创始人兼研发主管", "desc_mpa": "在光子系统研发和硬件优化中发挥关键作用。",
+                "role_aes": "嵌入式系统工程师", "desc_aes": "构建软硬件之间的桥梁，管理 PhotonX-OS 的开发。",
+                "role_mk": "硬件设计专家", "desc_mk": "专长于高速数字设计和 HOCS V1.0 载板的 PCB 布局。",
+                "role_mb": "集成工程师", "desc_mb": "负责系统级集成和验证过程，确保符合 MIL-STD 标准。",
+                "final_vision": "HOCS Integrated 利用光子学突破硅的热极限，以光速执行 AI 运算，建立硬件新标准。",
+                "facility_title": "Adıyaman R&D Station", "facility_desc": "主要测试与验证中心"
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            let userLang = navigator.language.slice(0, 2);
+            if (!translations[userLang]) userLang = "en";
+            document.documentElement.lang = userLang;
+
+            const elements = document.querySelectorAll("[data-i18n]");
+            elements.forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (translations[userLang][key]) {
+                    el.innerHTML = translations[userLang][key];
+                }
+            });
+        });
+    </script>
     <script src="js/main.js"></script>
 </body>
 </html>
