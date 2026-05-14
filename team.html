@@ -3,31 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team | HOCS</title>
+    <title>Team | HOCS Integrated</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --surface: #fcfcfc;
+            --border: #ececec;
+            --accent-blue: #00a2ff;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+        }
+
+        body {
+            font-family: 'Urbanist', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 22px;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo img {
+            height: 35px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 15px;
+        }
+
+        .nav-links a:hover, .active-link {
+            color: var(--accent-blue) !important;
+        }
+
+        /* Sayfa Başlığı */
+        .page-header {
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+
+        .page-header h1 {
+            font-size: 52px;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 20px;
+        }
+
+        /* Ekip Grid Sistemi */
+        .team-container {
+            padding: 20px 8% 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .t-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 50px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Karta üstten ince bir mavi çizgi efekti */
+        .t-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--border);
+            transition: 0.4s;
+        }
+
+        .t-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border-color: rgba(0, 162, 255, 0.3);
+        }
+
+        .t-card:hover::before {
+            background: var(--accent-blue);
+        }
+
+        .t-card h3 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .t-role {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* AR-GE Merkezi Banner */
+        .facility-banner {
+            height: 400px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #f8f9fa;
+            border-top: 1px solid var(--border);
+            background-image: url('images.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Beyazdan görsele doğru açılan elit gradyan */
+        .facility-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(255,255,255,0.9), rgba(255,255,255,0.4));
+            z-index: 1;
+        }
+
+        .banner-overlay {
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+        }
+
+        .banner-overlay h2 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .banner-overlay p {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+        }
+
+    </style>
 </head>
 <body>
     <nav>
-        <a href="index.html" class="nav-logo"><img src="logo.jpg" alt="HOCS"> HOCS INTEGRATED</a>
-        <div class="nav-links"><a href="index.html">Home</a><a href="technology.html">Technology</a><a href="team.html" class="active-link">Team</a></div>
+        <a href="index.html" class="nav-logo">
+            <img src="logo.jpg" alt="Logo"> HOCS Integrated
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="technology.html">Technology</a>
+            <a href="team.html" class="active-link">Team</a>
+        </div>
     </nav>
 
-    <div class="team-grid">
-        <div class="t-card reveal"><h3>Muhammed Yusuf</h3><span class="t-role">Founder & Architect</span></div>
-        <div class="t-card reveal"><h3>Mikail Yusuf</h3><span class="t-role">Founder</span></div>
-        <div class="t-card reveal"><h3>Mert Poyraz Akcan</h3><span class="t-role">Founder & R&D</span></div>
-        <div class="t-card reveal"><h3>Ali Ekber Şahin</h3><span class="t-role">Embedded Systems</span></div>
-        <div class="t-card reveal"><h3>Muhammed Koç</h3><span class="t-role">Hardware Design</span></div>
-        <div class="t-card reveal"><h3>Mustafa Bayram</h3><span class="t-role">Integration Engineer</span></div>
-    </div>
+    <header class="page-header">
+        <h1>Çekirdek Ekip</h1>
+        <p>HOCS mimarisini tasarlayan ve fizikselleştiren mühendislik kadrosu.</p>
+    </header>
 
-    <div class="hero-banner" style="height:350px;">
-        <div class="banner-img" style="background-image: url('images.jpg');"></div>
-        <div class="banner-overlay">
-            <h2 style="font-size:2.5rem;">Adıyaman R&D Station</h2>
+    <main class="team-container">
+        <div class="team-grid">
+            <div class="t-card reveal">
+                <h3>Muhammed Yusuf</h3>
+                <span class="t-role">Founder & Architect</span>
+            </div>
+            <div class="t-card reveal">
+                <h3>Mikail Yusuf</h3>
+                <span class="t-role">Founder</span>
+            </div>
+            <div class="t-card reveal">
+                <h3>Mert Poyraz Akcan</h3>
+                <span class="t-role">Founder & R&D</span>
+            </div>
+            <div class="t-card reveal">
+                <h3>Ali Ekber Şahin</h3>
+                <span class="t-role">Embedded Systems</span>
+            </div>
+            <div class="t-card reveal">
+                <h3>Muhammed Koç</h3>
+                <span class="t-role">Hardware Design</span>
+            </div>
+            <div class="t-card reveal">
+                <h3>Mustafa Bayram</h3>
+                <span class="t-role">Integration Engineer</span>
+            </div>
+        </div>
+    </main>
+
+    <section class="facility-banner">
+        <div class="banner-overlay reveal">
+            <h2>Adıyaman R&D Station</h2>
             <p>Main Testing Facility</p>
         </div>
-    </div>
+    </section>
 
     <script src="js/main.js"></script>
 </body>
