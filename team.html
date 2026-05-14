@@ -48,162 +48,113 @@
             text-decoration: none;
             color: var(--text-main);
             font-size: 22px;
-            letter-spacing: -0.5px;
         }
 
-        .nav-logo img {
-            height: 35px;
-            width: auto;
-            object-fit: contain;
-        }
+        .nav-logo img { height: 35px; width: auto; object-fit: contain; }
 
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
             margin-left: 30px;
             font-weight: 600;
-            transition: 0.3s;
             font-size: 15px;
         }
 
-        .nav-links a:hover, .active-link {
-            color: var(--accent-blue) !important;
-        }
+        .nav-links a:hover, .active-link { color: var(--accent-blue) !important; }
 
-        /* Sayfa Başlığı */
-        .page-header {
-            text-align: center;
-            padding: 80px 20px 40px;
-        }
+        /* Page Header */
+        .page-header { text-align: center; padding: 60px 20px 30px; }
+        .page-header h1 { font-size: 48px; font-weight: 700; letter-spacing: -1.5px; margin: 0; }
+        .badge { color: var(--accent-blue); font-weight: 700; letter-spacing: 3px; font-size: 12px; text-transform: uppercase; }
 
-        .page-header h1 {
-            font-size: 52px;
-            font-weight: 700;
-            letter-spacing: -1.5px;
-            color: var(--text-main);
-            margin-bottom: 10px;
-        }
-
-        .page-header p {
-            color: var(--text-muted);
-            font-size: 20px;
-        }
-
-        /* Ekip Grid Sistemi */
-        .team-container {
-            padding: 20px 8% 100px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
+        /* Team Grid */
+        .team-container { padding: 0 8% 60px; max-width: 1200px; margin: 0 auto; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        
         .t-card {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 20px;
-            padding: 50px 30px;
+            padding: 40px 20px;
             text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        /* Karta üstten ince bir mavi çizgi efekti */
-        .t-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--border);
-            transition: 0.4s;
-        }
+        .t-card:hover { transform: translateY(-5px); border-color: var(--accent-blue); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .t-card h3 { font-size: 24px; margin-bottom: 8px; font-weight: 700; }
+        .t-role { font-size: 13px; font-weight: 700; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 1.5px; }
 
-        .t-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            border-color: rgba(0, 162, 255, 0.3);
-        }
-
-        .t-card:hover::before {
-            background: var(--accent-blue);
-        }
-
-        .t-card h3 {
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
-        }
-
-        .t-role {
-            display: inline-block;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--accent-blue);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* AR-GE Merkezi Banner */
-        .facility-banner {
-            height: 400px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Neler Yapıyoruz Paragrafı */
+        .vision-section {
+            background-color: #f9f9f9;
+            padding: 80px 15%;
             text-align: center;
-            background-color: #f8f9fa;
             border-top: 1px solid var(--border);
-            background-image: url('images.jpg');
+            border-bottom: 1px solid var(--border);
+        }
+
+        .vision-section h2 { font-size: 36px; margin-bottom: 25px; font-weight: 700; letter-spacing: -1px; }
+        .vision-section p { 
+            font-size: 19px; 
+            line-height: 1.8; 
+            color: var(--text-muted); 
+            max-width: 900px; 
+            margin: 0 auto; 
+            font-weight: 400;
+        }
+
+        /* Facility Banner (Netleştirilmiş ve Şıklaştırılmış) */
+        .facility-section {
+            padding: 60px 8%;
+            background-color: #fff;
+        }
+
+        .facility-banner {
+            height: 450px;
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+            background-image: url('images.jpg'); /* Buraya kendi yüksek çözünürlüklü resmini koyabilirsin */
             background-size: cover;
             background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 50px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
         }
 
-        /* Beyazdan görsele doğru açılan elit gradyan */
+        /* Görseli daha net göstermek için sadece alt kısma gradyan */
         .facility-banner::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(255,255,255,0.9), rgba(255,255,255,0.4));
+            height: 50%;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
             z-index: 1;
         }
 
-        .banner-overlay {
+        .facility-info {
             position: relative;
             z-index: 2;
-            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 30px 60px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+            max-width: 80%;
         }
 
-        .banner-overlay h2 {
-            font-size: 48px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            color: var(--text-main);
-            margin-bottom: 10px;
-        }
-
-        .banner-overlay p {
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--accent-blue);
-        }
+        .facility-info h2 { font-size: 32px; margin: 0; color: #000; font-weight: 700; }
+        .facility-info p { margin: 5px 0 0; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; }
 
     </style>
 </head>
 <body>
+
     <nav>
         <a href="index.html" class="nav-logo">
             <img src="logo.jpg" alt="Logo"> HOCS Integrated
@@ -216,43 +167,39 @@
     </nav>
 
     <header class="page-header">
+        <span class="badge">Engineers of Light</span>
         <h1>Çekirdek Ekip</h1>
-        <p>HOCS mimarisini tasarlayan ve fizikselleştiren mühendislik kadrosu.</p>
     </header>
 
     <main class="team-container">
         <div class="team-grid">
-            <div class="t-card reveal">
-                <h3>Muhammed Yusuf</h3>
-                <span class="t-role">Founder & Architect</span>
-            </div>
-            <div class="t-card reveal">
-                <h3>Mikail Yusuf</h3>
-                <span class="t-role">Founder</span>
-            </div>
-            <div class="t-card reveal">
-                <h3>Mert Poyraz Akcan</h3>
-                <span class="t-role">Founder & R&D</span>
-            </div>
-            <div class="t-card reveal">
-                <h3>Ali Ekber Şahin</h3>
-                <span class="t-role">Embedded Systems</span>
-            </div>
-            <div class="t-card reveal">
-                <h3>Muhammed Koç</h3>
-                <span class="t-role">Hardware Design</span>
-            </div>
-            <div class="t-card reveal">
-                <h3>Mustafa Bayram</h3>
-                <span class="t-role">Integration Engineer</span>
-            </div>
+            <div class="t-card"><h3>Muhammed Yusuf</h3><span class="t-role">Founder & Architect</span></div>
+            <div class="t-card"><h3>Mikail Yusuf</h3><span class="t-role">Founder</span></div>
+            <div class="t-card"><h3>Mert Poyraz Akcan</h3><span class="t-role">Founder & R&D</span></div>
+            <div class="t-card"><h3>Ali Ekber Şahin</h3><span class="t-role">Embedded Systems</span></div>
+            <div class="t-card"><h3>Muhammed Koç</h3><span class="t-role">Hardware Design</span></div>
+            <div class="t-card"><h3>Mustafa Bayram</h3><span class="t-role">Integration Engineer</span></div>
         </div>
     </main>
 
-    <section class="facility-banner">
-        <div class="banner-overlay reveal">
-            <h2>Adıyaman R&D Station</h2>
-            <p>Main Testing Facility</p>
+    <section class="vision-section">
+        <div class="reveal">
+            <h2>Vizyonumuz ve Misyonumuz</h2>
+            <p>
+                HOCS Integrated olarak, silikon dünyasının termal sınırlarını fotonikle aşıyoruz. 
+                <strong>50nm CuO aktivasyon katmanımız</strong> ve 144 kanallı özgün RISC-V mimarimizle, yapay zeka operasyonlarını ışık hızında ve sıfır ısı kaybıyla gerçekleştiriyoruz. 
+                Savunma sanayiinden uzay teknolojilerine kadar, otonom sistemlerin ihtiyaç duyduğu yüksek işlem gücünü <strong>(3.2 PetaOPS)</strong> en düşük gecikmeyle sunarak, 
+                donanım dünyasında yeni bir standart inşa ediyoruz. Biz sadece bir çip değil, geleceğin hesaplama ekosistemini tasarlıyoruz.
+            </p>
+        </div>
+    </section>
+
+    <section class="facility-section">
+        <div class="facility-banner">
+            <div class="facility-info">
+                <h2>Adıyaman R&D Station</h2>
+                <p>Main Testing & Validation Facility</p>
+            </div>
         </div>
     </section>
 
