@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
     <style>
         :root {
             --bg-color: #ffffff;
@@ -51,105 +50,76 @@
         }
 
         .nav-logo img { height: 35px; width: auto; object-fit: contain; }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-left: 30px;
-            font-weight: 600;
-            font-size: 15px;
-        }
-
+        .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 30px; font-weight: 600; font-size: 15px; }
         .nav-links a:hover, .active-link { color: var(--accent-blue) !important; }
 
         /* Page Header */
-        .page-header { text-align: center; padding: 60px 20px 30px; }
-        .page-header h1 { font-size: 48px; font-weight: 700; letter-spacing: -1.5px; margin: 0; }
+        .page-header { text-align: center; padding: 80px 20px 40px; }
+        .page-header h1 { font-size: 52px; font-weight: 700; letter-spacing: -1.5px; margin: 0; }
         .badge { color: var(--accent-blue); font-weight: 700; letter-spacing: 3px; font-size: 12px; text-transform: uppercase; }
 
-        /* Team Grid */
-        .team-container { padding: 0 8% 60px; max-width: 1200px; margin: 0 auto; }
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        
-        .t-card {
+        /* Detailed Team Section */
+        .team-section { padding: 40px 8% 80px; max-width: 1200px; margin: 0 auto; }
+        .member-card {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 40px 20px;
-            text-align: center;
-            transition: all 0.3s ease;
+            border-radius: 24px;
+            padding: 50px;
+            margin-bottom: 30px;
+            transition: all 0.4s ease;
         }
+        .member-card:hover { border-color: var(--accent-blue); box-shadow: 0 20px 40px rgba(0,0,0,0.04); }
+        
+        .member-info h2 { font-size: 32px; font-weight: 700; margin: 0; color: var(--text-main); }
+        .member-info .role { font-size: 14px; font-weight: 700; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; }
+        .member-info p { font-size: 18px; line-height: 1.7; color: var(--text-muted); margin-top: 15px; max-width: 900px; }
 
-        .t-card:hover { transform: translateY(-5px); border-color: var(--accent-blue); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-        .t-card h3 { font-size: 24px; margin-bottom: 8px; font-weight: 700; }
-        .t-role { font-size: 13px; font-weight: 700; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 1.5px; }
-
-        /* Neler Yapıyoruz Paragrafı */
-        .vision-section {
-            background-color: #f9f9f9;
+        /* Bottom Short Summary */
+        .final-vision {
             padding: 80px 15%;
             text-align: center;
+            background-color: #f9f9f9;
             border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
         }
+        .final-vision p { font-size: 17px; line-height: 1.8; color: #888; max-width: 800px; margin: 0 auto; font-style: italic; }
 
-        .vision-section h2 { font-size: 36px; margin-bottom: 25px; font-weight: 700; letter-spacing: -1px; }
-        .vision-section p { 
-            font-size: 19px; 
-            line-height: 1.8; 
-            color: var(--text-muted); 
-            max-width: 900px; 
-            margin: 0 auto; 
-            font-weight: 400;
-        }
-
-        /* Facility Banner (Netleştirilmiş ve Şıklaştırılmış) */
-        .facility-section {
-            padding: 60px 8%;
-            background-color: #fff;
-        }
-
+        /* Facility Banner (High Quality Focus) */
+        .facility-section { padding: 60px 8%; background: #fff; }
         .facility-banner {
-            height: 450px;
-            border-radius: 30px;
+            height: 500px;
+            border-radius: 32px;
             overflow: hidden;
             position: relative;
-            background-image: url('images.jpg'); /* Buraya kendi yüksek çözünürlüklü resmini koyabilirsin */
+            background-image: url('images.jpg'); /* Yüksek çözünürlüklü versiyonunu kullandığından emin ol */
             background-size: cover;
             background-position: center;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: center;
-            padding-bottom: 50px;
             border: 1px solid var(--border);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
         }
 
-        /* Görseli daha net göstermek için sadece alt kısma gradyan */
-        .facility-banner::after {
+        .facility-banner::before {
             content: '';
             position: absolute;
-            width: 100%;
-            height: 50%;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.2); /* Görseli çok karartmadan derinlik katar */
             z-index: 1;
         }
 
-        .facility-info {
+        .facility-glass {
             position: relative;
             z-index: 2;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(15px);
-            padding: 30px 60px;
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px 80px;
+            border-radius: 24px;
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.3);
-            max-width: 80%;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
         }
-
-        .facility-info h2 { font-size: 32px; margin: 0; color: #000; font-weight: 700; }
-        .facility-info p { margin: 5px 0 0; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; }
+        .facility-glass h2 { font-size: 40px; font-weight: 700; margin: 0; color: #000; }
+        .facility-glass p { margin: 10px 0 0; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 4px; font-size: 14px; }
 
     </style>
 </head>
@@ -167,36 +137,69 @@
     </nav>
 
     <header class="page-header">
-        <span class="badge">Engineers of Light</span>
-        <h1>Çekirdek Ekip</h1>
+        <span class="badge">Innovation Leaders</span>
+        <h1>Ekibimiz</h1>
     </header>
 
-    <main class="team-container">
-        <div class="team-grid">
-            <div class="t-card"><h3>Muhammed Yusuf</h3><span class="t-role">Founder & Architect</span></div>
-            <div class="t-card"><h3>Mikail Yusuf</h3><span class="t-role">Founder</span></div>
-            <div class="t-card"><h3>Mert Poyraz Akcan</h3><span class="t-role">Founder & R&D</span></div>
-            <div class="t-card"><h3>Ali Ekber Şahin</h3><span class="t-role">Embedded Systems</span></div>
-            <div class="t-card"><h3>Muhammed Koç</h3><span class="t-role">Hardware Design</span></div>
-            <div class="t-card"><h3>Mustafa Bayram</h3><span class="t-role">Integration Engineer</span></div>
+    <main class="team-section">
+        
+        <div class="member-card">
+            <div class="member-info">
+                <span class="role">Founder & Lead Architect</span>
+                <h2>Muhammed Yusuf Çobanoğlu</h2>
+                <p>HOCS (Hybrid Optical Computing System) mimarisinin vizyoner tasarımcısıdır. Fotonik işlem birimlerinin silikon üzerindeki entegrasyonu, 50nm CuO aktivasyon katmanının fiziksel tasarımı ve dökümhaneye hazır GDSII süreçlerinin yönetiminden sorumludur. Elektronik direnci ışıkla aşma misyonuyla projenin teknik çekirdeğini yönetmektedir.</p>
+            </div>
         </div>
+
+        <div class="member-card">
+            <div class="member-info">
+                <span class="role">Co-Founder</span>
+                <h2>Mikail Yusuf Urğun</h2>
+                <p>Projenin kuruluş aşamasından itibaren stratejik planlama ve iş geliştirme süreçlerini yönetmektedir. HOCS Integrated'in global donanım pazarındaki konumlandırılması ve operasyonel süreçlerin sürdürülebilirliği üzerine odaklanmaktadır.</p>
+            </div>
+        </div>
+
+        <div class="member-card">
+            <div class="member-info">
+                <span class="role">Founder & R&D Lead</span>
+                <h2>Mert Poyraz Akcan</h2>
+                <p>Fotonik sistemlerin araştırma ve geliştirme safhalarında kritik rol oynamaktadır. Non-lineer optik hesaplama algoritmaları ve sinyal işleme modellerinin donanım üzerindeki optimizasyonu çalışmalarını yürütmektedir.</p>
+            </div>
+        </div>
+
+        <div class="member-card">
+            <div class="member-info">
+                <span class="role">Embedded Systems Engineer</span>
+                <h2>Ali Ekber Şahin</h2>
+                <p>Donanım ve yazılım arasındaki köprüyü inşa etmektedir. PhotonX-OS mikroçekirdek mimarisinin geliştirilmesi ve düşük seviyeli sürücülerin fotonik birimlerle pürüzsüz haberleşmesi süreçlerini yönetmektedir.</p>
+            </div>
+        </div>
+
+        <div class="member-card">
+            <div class="member-info">
+                <span class="role">Hardware Design Specialist</span>
+                <h2>Muhammed Koç</h2>
+                <p>Yüksek hızlı dijital tasarım ve PCB yerleşimi konularında uzmanlaşmıştır. HOCS V1.0 taşıyıcı kartın empedans kontrolü, sinyal bütünlüğü ve Kria K26 SoM entegrasyonunun fiziksel tasarımını gerçekleştirmektedir.</p>
+            </div>
+        </div>
+
+        <div class="member-card">
+            <div class="member-info">
+                <span class="role">Integration Engineer</span>
+                <h2>Mustafa Bayram</h2>
+                <p>Sistem seviyesinde entegrasyon ve doğrulama süreçlerinden sorumludur. Fotonik çekirdeğin farklı platformlardaki performans testlerini yürüterek, donanımın MIL-STD standartlarına uyumunu denetlemektedir.</p>
+            </div>
+        </div>
+
     </main>
 
-    <section class="vision-section">
-        <div class="reveal">
-            <h2>Vizyonumuz ve Misyonumuz</h2>
-            <p>
-                HOCS Integrated olarak, silikon dünyasının termal sınırlarını fotonikle aşıyoruz. 
-                <strong>50nm CuO aktivasyon katmanımız</strong> ve 144 kanallı özgün RISC-V mimarimizle, yapay zeka operasyonlarını ışık hızında ve sıfır ısı kaybıyla gerçekleştiriyoruz. 
-                Savunma sanayiinden uzay teknolojilerine kadar, otonom sistemlerin ihtiyaç duyduğu yüksek işlem gücünü <strong>(3.2 PetaOPS)</strong> en düşük gecikmeyle sunarak, 
-                donanım dünyasında yeni bir standart inşa ediyoruz. Biz sadece bir çip değil, geleceğin hesaplama ekosistemini tasarlıyoruz.
-            </p>
-        </div>
+    <section class="final-vision">
+        <p>HOCS Integrated, silikon dünyasının termal sınırlarını fotonikle aşarak yapay zeka operasyonlarını ışık hızında ve sıfır ısı kaybıyla gerçekleştiren, donanım dünyasında yeni bir standart inşa eden mühendislik ekibidir.</p>
     </section>
 
     <section class="facility-section">
         <div class="facility-banner">
-            <div class="facility-info">
+            <div class="facility-glass">
                 <h2>Adıyaman R&D Station</h2>
                 <p>Main Testing & Validation Facility</p>
             </div>
