@@ -3,43 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOCS Integrated</title>
+    <title>HOCS Integrated | Hybrid Optical Computing System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --surface: #fcfcfc;
+            --border: #ececec;
+            --accent-blue: #00a2ff;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+        }
+
+        body {
+            font-family: 'Urbanist', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 22px;
+        }
+
+        .nav-logo img { height: 35px; width: auto; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 30px; font-weight: 600; font-size: 15px; }
+        .nav-links a:hover, .active-link { color: var(--accent-blue) !important; }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 8%;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-content { flex: 1; }
+        .hero-content h1 { font-size: 64px; font-weight: 700; letter-spacing: -2px; line-height: 1.1; margin-bottom: 25px; }
+        .hero-content p { font-size: 20px; color: var(--text-muted); margin-bottom: 35px; max-width: 600px; }
+        
+        .cta-button {
+            padding: 18px 35px;
+            background: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .cta-button:hover { background: #0088dd; transform: translateY(-3px); }
+
+        .hero-image { flex: 1; text-align: right; }
+        .hero-image img { width: 100%; max-width: 600px; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+
+        /* Value Prop Section */
+        .values { padding: 100px 8%; text-align: center; }
+        .values h2 { font-size: 42px; margin-bottom: 60px; letter-spacing: -1px; }
+        .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .value-card { padding: 40px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; transition: 0.3s; }
+        .value-card:hover { border-color: var(--accent-blue); transform: translateY(-5px); }
+        .value-card h3 { font-size: 24px; margin-bottom: 15px; }
+        .value-card p { color: var(--text-muted); font-size: 16px; }
+
+        /* PoC Section (Proof of Concept) */
+        .poc-section { padding: 100px 8%; background-color: #fcfcfc; border-top: 1px solid var(--border); }
+        .poc-container { display: flex; align-items: center; gap: 60px; }
+        .poc-img { flex: 1; }
+        .poc-img img { width: 100%; border-radius: 20px; border: 1px solid var(--border); }
+        .poc-text { flex: 1; }
+        .poc-text h2 { font-size: 42px; margin-bottom: 20px; }
+        .poc-text p { font-size: 18px; color: var(--text-muted); line-height: 1.8; }
+        .badge-small { display: inline-block; padding: 5px 12px; background: rgba(0,162,255,0.1); color: var(--accent-blue); border-radius: 6px; font-size: 12px; font-weight: 700; margin-bottom: 15px; }
+
+        /* Request Section */
+        .request-section { padding: 100px 8%; text-align: center; }
+        .request-card {
+            background: linear-gradient(135deg, #00a2ff 0%, #0066cc 100%);
+            padding: 80px 40px;
+            border-radius: 30px;
+            color: white;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .request-card h2 { font-size: 48px; margin-bottom: 20px; }
+        .request-card p { font-size: 20px; opacity: 0.9; margin-bottom: 40px; }
+        .white-button {
+            padding: 18px 40px;
+            background: white;
+            color: var(--accent-blue);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .white-button:hover { transform: scale(1.05); }
+
+        footer { padding: 40px 8%; text-align: center; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 14px; }
+    </style>
 </head>
 <body>
+
     <nav>
-        <a href="index.html" class="nav-logo"><img src="logo.jpg" alt="HOCS"> HOCS INTEGRATED</a>
+        <a href="index.html" class="nav-logo">
+            <img src="logo.jpg" alt="Logo"> HOCS Integrated
+        </a>
         <div class="nav-links">
             <a href="index.html" class="active-link">Home</a>
             <a href="technology.html">Technology</a>
             <a href="team.html">Team</a>
-            <a href="portal.html" style="color:var(--accent); font-weight:600;">Partner Portal</a>
         </div>
     </nav>
 
-    <header class="hero-simple">
-        <div class="reveal">
-            <h1 class="hero-title">Breaking the Thermal Wall.</h1>
-            <p style="color:var(--text-muted); font-size:1.2rem; margin-bottom:30px;">4.14 TB/s zero-latency optical hardware architecture.</p>
-            <div class="metrics">
-                <div class="m-item"><strong><span class="counter-val">4.14</span></strong> TB/s</div>
-                <div class="m-item"><strong>&lt; 1</strong> ns Latency</div>
-            </div>
-            <a href="#contact" class="btn-primary">Join Waitlist</a>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Geleceğin Hesaplama Mimarisi: <span style="color: #00a2ff;">Fotonik.</span></h1>
+            <p>HOCS Integrated, silikon dünyasının termal sınırlarını ışıkla aşarak yapay zeka operasyonlarını saniyeler değil, nanosaniyeler seviyesine taşıyor.</p>
+            <a href="technology.html" class="cta-button">Teknolojiyi Keşfet</a>
         </div>
-        <div class="reveal"><img src="Micro-Nanoscale-Fabrication-Engineering_CHEMENG440.jpg" style="width:100%; border-radius:20px;"></div>
-    </header>
-
-    <section id="contact" style="padding:100px 8%; background:var(--surface);">
-        <div class="reveal" style="max-width:500px; margin:0 auto; background:#fff; padding:50px; border-radius:30px; border:1px solid var(--border)!important;">
-            <h2 style="text-align:center; margin-bottom:30px;">PoC & Dev-Kit Request</h2>
-            <form action="https://formspree.io/f/mrejkoky" method="POST" style="display:flex; flex-direction:column; gap:15px;">
-                <input type="text" name="name" placeholder="Full Name" required style="padding:15px; background:var(--surface); border-radius:8px;">
-                <input type="email" name="email" placeholder="Email Address" required style="padding:15px; background:var(--surface); border-radius:8px;">
-                <button type="submit" class="btn-primary">Submit Application</button>
-            </form>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" alt="Future Tech">
         </div>
     </section>
+
+    <section class="values">
+        <h2>Neden HOCS Integrated?</h2>
+        <div class="value-grid">
+            <div class="value-card">
+                <h3 style="color: #00a2ff;">Sıfır Isı</h3>
+                <p>50nm CuO aktivasyon katmanımız sayesinde Joule ısınmasını kaynağında yok ediyor, aktif soğutma ihtiyacını ortadan kaldırıyoruz.</p>
+            </div>
+            <div class="value-card">
+                <h3 style="color: #00a2ff;">Işık Hızı</h3>
+                <p>3.2 PetaOPS işlem kapasitesiyle, matris-vektör çarpımlarını standart donanımlardan 10.000 kat daha hızlı gerçekleştiriyoruz.</p>
+            </div>
+            <div class="value-card">
+                <h3 style="color: #00a2ff;">Tam Entegrasyon</h3>
+                <p>AMD Xilinx® Kria K26 SoM ile uyumlu hibrit mimarimiz, mevcut sistemlerle pürüzsüz bir sinerji içinde çalışır.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="poc-section">
+        <div class="poc-container">
+            <div class="poc-img">
+                <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=2069&auto=format&fit=crop" alt="PoC Hardware">
+            </div>
+            <div class="poc-text">
+                <span class="badge-small">HARDWARE VALIDATION</span>
+                <h2>Proof of Concept (PoC)</h2>
+                <p>
+                    HOCS V1.0 donanım doğrulama süreçleri başarıyla tamamlandı. Dördüncü nesil taşıyıcı kartımız (Carrier Board), 
+                    <strong>fotonik çekirdek</strong> ve dijital kontrol birimleri arasındaki veri akışını 4.14 TB/s hızında 
+                    pürüzsüzce gerçekleştiriyor. Adıyaman R&D Station'da yürütülen testler, teorik verilerimizin fiziksel donanım üzerindeki %100 uyumunu kanıtlamıştır.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="request-section">
+        <div class="request-card">
+            <h2>Geleceği Birlikte İnşa Edelim.</h2>
+            <p>HOCS Integrated test kitleri, teknik dokümantasyon başvuruları ve stratejik ortaklık talepleriniz için bize ulaşın.</p>
+            <a href="mailto:request@hocsintegrated.com" class="white-button">Başvuru Yap (Request)</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 HOCS Integrated. Altınşehir, Adıyaman / Türkiye.</p>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>
