@@ -10,17 +10,20 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
         :root {
-            --bg-color: #050505;
-            --surface: #0a0a0a;
-            --border: rgba(255, 255, 255, 0.08);
+            --bg-color: #ffffff;
+            --surface: #fcfcfc;
+            --border: #ececec;
             --accent-blue: #00a2ff;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
         }
 
         body {
             font-family: 'Urbanist', sans-serif;
             background-color: var(--bg-color);
-            color: white;
+            color: var(--text-main);
             margin: 0;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* Nav Düzeltme */
@@ -28,10 +31,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            background: rgba(5, 5, 5, 0.9);
+            padding: 15px 8%;
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .nav-logo {
@@ -40,71 +46,85 @@
             gap: 12px;
             font-weight: 700;
             text-decoration: none;
-            color: white;
-            font-size: 20px;
+            color: var(--text-main);
+            font-size: 22px;
+            letter-spacing: -0.5px;
         }
 
         .nav-logo img {
-            height: 40px;
-            border-radius: 4px;
+            height: 35px;
+            width: auto;
+            object-fit: contain;
         }
 
         .nav-links a {
-            color: #a1a1a6;
+            color: var(--text-muted);
             text-decoration: none;
             margin-left: 30px;
             font-weight: 600;
             transition: 0.3s;
+            font-size: 15px;
         }
 
         .nav-links a:hover, .active-link {
             color: var(--accent-blue) !important;
         }
 
-        /* Hero */
+        /* Hero Section */
         .hero-banner {
-            height: 400px;
+            height: 350px;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            overflow: hidden;
-        }
-
-        .banner-img {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0.3;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid var(--border);
         }
 
         .banner-overlay h1 {
-            font-size: 48px;
-            letter-spacing: -1px;
+            font-size: 52px;
+            font-weight: 700;
+            letter-spacing: -1.5px;
             margin-bottom: 10px;
+            color: var(--text-main);
         }
 
-        /* İçerik */
+        .banner-overlay p {
+            color: var(--text-muted);
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .badge {
+            display: inline-block;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        /* İçerik Kartları */
         main {
-            padding: 80px 8%;
-            max-width: 1200px;
+            padding: 60px 8%;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .tech-box {
             background: var(--surface);
-            padding: 50px;
-            border-radius: 24px;
+            padding: 40px;
+            border-radius: 20px;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             border: 1px solid var(--border);
-            transition: 0.3s;
+            transition: all 0.4s ease;
         }
 
         .tech-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
             border-color: var(--accent-blue);
         }
 
@@ -113,34 +133,35 @@
             height: auto;
             border-radius: 12px;
             margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
         .tech-box h3 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: var(--accent-blue);
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            font-weight: 700;
         }
 
         .tech-box p {
-            color: #a1a1a6;
+            color: var(--text-muted);
             font-size: 18px;
-            line-height: 1.6;
-            max-width: 800px;
+            line-height: 1.7;
+            max-width: 850px;
             margin: 0 auto;
         }
 
-        .reveal span {
+        strong {
             color: var(--accent-blue);
-            font-weight: 700;
-            letter-spacing: 2px;
-            font-size: 12px;
+            font-weight: 600;
         }
+
     </style>
 </head>
 <body>
     <nav>
         <a href="index.html" class="nav-logo">
-            <img src="logo.jpg" alt="Logo"> HOCS INTEGRATED
+            <img src="logo.jpg" alt="Logo"> HOCS Integrated
         </a>
         <div class="nav-links">
             <a href="index.html">Home</a>
@@ -150,31 +171,30 @@
     </nav>
 
     <header class="hero-banner">
-        <div class="banner-img" style="background-image: url('cse-research-14-1024x683.jpg');"></div>
         <div class="banner-overlay">
-            <span style="letter-spacing: 3px; font-weight: 700; color: #00a2ff;">R&D CLASSIFIED</span>
-            <h1>PROPRIETARY TECHNOLOGY</h1>
-            <p style="color: #a1a1a6;">Hybrid Optical Computing & Silicon Photonics Architecture</p>
+            <span class="badge">PROPRIETARY R&D</span>
+            <h1>Teknoloji Mimarisi</h1>
+            <p>Hybrid Optical Computing & Silicon Photonics</p>
         </div>
     </header>
 
     <main>
         <div class="tech-box">
-            <img src="indir (1).png" alt="Thermal">
-            <h3>Thermal Bottleneck Map</h3>
-            <p>Silikon tabanlı işlemcilerin en büyük engeli olan Joule ısınmasını, <strong>50nm CuO aktivasyon katmanımız</strong> ile kaynağında yok ediyoruz. Bu harita, fotonik çekirdeğimizin standart bir GPU'ya kıyasla sağladığı %90'lık termal avantajı doğrulamaktadır.</p>
+            <img src="indir (1).png" alt="Thermal Bottleneck Map">
+            <h3>Termal Darboğaz Çözümü</h3>
+            <p>Klasik işlemcilerdeki Joule ısınmasını, <strong>50nm CuO aktivasyon katmanımız</strong> ile kaynağında engelliyoruz. Bu analiz, fotonik çekirdeğimizin NVIDIA H100 gibi standart GPU sistemlerine kıyasla sağladığı radikal termal avantajı ve pasif soğutma potansiyelini temsil etmektedir.</p>
         </div>
 
         <div class="tech-box">
-            <img src="indir (2).png" alt="Signal">
-            <h3>Edge Detection Filtering</h3>
-            <p>Otonom sistemler ve savunma sanayii için geliştirdiğimiz fotonik kenar tespiti algoritması, sinyalleri elektrik dönüşümüne ihtiyaç duymadan doğrudan ışık hızında işler. Bu, <strong>3.2 PetaOPS</strong> kapasiteli işlem gücümüzün görsel verideki kusursuz yansımasıdır.</p>
+            <img src="indir (2).png" alt="Edge Detection Filtering">
+            <h3>Optik Kenar Tespiti</h3>
+            <p>Otonom savunma ve uydu sistemleri için geliştirdiğimiz algoritmalar, görsel veriyi elektriksel çevrim gecikmesi olmadan doğrudan ışık hızında işler. <strong>3.2 PetaOPS</strong> seviyesindeki işlem gücümüz, bu filtreleme süreçlerini nanosaniyeler içinde tamamlayarak gerçek zamanlı karar mekanizması sunar.</p>
         </div>
 
         <div class="tech-box">
-            <img src="indir.png" alt="Stats">
-            <h3>Latency Benchmarks</h3>
-            <p>Veri işleme sürelerinde logaritmik bir devrim. HOCS Integrated mimarisi, matris-vektör çarpımlarında standart donanımlara göre <strong>10.000 kat daha düşük gecikme</strong> sunarak gerçek zamanlı yapay zeka operasyonlarını mümkün kılar.</p>
+            <img src="indir.png" alt="Latency Benchmarks">
+            <h3>Hız ve Gecikme Analizi</h3>
+            <p>Hesaplama sürelerinde logaritmik bir sıçrama sağlıyoruz. HOCS Integrated mimarisi, karmaşık matris operasyonlarında standart elektronik donanımlardan <strong>10.000 kat daha düşük gecikme</strong> ve 500+ TOPS/Watt enerji verimliliği ile sektör standartlarını yeniden tanımlıyor.</p>
         </div>
     </main>
 
