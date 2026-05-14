@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technology | HOCS Integrated</title>
+
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+
+    <link rel="alternate" hreflang="tr" href="https://www.hocsintegrated.com/technology.html" />
+    <link rel="alternate" hreflang="en" href="https://www.hocsintegrated.com/technology.html?lang=en" />
+    <link rel="alternate" hreflang="de" href="https://www.hocsintegrated.com/technology.html?lang=de" />
+    <link rel="alternate" hreflang="fr" href="https://www.hocsintegrated.com/technology.html?lang=fr" />
+    <link rel="alternate" hreflang="ru" href="https://www.hocsintegrated.com/technology.html?lang=ru" />
+    <link rel="alternate" hreflang="ja" href="https://www.hocsintegrated.com/technology.html?lang=ja" />
+    <link rel="alternate" hreflang="zh" href="https://www.hocsintegrated.com/technology.html?lang=zh" />
+    <link rel="alternate" hreflang="x-default" href="https://www.hocsintegrated.com/technology.html?lang=en" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -27,156 +39,28 @@
         }
 
         /* Nav Düzeltme */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 8%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+        .nav-logo { display: flex; align-items: center; gap: 12px; font-weight: 700; text-decoration: none; color: var(--text-main); font-size: 22px; letter-spacing: -0.5px; }
+        .nav-logo img { height: 35px; width: auto; object-fit: contain; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 30px; font-weight: 600; transition: 0.3s; font-size: 15px; }
+        .nav-links a:hover, .active-link { color: var(--accent-blue) !important; }
 
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            color: var(--text-main);
-            font-size: 22px;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-logo img {
-            height: 35px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-left: 30px;
-            font-weight: 600;
-            transition: 0.3s;
-            font-size: 15px;
-        }
-
-        .nav-links a:hover, .active-link {
-            color: var(--accent-blue) !important;
-        }
-
-        /* Hero Section - Arka Plan Resmi Geri Eklendi */
-        .hero-banner {
-            height: 350px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-            
-            /* Geri Eklenen Arka Plan Resmi ve Stilleri */
-            background-image: url('cse-research-14-1024x683.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        /* Beyaz Tema İçin Gradyan Kaplama (Beautiful Etki) */
-        .hero-banner::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.8), #ffffff);
-            z-index: 1;
-        }
-
-        .banner-overlay {
-            position: relative;
-            z-index: 2; /* Metni kaplamanın üzerine çıkar */
-        }
-
-        .banner-overlay h1 {
-            font-size: 52px;
-            font-weight: 700;
-            letter-spacing: -1.5px;
-            margin-bottom: 10px;
-            color: var(--text-main);
-        }
-
-        .banner-overlay p {
-            color: var(--text-muted);
-            font-size: 20px;
-            font-weight: 400;
-        }
-
-        .badge {
-            display: inline-block;
-            letter-spacing: 2px;
-            font-weight: 700;
-            color: var(--accent-blue);
-            font-size: 13px;
-            margin-bottom: 15px;
-        }
+        /* Hero Section */
+        .hero-banner { height: 350px; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; border-bottom: 1px solid var(--border); background-image: url('cse-research-14-1024x683.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; }
+        .hero-banner::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0.8), #ffffff); z-index: 1; }
+        .banner-overlay { position: relative; z-index: 2; }
+        .banner-overlay h1 { font-size: 52px; font-weight: 700; letter-spacing: -1.5px; margin-bottom: 10px; color: var(--text-main); }
+        .banner-overlay p { color: var(--text-muted); font-size: 20px; font-weight: 400; }
+        .badge { display: inline-block; letter-spacing: 2px; font-weight: 700; color: var(--accent-blue); font-size: 13px; margin-bottom: 15px; }
 
         /* İçerik Kartları */
-        main {
-            padding: 60px 8%;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .tech-box {
-            background: var(--surface);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            margin-bottom: 50px;
-            border: 1px solid var(--border);
-            transition: all 0.4s ease;
-        }
-
-        .tech-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            border-color: var(--accent-blue);
-        }
-
-        .tech-box img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-
-        .tech-box h3 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: var(--text-main);
-            font-weight: 700;
-        }
-
-        .tech-box p {
-            color: var(--text-muted);
-            font-size: 18px;
-            line-height: 1.7;
-            max-width: 850px;
-            margin: 0 auto;
-        }
-
-        strong {
-            color: var(--accent-blue);
-            font-weight: 600;
-        }
+        main { padding: 60px 8%; max-width: 1100px; margin: 0 auto; }
+        .tech-box { background: var(--surface); padding: 40px; border-radius: 20px; text-align: center; margin-bottom: 50px; border: 1px solid var(--border); transition: all 0.4s ease; }
+        .tech-box:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: var(--accent-blue); }
+        .tech-box img { max-width: 100%; height: auto; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .tech-box h3 { font-size: 32px; margin-bottom: 20px; color: var(--text-main); font-weight: 700; }
+        .tech-box p { color: var(--text-muted); font-size: 18px; line-height: 1.7; max-width: 850px; margin: 0 auto; }
+        strong { color: var(--accent-blue); font-weight: 600; }
 
     </style>
 </head>
@@ -186,40 +70,130 @@
             <img src="logo.jpg" alt="Logo"> HOCS Integrated
         </a>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="technology.html" class="active-link">Technology</a>
-            <a href="team.html">Team</a>
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <a href="technology.html" class="active-link" data-i18n="nav_tech">Technology</a>
+            <a href="team.html" data-i18n="nav_team">Team</a>
         </div>
     </nav>
 
     <header class="hero-banner">
         <div class="banner-overlay">
-            <span class="badge">PROPRIETARY R&D</span>
-            <h1>Teknoloji Mimarisi</h1>
-            <p>Hybrid Optical Computing & Silicon Photonics</p>
+            <span class="badge" data-i18n="hero_badge">PROPRIETARY R&D</span>
+            <h1 data-i18n="hero_title">Teknoloji Mimarisi</h1>
+            <p data-i18n="hero_desc">Hybrid Optical Computing & Silicon Photonics</p>
         </div>
     </header>
 
     <main>
         <div class="tech-box">
             <img src="indir (1).png" alt="Thermal Bottleneck Map">
-            <h3>Termal Darboğaz Çözümü</h3>
-            <p>Klasik işlemcilerdeki Joule ısınmasını, <strong>50nm CuO aktivasyon katmanımız</strong> ile kaynağında engelliyoruz. Bu analiz, fotonik çekirdeğimizin NVIDIA H100 gibi standart GPU sistemlerine kıyasla sağladığı radikal termal avantajı ve pasif soğutma potansiyelini temsil etmektedir.</p>
+            <h3 data-i18n="tech1_title">Termal Darboğaz Çözümü</h3>
+            <p data-i18n="tech1_desc">Klasik işlemcilerdeki Joule ısınmasını, <strong>50nm CuO aktivasyon katmanımız</strong> ile kaynağında engelliyoruz. Bu analiz, fotonik çekirdeğimizin NVIDIA H100 gibi standart GPU sistemlerine kıyasla sağladığı radikal termal avantajı ve pasif soğutma potansiyelini temsil etmektedir.</p>
         </div>
 
         <div class="tech-box">
             <img src="indir (2).png" alt="Edge Detection Filtering">
-            <h3>Optik Kenar Tespiti</h3>
-            <p>Otonom ve uydu sistemleri için geliştirdiğimiz algoritmalar, görsel veriyi elektriksel çevrim gecikmesi olmadan doğrudan ışık hızında işler. <strong>3.2 PetaOPS</strong> seviyesindeki işlem gücümüz, bu filtreleme süreçlerini nanosaniyeler içinde tamamlayarak gerçek zamanlı karar mekanizması sunar.</p>
+            <h3 data-i18n="tech2_title">Optik Kenar Tespiti</h3>
+            <p data-i18n="tech2_desc">Otonom ve uydu sistemleri için geliştirdiğimiz algoritmalar, görsel veriyi elektriksel çevrim gecikmesi olmadan doğrudan ışık hızında işler. <strong>3.2 PetaOPS</strong> seviyesindeki işlem gücümüz, bu filtreleme süreçlerini nanosaniyeler içinde tamamlayarak gerçek zamanlı karar mekanizması sunar.</p>
         </div>
 
         <div class="tech-box">
             <img src="indir.png" alt="Latency Benchmarks">
-            <h3>Hız ve Gecikme Analizi</h3>
-            <p>Hesaplama sürelerinde logaritmik bir sıçrama sağlıyoruz. HOCS Integrated mimarisi, karmaşık matris operasyonlarında standart elektronik donanımlardan <strong>10.000 kat daha düşük gecikme</strong> ve 500+ TOPS/Watt enerji verimliliği ile sektör standartlarını yeniden tanımlıyor.</p>
+            <h3 data-i18n="tech3_title">Hız ve Gecikme Analizi</h3>
+            <p data-i18n="tech3_desc">Hesaplama sürelerinde logaritmik bir sıçrama sağlıyoruz. HOCS Integrated mimarisi, karmaşık matris operasyonlarında standart elektronik donanımlardan <strong>10.000 kat daha düşük gecikme</strong> ve 500+ TOPS/Watt enerji verimliliği ile sektör standartlarını yeniden tanımlıyor.</p>
         </div>
     </main>
 
+    <script>
+        const translations = {
+            "tr": {
+                "nav_home": "Ana Sayfa", "nav_tech": "Teknoloji", "nav_team": "Ekip",
+                "hero_badge": "TESCİLLİ AR-GE", "hero_title": "Teknoloji Mimarisi", "hero_desc": "Hibrit Optik Hesaplama ve Silikon Fotonik",
+                "tech1_title": "Termal Darboğaz Çözümü", 
+                "tech1_desc": "Klasik işlemcilerdeki Joule ısınmasını, <strong>50nm CuO aktivasyon katmanımız</strong> ile kaynağında engelliyoruz. Bu analiz, fotonik çekirdeğimizin NVIDIA H100 gibi standart GPU sistemlerine kıyasla sağladığı radikal termal avantajı ve pasif soğutma potansiyelini temsil etmektedir.",
+                "tech2_title": "Optik Kenar Tespiti", 
+                "tech2_desc": "Otonom ve uydu sistemleri için geliştirdiğimiz algoritmalar, görsel veriyi elektriksel çevrim gecikmesi olmadan doğrudan ışık hızında işler. <strong>3.2 PetaOPS</strong> seviyesindeki işlem gücümüz, bu filtreleme süreçlerini nanosaniyeler içinde tamamlayarak gerçek zamanlı karar mekanizması sunar.",
+                "tech3_title": "Hız ve Gecikme Analizi", 
+                "tech3_desc": "Hesaplama sürelerinde logaritmik bir sıçrama sağlıyoruz. HOCS Integrated mimarisi, karmaşık matris operasyonlarında standart elektronik donanımlardan <strong>10.000 kat daha düşük gecikme</strong> ve 500+ TOPS/Watt enerji verimliliği ile sektör standartlarını yeniden tanımlıyor."
+            },
+            "en": {
+                "nav_home": "Home", "nav_tech": "Technology", "nav_team": "Team",
+                "hero_badge": "PROPRIETARY R&D", "hero_title": "Technology Architecture", "hero_desc": "Hybrid Optical Computing & Silicon Photonics",
+                "tech1_title": "Thermal Bottleneck Solution", 
+                "tech1_desc": "We prevent Joule heating in classic processors at the source with our <strong>50nm CuO activation layer</strong>. This analysis represents the radical thermal advantage and passive cooling potential our photonic core provides compared to standard GPU systems like the NVIDIA H100.",
+                "tech2_title": "Optical Edge Detection", 
+                "tech2_desc": "The algorithms we developed for autonomous and satellite systems process visual data directly at the speed of light without electrical cycle latency. Our processing power of <strong>3.2 PetaOPS</strong> completes these filtering processes in nanoseconds, providing a real-time decision mechanism.",
+                "tech3_title": "Speed and Latency Analysis", 
+                "tech3_desc": "We provide a logarithmic leap in computing times. The HOCS Integrated architecture redefines industry standards with <strong>10,000 times lower latency</strong> and 500+ TOPS/Watt energy efficiency in complex matrix operations compared to standard electronic hardware."
+            },
+            "de": {
+                "nav_home": "Startseite", "nav_tech": "Technologie", "nav_team": "Team",
+                "hero_badge": "PROPRIETÄRE F&E", "hero_title": "Technologie-Architektur", "hero_desc": "Hybrid Optical Computing & Silicon Photonics",
+                "tech1_title": "Lösung für thermische Engpässe", 
+                "tech1_desc": "Wir verhindern die Joule-Erwärmung in klassischen Prozessoren an der Quelle mit unserer <strong>50nm CuO-Aktivierungsschicht</strong>. Diese Analyse zeigt den radikalen thermischen Vorteil und das passive Kühlpotenzial unseres photonischen Kerns im Vergleich zu Standard-GPUs wie der NVIDIA H100.",
+                "tech2_title": "Optische Kantenerkennung", 
+                "tech2_desc": "Unsere Algorithmen für autonome und Satellitensysteme verarbeiten visuelle Daten direkt mit Lichtgeschwindigkeit ohne elektrische Zykluslatenz. Unsere Verarbeitungsleistung von <strong>3.2 PetaOPS</strong> schließt diese Filterprozesse in Nanosekunden ab.",
+                "tech3_title": "Geschwindigkeits- und Latenzanalyse", 
+                "tech3_desc": "Wir bieten einen logarithmischen Sprung in den Rechenzeiten. Die HOCS Integrated Architektur definiert Industriestandards neu mit <strong>10.000-fach geringerer Latenz</strong> und 500+ TOPS/Watt Energieeffizienz bei komplexen Matrixoperationen."
+            },
+            "fr": {
+                "nav_home": "Accueil", "nav_tech": "Technologie", "nav_team": "Équipe",
+                "hero_badge": "R&D PROPRIÉTAIRE", "hero_title": "Architecture Technologique", "hero_desc": "Informatique Optique Hybride et Photonique sur Silicium",
+                "tech1_title": "Solution au Goulot Thermique", 
+                "tech1_desc": "Nous empêchons l'effet Joule dans les processeurs classiques à la source grâce à notre <strong>couche d'activation CuO de 50 nm</strong>. Cette analyse représente l'avantage thermique radical et le potentiel de refroidissement passif de notre cœur photonique par rapport aux GPU standards.",
+                "tech2_title": "Détection Optique des Contours", 
+                "tech2_desc": "Nos algorithmes pour systèmes autonomes et satellites traitent les données visuelles directement à la vitesse de la lumière. Notre puissance de <strong>3.2 PetaOPS</strong> complète ces processus de filtrage en nanosecondes.",
+                "tech3_title": "Analyse de Vitesse et de Latence", 
+                "tech3_desc": "Nous offrons un bond logarithmique des temps de calcul. L'architecture HOCS Integrated redéfinit les normes de l'industrie avec une latence <strong>10 000 fois inférieure</strong> et une efficacité énergétique de 500+ TOPS/Watt."
+            },
+            "ru": {
+                "nav_home": "Главная", "nav_tech": "Технологии", "nav_team": "Команда",
+                "hero_badge": "ПРОПРИЕТАРНЫЕ НИОКР", "hero_title": "Технологическая архитектура", "hero_desc": "Гибридные Оптические Вычисления и Кремниевая Фотоника",
+                "tech1_title": "Решение проблемы теплового барьера", 
+                "tech1_desc": "Мы предотвращаем джоулев нагрев в классических процессорах у источника с помощью нашего <strong>активационного слоя CuO 50 нм</strong>. Этот анализ демонстрирует радикальное тепловое преимущество нашего фотонного ядра по сравнению со стандартными GPU, такими как NVIDIA H100.",
+                "tech2_title": "Оптическое обнаружение границ", 
+                "tech2_desc": "Наши алгоритмы для автономных и спутниковых систем обрабатывают визуальные данные прямо со скоростью света. Наша вычислительная мощность в <strong>3.2 PetaOPS</strong> завершает эти процессы фильтрации за наносекунды.",
+                "tech3_title": "Анализ скорости и задержки", 
+                "tech3_desc": "Мы обеспечиваем логарифмический скачок времени вычислений. Архитектура HOCS Integrated переопределяет отраслевые стандарты с <strong>в 10 000 раз меньшей задержкой</strong> и энергоэффективностью 500+ TOPS/Watt в сложных матричных операциях."
+            },
+            "ja": {
+                "nav_home": "ホーム", "nav_tech": "テクノロジー", "nav_team": "チーム",
+                "hero_badge": "独自のR&D", "hero_title": "テクノロジーアーキテクチャ", "hero_desc": "ハイブリッド光コンピューティングとシリコンフォトニクス",
+                "tech1_title": "熱的ボトルネックの解決", 
+                "tech1_desc": "<strong>50nm CuOアクティベーション層</strong>により、従来のプロセッサにおけるジュール熱を根源から防ぎます。この分析は、NVIDIA H100のような標準GPUと比較して、当社の光コアが提供する根本的な熱的優位性を示しています。",
+                "tech2_title": "光学エッジ検出", 
+                "tech2_desc": "自律システムおよび衛星システム向けに開発されたアルゴリズムは、電気的サイクルの遅延なしに光の速度で直接視覚データを処理します。<strong>3.2 PetaOPS</strong>の処理能力により、これらのフィルタリングプロセスをナノ秒で完了します。",
+                "tech3_title": "速度とレイテンシの分析", 
+                "tech3_desc": "コンピューティング時間に対数的な飛躍をもたらします。HOCS Integratedアーキテクチャは、複雑な行列演算において標準の電子ハードウェアと比較して<strong>10,000倍低いレイテンシ</strong>と500+ TOPS/Wattのエネルギー効率で業界標準を再定義します。"
+            },
+            "zh": {
+                "nav_home": "首页", "nav_tech": "技术", "nav_team": "团队",
+                "hero_badge": "专有研发", "hero_title": "技术架构", "hero_desc": "混合光计算与硅光子学",
+                "tech1_title": "热瓶颈解决方案", 
+                "tech1_desc": "通过我们的 <strong>50nm CuO 激活层</strong>，我们从源头上防止了经典处理器中的焦耳热。该分析代表了我们的光子核心与 NVIDIA H100 等标准 GPU 系统相比所提供的根本性热优势和被动散热潜力。",
+                "tech2_title": "光学边缘检测", 
+                "tech2_desc": "我们为自主系统和卫星系统开发的算法可直接以光速处理视觉数据，而没有电循环延迟。我们 <strong>3.2 PetaOPS</strong> 的处理能力可在纳秒内完成这些过滤过程。",
+                "tech3_title": "速度和延迟分析", 
+                "tech3_desc": "我们在计算时间上实现了对数级的飞跃。HOCS Integrated 架构在复杂的矩阵运算中以 <strong>低 10,000 倍的延迟</strong> 和 500+ TOPS/Watt 的能源效率重新定义了行业标准。"
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            let userLang = navigator.language.slice(0, 2);
+            if (!translations[userLang]) {
+                userLang = "en";
+            }
+            document.documentElement.lang = userLang;
+
+            const elements = document.querySelectorAll("[data-i18n]");
+            elements.forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (translations[userLang][key]) {
+                    el.innerHTML = translations[userLang][key];
+                }
+            });
+        });
+    </script>
     <script src="js/main.js"></script>
 </body>
 </html>
